@@ -1,0 +1,12 @@
+
+UWeb:AvoidCommentedOutCodeCheck"Remove this commented out code.(“Ù·ïıÿÿÿÿ8ÿÂÀİ†.
+s Web:TableHeaderHasIdOrScopeCheckI";Add either an 'id' or a 'scope' attribute to this <th> tag.(ß“şæøÿÿÿÿ8ÿÂÀİ†.
+n Web:TableHeaderHasIdOrScopeCheckL";Add either an 'id' or a 'scope' attribute to this <th> tag.(æÛÓÙ8¹àú¬ˆ.
+JWeb:BoldAndItalicTagsChecks"Replace this <i> tag by <em>.(ö—øÀ8ÿÂÀİ†.
+n Web:TableHeaderHasIdOrScopeCheckK";Add either an 'id' or a 'scope' attribute to this <th> tag.(ñ¥ Ø8ÿÂÀİ†.
+PWeb:AvoidCommentedOutCodeCheckj"Remove this commented out code.(àµò8ÿÂÀİ†.
+s Web:TableHeaderHasIdOrScopeCheckJ";Add either an 'id' or a 'scope' attribute to this <th> tag.(„âÆ˜ıÿÿÿÿ8ÿÂÀİ†.
+NWeb:BoldAndItalicTagsChecki"!Replace this <b> tag by <strong>.(ØùÀ8ÿÂÀİ†.
+s Web:TableHeaderHasIdOrScopeCheckH";Add either an 'id' or a 'scope' attribute to this <th> tag.(æ¾ä¡øÿÿÿÿ8ÿÂÀİ†.
+OWeb:TableWithoutCaptionCheckD" Add a description to this table.(­Ó¼Ó8ÿÂÀİ†.
+n Web:TableHeaderHasIdOrScopeCheckG";Add either an 'id' or a 'scope' attribute to this <th> tag.(£Ë½­8ÿÂÀİ†.

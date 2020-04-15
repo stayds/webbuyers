@@ -1,0 +1,233 @@
+
+T	Web:S5254"@Add "lang" and/or "xml:lang" attributes to this "<html>" element(€÷ğ=
+A	Web:S1827¡"+Remove this deprecated "bgcolor" attribute.(¦ğîä
+E	Web:S1827¡"/Remove this deprecated "marginwidth" attribute.(¦ğîä
+F	Web:S1827¡"0Remove this deprecated "marginheight" attribute.(¦ğîä
+YWeb:UnsupportedTagsInHtml5Check®"(Remove this deprecated "center" element.(´Øàêøÿÿÿÿ
+IWeb:TableWithoutCaptionCheck¯" Add a description to this table.(ÓˆßÚ
+;	Web:S5256¯"%Add "<th>" headers to this "<table>".(ÓˆßÚ
+E	Web:S1827¯"/Remove this deprecated "cellpadding" attribute.(ÓˆßÚ
+E	Web:S1827¯"/Remove this deprecated "cellspacing" attribute.(ÓˆßÚ
+?	Web:S1827¯")Remove this deprecated "width" attribute.(ÓˆßÚ
+>	Web:S1827±")Remove this deprecated "align" attribute.(¨ß«j
+?	Web:S1827±"*Remove this deprecated "valign" attribute.(¨ß«j
+NWeb:TableWithoutCaptionCheckº" Add a description to this table.(øÚù‡ùÿÿÿÿ
+@	Web:S5256º"%Add "<th>" headers to this "<table>".(øÚù‡ùÿÿÿÿ
+F	Web:S1827º"+Remove this deprecated "bgcolor" attribute.(øÚù‡ùÿÿÿÿ
+J	Web:S1827º"/Remove this deprecated "cellpadding" attribute.(øÚù‡ùÿÿÿÿ
+J	Web:S1827º"/Remove this deprecated "cellspacing" attribute.(øÚù‡ùÿÿÿÿ
+D	Web:S1827º")Remove this deprecated "width" attribute.(øÚù‡ùÿÿÿÿ
+?	Web:S1827¾")Remove this deprecated "align" attribute.(‰éÍ¢
+@	Web:S1827¾"*Remove this deprecated "valign" attribute.(‰éÍ¢
+IWeb:TableWithoutCaptionCheckÀ" Add a description to this table.(šù¡
+;	Web:S5256À"%Add "<th>" headers to this "<table>".(šù¡
+E	Web:S1827À"/Remove this deprecated "cellpadding" attribute.(šù¡
+E	Web:S1827À"/Remove this deprecated "cellspacing" attribute.(šù¡
+?	Web:S1827À")Remove this deprecated "width" attribute.(šù¡
+?	Web:S1827Â")Remove this deprecated "align" attribute.(‰éÍ¢
+@	Web:S1827Â"*Remove this deprecated "valign" attribute.(‰éÍ¢
+IWeb:TableWithoutCaptionCheckÄ" Add a description to this table.(üÓ«©
+;	Web:S5256Ä"%Add "<th>" headers to this "<table>".(üÓ«©
+E	Web:S1827Ä"/Remove this deprecated "cellpadding" attribute.(üÓ«©
+E	Web:S1827Ä"/Remove this deprecated "cellspacing" attribute.(üÓ«©
+?	Web:S1827Ä")Remove this deprecated "width" attribute.(üÓ«©
+@	Web:S1827Æ"*Remove this deprecated "valign" attribute.(ÑÂïÊ
+?	Web:S1827Æ")Remove this deprecated "width" attribute.(ÑÂïÊ
+IWeb:TableWithoutCaptionCheckÉ" Add a description to this table.(£ß°
+;	Web:S5256É"%Add "<th>" headers to this "<table>".(£ß°
+?	Web:S1827É")Remove this deprecated "align" attribute.(£ß°
+E	Web:S1827É"/Remove this deprecated "cellpadding" attribute.(£ß°
+E	Web:S1827É"/Remove this deprecated "cellspacing" attribute.(£ß°
+?	Web:S1827É")Remove this deprecated "width" attribute.(£ß°
+D	Web:S1827Ì")Remove this deprecated "align" attribute.(É¡•ÿÿÿÿÿ
+E	Web:S1827Ì"*Remove this deprecated "valign" attribute.(É¡•ÿÿÿÿÿ
+NWeb:TableWithoutCaptionCheckÍ" Add a description to this table.(Â–ª·ùÿÿÿÿ
+@	Web:S5256Í"%Add "<th>" headers to this "<table>".(Â–ª·ùÿÿÿÿ
+J	Web:S1827Í"/Remove this deprecated "cellpadding" attribute.(Â–ª·ùÿÿÿÿ
+J	Web:S1827Í"/Remove this deprecated "cellspacing" attribute.(Â–ª·ùÿÿÿÿ
+D	Web:S1827Í")Remove this deprecated "width" attribute.(Â–ª·ùÿÿÿÿ
+D	Web:S1827Ï")Remove this deprecated "align" attribute.(ÔşËÎùÿÿÿÿ
+D	Web:S1827×")Remove this deprecated "align" attribute.(ì¡¦øÿÿÿÿ
+E	Web:S1827×"*Remove this deprecated "valign" attribute.(ì¡¦øÿÿÿÿ
+NWeb:TableWithoutCaptionCheckØ" Add a description to this table.(Â–ª·ùÿÿÿÿ
+@	Web:S5256Ø"%Add "<th>" headers to this "<table>".(Â–ª·ùÿÿÿÿ
+J	Web:S1827Ø"/Remove this deprecated "cellpadding" attribute.(Â–ª·ùÿÿÿÿ
+J	Web:S1827Ø"/Remove this deprecated "cellspacing" attribute.(Â–ª·ùÿÿÿÿ
+D	Web:S1827Ø")Remove this deprecated "width" attribute.(Â–ª·ùÿÿÿÿ
+D	Web:S1827Ú")Remove this deprecated "align" attribute.(ÔşËÎùÿÿÿÿ
+IWeb:TableWithoutCaptionCheckû" Add a description to this table.(Å¹ÍÔ
+;	Web:S5256û"%Add "<th>" headers to this "<table>".(Å¹ÍÔ
+A	Web:S1827û"+Remove this deprecated "bgcolor" attribute.(Å¹ÍÔ
+E	Web:S1827û"/Remove this deprecated "cellpadding" attribute.(Å¹ÍÔ
+E	Web:S1827û"/Remove this deprecated "cellspacing" attribute.(Å¹ÍÔ
+?	Web:S1827û")Remove this deprecated "width" attribute.(Å¹ÍÔ
+?	Web:S1827…")Remove this deprecated "align" attribute.(‰éÍ¢
+@	Web:S1827…"*Remove this deprecated "valign" attribute.(‰éÍ¢
+IWeb:TableWithoutCaptionCheck‡" Add a description to this table.(šù¡
+;	Web:S5256‡"%Add "<th>" headers to this "<table>".(šù¡
+E	Web:S1827‡"/Remove this deprecated "cellpadding" attribute.(šù¡
+E	Web:S1827‡"/Remove this deprecated "cellspacing" attribute.(šù¡
+?	Web:S1827‡")Remove this deprecated "width" attribute.(šù¡
+?	Web:S1827‰")Remove this deprecated "align" attribute.(‰éÍ¢
+@	Web:S1827‰"*Remove this deprecated "valign" attribute.(‰éÍ¢
+NWeb:TableWithoutCaptionCheck‹" Add a description to this table.(ˆÙÜáøÿÿÿÿ
+@	Web:S5256‹"%Add "<th>" headers to this "<table>".(ˆÙÜáøÿÿÿÿ
+J	Web:S1827‹"/Remove this deprecated "cellpadding" attribute.(ˆÙÜáøÿÿÿÿ
+J	Web:S1827‹"/Remove this deprecated "cellspacing" attribute.(ˆÙÜáøÿÿÿÿ
+D	Web:S1827‹")Remove this deprecated "width" attribute.(ˆÙÜáøÿÿÿÿ
+?	Web:S1827")Remove this deprecated "align" attribute.(¯‹¥™
+@	Web:S1827"*Remove this deprecated "valign" attribute.(¯‹¥™
+?	Web:S1827")Remove this deprecated "width" attribute.(¯‹¥™
+NWeb:TableWithoutCaptionCheck" Add a description to this table.(ó‚õúÿÿÿÿ
+@	Web:S5256"%Add "<th>" headers to this "<table>".(ó‚õúÿÿÿÿ
+D	Web:S1827")Remove this deprecated "align" attribute.(ó‚õúÿÿÿÿ
+J	Web:S1827"/Remove this deprecated "cellpadding" attribute.(ó‚õúÿÿÿÿ
+J	Web:S1827"/Remove this deprecated "cellspacing" attribute.(ó‚õúÿÿÿÿ
+?	Web:S1827’")Remove this deprecated "align" attribute.(ŞÜ´İ
+@	Web:S1827’"*Remove this deprecated "valign" attribute.(ŞÜ´İ
+HWeb:ImgWithoutAltCheck“"%Add an "alt" attribute to this image.(ïØ‹À
+?	Web:S1827¤")Remove this deprecated "align" attribute.(‰éÍ¢
+@	Web:S1827¤"*Remove this deprecated "valign" attribute.(‰éÍ¢
+NWeb:TableWithoutCaptionCheck«" Add a description to this table.(âŞù…ÿÿÿÿÿ
+@	Web:S5256«"%Add "<th>" headers to this "<table>".(âŞù…ÿÿÿÿÿ
+J	Web:S1827«"/Remove this deprecated "cellpadding" attribute.(âŞù…ÿÿÿÿÿ
+J	Web:S1827«"/Remove this deprecated "cellspacing" attribute.(âŞù…ÿÿÿÿÿ
+D	Web:S1827«")Remove this deprecated "width" attribute.(âŞù…ÿÿÿÿÿ
+F	Web:S1827«"+Remove this deprecated "bgcolor" attribute.(âŞù…ÿÿÿÿÿ
+?	Web:S1827­")Remove this deprecated "align" attribute.(‰éÍ¢
+@	Web:S1827­"*Remove this deprecated "valign" attribute.(‰éÍ¢
+NWeb:TableWithoutCaptionCheckµ" Add a description to this table.(ˆÙÜáøÿÿÿÿ
+@	Web:S5256µ"%Add "<th>" headers to this "<table>".(ˆÙÜáøÿÿÿÿ
+J	Web:S1827µ"/Remove this deprecated "cellpadding" attribute.(ˆÙÜáøÿÿÿÿ
+J	Web:S1827µ"/Remove this deprecated "cellspacing" attribute.(ˆÙÜáøÿÿÿÿ
+D	Web:S1827µ")Remove this deprecated "width" attribute.(ˆÙÜáøÿÿÿÿ
+D	Web:S1827·")Remove this deprecated "align" attribute.(¾çÓ²ıÿÿÿÿ
+E	Web:S1827·"*Remove this deprecated "valign" attribute.(¾çÓ²ıÿÿÿÿ
+D	Web:S1827·")Remove this deprecated "width" attribute.(¾çÓ²ıÿÿÿÿ
+NWeb:TableWithoutCaptionCheck¿" Add a description to this table.(æˆŒşşÿÿÿÿ
+@	Web:S5256¿"%Add "<th>" headers to this "<table>".(æˆŒşşÿÿÿÿ
+J	Web:S1827¿"/Remove this deprecated "cellpadding" attribute.(æˆŒşşÿÿÿÿ
+J	Web:S1827¿"/Remove this deprecated "cellspacing" attribute.(æˆŒşşÿÿÿÿ
+D	Web:S1827¿")Remove this deprecated "width" attribute.(æˆŒşşÿÿÿÿ
+D	Web:S1827Á")Remove this deprecated "align" attribute.(Ûœ—ôşÿÿÿÿ
+E	Web:S1827Á"*Remove this deprecated "valign" attribute.(Ûœ—ôşÿÿÿÿ
+?	Web:S1827ß")Remove this deprecated "align" attribute.(‰éÍ¢
+@	Web:S1827ß"*Remove this deprecated "valign" attribute.(‰éÍ¢
+IWeb:TableWithoutCaptionChecká" Add a description to this table.(£Ê
+;	Web:S5256á"%Add "<th>" headers to this "<table>".(£Ê
+E	Web:S1827á"/Remove this deprecated "cellpadding" attribute.(£Ê
+E	Web:S1827á"/Remove this deprecated "cellspacing" attribute.(£Ê
+?	Web:S1827á")Remove this deprecated "width" attribute.(£Ê
+A	Web:S1827á"+Remove this deprecated "bgcolor" attribute.(£Ê
+?	Web:S1827ã")Remove this deprecated "align" attribute.(‰éÍ¢
+@	Web:S1827ã"*Remove this deprecated "valign" attribute.(‰éÍ¢
+NWeb:TableWithoutCaptionCheckå" Add a description to this table.(ˆÙÜáøÿÿÿÿ
+@	Web:S5256å"%Add "<th>" headers to this "<table>".(ˆÙÜáøÿÿÿÿ
+J	Web:S1827å"/Remove this deprecated "cellpadding" attribute.(ˆÙÜáøÿÿÿÿ
+J	Web:S1827å"/Remove this deprecated "cellspacing" attribute.(ˆÙÜáøÿÿÿÿ
+D	Web:S1827å")Remove this deprecated "width" attribute.(ˆÙÜáøÿÿÿÿ
+D	Web:S1827ç")Remove this deprecated "align" attribute.(¾çÓ²ıÿÿÿÿ
+E	Web:S1827ç"*Remove this deprecated "valign" attribute.(¾çÓ²ıÿÿÿÿ
+D	Web:S1827ç")Remove this deprecated "width" attribute.(¾çÓ²ıÿÿÿÿ
+NWeb:TableWithoutCaptionCheckè" Add a description to this table.(¬ÌÙøÿÿÿÿ
+@	Web:S5256è"%Add "<th>" headers to this "<table>".(¬ÌÙøÿÿÿÿ
+J	Web:S1827è"/Remove this deprecated "cellpadding" attribute.(¬ÌÙøÿÿÿÿ
+J	Web:S1827è"/Remove this deprecated "cellspacing" attribute.(¬ÌÙøÿÿÿÿ
+D	Web:S1827è")Remove this deprecated "width" attribute.(¬ÌÙøÿÿÿÿ
+?	Web:S1827ê")Remove this deprecated "align" attribute.(‰éÍ¢
+@	Web:S1827ê"*Remove this deprecated "valign" attribute.(‰éÍ¢
+IWeb:TableWithoutCaptionCheckí" Add a description to this table.(šù¡
+;	Web:S5256í"%Add "<th>" headers to this "<table>".(šù¡
+E	Web:S1827í"/Remove this deprecated "cellpadding" attribute.(šù¡
+E	Web:S1827í"/Remove this deprecated "cellspacing" attribute.(šù¡
+?	Web:S1827í")Remove this deprecated "width" attribute.(šù¡
+E	Web:S1827ï"*Remove this deprecated "valign" attribute.(îÛãÆùÿÿÿÿ
+@	Web:S1827"*Remove this deprecated "valign" attribute.(ë£Ã
+?	Web:S1827")Remove this deprecated "align" attribute.(ë£Ã
+NWeb:TableWithoutCaptionCheck" Add a description to this table.(Ú¶Çôûÿÿÿÿ
+@	Web:S5256"%Add "<th>" headers to this "<table>".(Ú¶Çôûÿÿÿÿ
+?	Web:S1827“"*Remove this deprecated "valign" attribute.(Æ­Ø
+NWeb:TableWithoutCaptionCheck”" Add a description to this table.(÷Şã•úÿÿÿÿ
+@	Web:S5256”"%Add "<th>" headers to this "<table>".(÷Şã•úÿÿÿÿ
+J	Web:S1827”"/Remove this deprecated "cellspacing" attribute.(÷Şã•úÿÿÿÿ
+J	Web:S1827”"/Remove this deprecated "cellpadding" attribute.(÷Şã•úÿÿÿÿ
+E	Web:S1827˜"*Remove this deprecated "valign" attribute.(¼·Äµÿÿÿÿÿ
+@	Web:S1827›"*Remove this deprecated "valign" attribute.(Óô«¸
+?	Web:S1827›")Remove this deprecated "align" attribute.(Óô«¸
+?	Web:S1827¢")Remove this deprecated "width" attribute.(å·Ó»
+@	Web:S1827¢"*Remove this deprecated "valign" attribute.(å·Ó»
+?	Web:S1827¢")Remove this deprecated "align" attribute.(å·Ó»
+E	Web:S1827¤"*Remove this deprecated "valign" attribute.(îÜÄ¶ùÿÿÿÿ
+D	Web:S1827¤")Remove this deprecated "align" attribute.(îÜÄ¶ùÿÿÿÿ
+?	Web:S1827³")Remove this deprecated "align" attribute.(‰éÍ¢
+@	Web:S1827³"*Remove this deprecated "valign" attribute.(‰éÍ¢
+IWeb:TableWithoutCaptionCheckµ" Add a description to this table.(šù¡
+;	Web:S5256µ"%Add "<th>" headers to this "<table>".(šù¡
+E	Web:S1827µ"/Remove this deprecated "cellpadding" attribute.(šù¡
+E	Web:S1827µ"/Remove this deprecated "cellspacing" attribute.(šù¡
+?	Web:S1827µ")Remove this deprecated "width" attribute.(šù¡
+?	Web:S1827·")Remove this deprecated "align" attribute.(‰éÍ¢
+@	Web:S1827·"*Remove this deprecated "valign" attribute.(‰éÍ¢
+NWeb:TableWithoutCaptionCheck¹" Add a description to this table.(ˆÙÜáøÿÿÿÿ
+@	Web:S5256¹"%Add "<th>" headers to this "<table>".(ˆÙÜáøÿÿÿÿ
+J	Web:S1827¹"/Remove this deprecated "cellpadding" attribute.(ˆÙÜáøÿÿÿÿ
+J	Web:S1827¹"/Remove this deprecated "cellspacing" attribute.(ˆÙÜáøÿÿÿÿ
+D	Web:S1827¹")Remove this deprecated "width" attribute.(ˆÙÜáøÿÿÿÿ
+?	Web:S1827»")Remove this deprecated "align" attribute.(¯‹¥™
+@	Web:S1827»"*Remove this deprecated "valign" attribute.(¯‹¥™
+?	Web:S1827»")Remove this deprecated "width" attribute.(¯‹¥™
+NWeb:TableWithoutCaptionCheck¾" Add a description to this table.(ó‚õúÿÿÿÿ
+@	Web:S5256¾"%Add "<th>" headers to this "<table>".(ó‚õúÿÿÿÿ
+D	Web:S1827¾")Remove this deprecated "align" attribute.(ó‚õúÿÿÿÿ
+J	Web:S1827¾"/Remove this deprecated "cellpadding" attribute.(ó‚õúÿÿÿÿ
+J	Web:S1827¾"/Remove this deprecated "cellspacing" attribute.(ó‚õúÿÿÿÿ
+?	Web:S1827À")Remove this deprecated "align" attribute.(ŞÜ´İ
+@	Web:S1827À"*Remove this deprecated "valign" attribute.(ŞÜ´İ
+MWeb:ImgWithoutAltCheckÁ"%Add an "alt" attribute to this image.(Ñºœ ùÿÿÿÿ
+?	Web:S1827Õ")Remove this deprecated "align" attribute.(‰éÍ¢
+@	Web:S1827Õ"*Remove this deprecated "valign" attribute.(‰éÍ¢
+IWeb:TableWithoutCaptionCheck×" Add a description to this table.(šù¡
+;	Web:S5256×"%Add "<th>" headers to this "<table>".(šù¡
+E	Web:S1827×"/Remove this deprecated "cellpadding" attribute.(šù¡
+E	Web:S1827×"/Remove this deprecated "cellspacing" attribute.(šù¡
+?	Web:S1827×")Remove this deprecated "width" attribute.(šù¡
+?	Web:S1827Ù")Remove this deprecated "align" attribute.(‰éÍ¢
+@	Web:S1827Ù"*Remove this deprecated "valign" attribute.(‰éÍ¢
+NWeb:TableWithoutCaptionCheckÛ" Add a description to this table.(ˆÙÜáøÿÿÿÿ
+@	Web:S5256Û"%Add "<th>" headers to this "<table>".(ˆÙÜáøÿÿÿÿ
+J	Web:S1827Û"/Remove this deprecated "cellpadding" attribute.(ˆÙÜáøÿÿÿÿ
+J	Web:S1827Û"/Remove this deprecated "cellspacing" attribute.(ˆÙÜáøÿÿÿÿ
+D	Web:S1827Û")Remove this deprecated "width" attribute.(ˆÙÜáøÿÿÿÿ
+D	Web:S1827İ")Remove this deprecated "align" attribute.(¾çÓ²ıÿÿÿÿ
+E	Web:S1827İ"*Remove this deprecated "valign" attribute.(¾çÓ²ıÿÿÿÿ
+D	Web:S1827İ")Remove this deprecated "width" attribute.(¾çÓ²ıÿÿÿÿ
+NWeb:TableWithoutCaptionCheckô" Add a description to this table.(›ÅèÆşÿÿÿÿ
+@	Web:S5256ô"%Add "<th>" headers to this "<table>".(›ÅèÆşÿÿÿÿ
+F	Web:S1827ô"+Remove this deprecated "bgcolor" attribute.(›ÅèÆşÿÿÿÿ
+J	Web:S1827ô"/Remove this deprecated "cellpadding" attribute.(›ÅèÆşÿÿÿÿ
+J	Web:S1827ô"/Remove this deprecated "cellspacing" attribute.(›ÅèÆşÿÿÿÿ
+D	Web:S1827ô")Remove this deprecated "width" attribute.(›ÅèÆşÿÿÿÿ
+?	Web:S1827ı")Remove this deprecated "align" attribute.(‰éÍ¢
+@	Web:S1827ı"*Remove this deprecated "valign" attribute.(‰éÍ¢
+IWeb:TableWithoutCaptionCheckÿ" Add a description to this table.(šù¡
+;	Web:S5256ÿ"%Add "<th>" headers to this "<table>".(šù¡
+E	Web:S1827ÿ"/Remove this deprecated "cellpadding" attribute.(šù¡
+E	Web:S1827ÿ"/Remove this deprecated "cellspacing" attribute.(šù¡
+?	Web:S1827ÿ")Remove this deprecated "width" attribute.(šù¡
+?	Web:S1827")Remove this deprecated "align" attribute.(‰éÍ¢
+@	Web:S1827"*Remove this deprecated "valign" attribute.(‰éÍ¢
+NWeb:TableWithoutCaptionCheckƒ" Add a description to this table.(ˆÙÜáøÿÿÿÿ
+@	Web:S5256ƒ"%Add "<th>" headers to this "<table>".(ˆÙÜáøÿÿÿÿ
+J	Web:S1827ƒ"/Remove this deprecated "cellpadding" attribute.(ˆÙÜáøÿÿÿÿ
+J	Web:S1827ƒ"/Remove this deprecated "cellspacing" attribute.(ˆÙÜáøÿÿÿÿ
+D	Web:S1827ƒ")Remove this deprecated "width" attribute.(ˆÙÜáøÿÿÿÿ
+D	Web:S1827…")Remove this deprecated "align" attribute.(¾çÓ²ıÿÿÿÿ
+E	Web:S1827…"*Remove this deprecated "valign" attribute.(¾çÓ²ıÿÿÿÿ
+D	Web:S1827…")Remove this deprecated "width" attribute.(¾çÓ²ıÿÿÿÿ
+NWeb:TableWithoutCaptionCheck†" Add a description to this table.(æˆŒşşÿÿÿÿ
+@	Web:S5256†"%Add "<th>" headers to this "<table>".(æˆŒşşÿÿÿÿ
+J	Web:S1827†"/Remove this deprecated "cellpadding" attribute.(æˆŒşşÿÿÿÿ
+J	Web:S1827†"/Remove this deprecated "cellspacing" attribute.(æˆŒşşÿÿÿÿ
+D	Web:S1827†")Remove this deprecated "width" attribute.(æˆŒşşÿÿÿÿ
+E	Web:S1827ˆ"*Remove this deprecated "valign" attribute.(ş…ÆŒşÿÿÿÿ
+F	Web:S1827ˆ"+Remove this deprecated "bgcolor" attribute.(ş…ÆŒşÿÿÿÿ

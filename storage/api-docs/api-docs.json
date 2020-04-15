@@ -1,0 +1,88 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Bulkbuyer API",
+        "version": "1.0"
+    },
+    "paths": {
+        "/buyers/public/api/v1/register": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "operationId": "App\\Http\\Controllers\\Mobile\\BasicController::register",
+                "responses": {
+                    "200": {
+                        "description": "Customer Registration."
+                    }
+                }
+            }
+        },
+        "/buyers/public/api/v1/access": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "operationId": "App\\Http\\Controllers\\Mobile\\BasicController::login",
+                "responses": {
+                    "200": {
+                        "description": "Login of mobile user."
+                    }
+                }
+            }
+        },
+        "/buyers/public/api/v1/product/list": {
+            "get": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Entire list of enabled products",
+                "operationId": "App\\Http\\Controllers\\Mobile\\BasicController::listProducts",
+                "responses": {
+                    "200": {
+                        "description": "Display a listing of Prducts."
+                    }
+                }
+            }
+        },
+        "/buyers/public/api/v1/user/detail": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get the details of an authenticated user",
+                "description": "",
+                "operationId": "getAuthUser",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "headers": {
+                            "X-Rate-Limit": {
+                                "description": "calls per hour allowed by the user",
+                                "schema": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                }
+                            },
+                            "X-Expires-After": {
+                                "description": "date in UTC when token expires",
+                                "schema": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error xXx"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        }
+    }
+}
