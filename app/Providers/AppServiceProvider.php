@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer(['customer.*','partials.searchheader','partials.mainnav','products.categoryfilter'], function ($view){
+        View::composer(['customer.*','partials.searchform','partials.mainnav','products.categoryfilter'], function ($view){
             $view->with('category', Productcategory::all());
         });
 

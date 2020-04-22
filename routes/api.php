@@ -19,14 +19,16 @@ use Illuminate\Http\Request;
 Route::group(['prefix' => 'v1'], function (){
     Route::post('/register', 'Mobile\BasicController@register');
     Route::post('/access', 'Mobile\BasicController@login');
-
+    Route::post('/user/reset', 'Mobile\ForgetPassController@postForgotten');
 
     Route::group(['middleware'=>['auth:api','cors']], function(){
         Route::get('/user', 'Mobile\BasicController@details');
-        Route::get('/user/reset', 'Mobile\BasicController@details');
+        Route::post('/user/edit', 'Mobile\BasicController@edit');
+
         Route::get('/product/list', 'Mobile\ProductController@index');
         Route::get('/product/detail/{id}', 'Mobile\ProductController@getOrderDetail');
         Route::get('/order/list', 'Mobile\OrderController@getUserOrders');
+        Route::post('/order/add', 'Mobile\OrderController@Ordersadd');
         Route::get('/order/details/{id}', 'Mobile\OrderController@getOrderDetail');
         Route::get('/category/list', 'Mobile\CategoryController@index');
         Route::get('/wishlist', 'Mobile\WishlistController@index');
@@ -34,6 +36,7 @@ Route::group(['prefix' => 'v1'], function (){
         Route::post('/wishlist/delete', 'Mobile\WishlistController@destory');
         Route::post('/cart/add', 'Mobile\OrderController@tempCarte');
         Route::get('/cart/list', 'Mobile\OrderController@getCartlist');
+
 
 
 

@@ -17,7 +17,7 @@
                                 @guest()
                                     <li><a href="{{route('login')}}"> My Account </a></li>
                                     <li><a href="{{route('register')}}"> Sign up </a></li>
-                                    <li><a href="checkout.html"> Checkout </a></li>
+{{--                                    <li><a href="checkout.html"> Checkout </a></li>--}}
 
                                 @else
                                     <li><a href="#" class="text-capitalize"> Welcome {{(Auth::user()->name)}}  </a></li>

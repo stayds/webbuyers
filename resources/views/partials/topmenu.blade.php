@@ -4,6 +4,9 @@
         <!--header top Header-->
         @include('partials.topheader')
 
+        <!---header middle header --->
+        @include('partials.middleheader')
+
         <!--header Search-->
         @include('partials.searchheader')
 

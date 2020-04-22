@@ -46,7 +46,7 @@ class ProductController extends Controller
         $result = null;
 
         if ($request->prodcatid){
-            $prodcatid = Crypt::decrypt($request->prodcatid);
+            $prodcatid = $request->prodcatid;
             $result = Product::where('prodcatid', $prodcatid)
                 ->where('productname', 'LIKE', "%$request->productname%")->get();
         }

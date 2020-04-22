@@ -168,7 +168,9 @@ class BasicController extends Controller
      * )
      */
     public function details(){
-        return response()->json(['user' => auth()->user()->userprofile], 200);
+        $user = auth()->user()->userprofile;
+        $user['email'] = auth()->user()->email;
+        return response()->json($user, 200);
     }
 
 }

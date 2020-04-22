@@ -36,7 +36,7 @@
                     </div>
 
                     <h4 class="header-title mt-0 mb-3 text-uppercase">Recent Orders</h4>
-                    @include('admin.order.partials.ordersearch')
+{{--                    @include('admin.order.partials.ordersearch')--}}
                     <div id="resultab">
                         @include('admin.order.partials.recentdt')
                     </div>
