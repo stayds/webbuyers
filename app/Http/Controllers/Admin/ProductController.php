@@ -88,8 +88,26 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
 
+        if ($request->file('productimg')){
+            $files = $request->file('productimg');
+            $product = Product::find($request->productid);
+            $prodlocation = $product->productimg;
+            if(unlink($prodlocation)){
+
+                $filename = time().''.$files->getClientOriginalName();
+                $temp_dir = public_path('products').'/';
+                $files->move($temp_dir, $filename);
+                $productimg = 'products/'.$filename;
+                $product->productimg = $productimg;
+                $product->save();
+
+                return redirect()->back()->with('successs','Product Image successfully created');
+            }
+
+        }
+
         $rules = [
-//          'productname' => 'required', 'string', 'max:255', 'unique:products',
+            'productname' => 'required', 'string', 'max:255',
 //          'productimg'  => 'required|mimes:jpeg,png,jpg|max:2048'
 //          'status' => 'required',
             'description' => 'required', 'string', 'min:8',
@@ -114,8 +132,8 @@ class ProductController extends Controller
 
             $product = Product::find($id);
 
-//          $product->prodcatid = $validatedData['prodcatid'];
-//          $product->productname = $validatedData['productname'];
+            $product->prodcatid = $validatedData['prodcatid'];
+            $product->productname = $validatedData['productname'];
             $product->description = $validatedData['description'];
             $product->price = $validatedData['price'];
 //            $product->status = $validatedData['status'];
@@ -123,7 +141,7 @@ class ProductController extends Controller
 
             $product->save();
 
-            return redirect()->back()->withSuccess('Product successfully created');
+            return redirect()->back()->with('success','Product successfully created');
         }
     }
 

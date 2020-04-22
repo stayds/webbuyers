@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers\Mobile;
 
+use App\Mail\MobilePayment;
+use App\Mail\UserOrder;
+use App\Mail\UserPayment;
+use App\Models\Order;
 use App\Models\Orderdetail;
+use App\Models\Payment;
 use App\Models\Tempdetail;
 use App\Models\Temporder;
 use Carbon\Carbon;
@@ -14,15 +19,19 @@ class OrderController extends Controller
 
     public function getUserOrders(){
         $user = $this->authUser();
-        $userOrder = $user->orders;
+        $userOrder = Order::where('userid',$user->userid)->get();
         if($userOrder->isEmpty()){
-            return response()->json(['orders' => $userOrder], 200);
+            return response()->json(['message' => 'No order exists'], 401);
         }
         return response()->json(['orders' => $userOrder], 200);
     }
 
     public function getOrderDetail($id){
         $detail = Orderdetail::where('orderid',$id)->get();
+
+        if($detail->isEmpty()){
+            return response()->json(['message' => 'No order exists'], 401);
+        }
         return response()->json($detail, 200);
     }
 
@@ -116,4 +125,65 @@ class OrderController extends Controller
     }
 
 
+    public function Ordersadd(Request $request){
+
+        $order = new Order();
+        $user = $this->authUser();
+
+        $order->userid = $user->userid;
+        $order->orderstatid = 2;
+        $order->orderrefno = mt_rand(100000, 999999);
+        $order->totalcost = $request->totalcost;
+        $order->qty = $request->totalqty;
+        $order->discount = $request->discount;
+        $order->ispaid = 1;
+
+        $order->save();
+
+        $data = [];
+        $a = 0;
+        foreach($request->products as $list){
+            $data[$a]['productid'] = $list['productid'];
+            $data[$a]['orderid'] = $order->orderid;
+            $data[$a]['quantity'] = $list['quantity'];
+            $data[$a]['unitprice'] = $list['unitprice'];
+            $data[$a]['totalprice'] = $list['totalprice'];
+            $data[$a]['created_at'] = Carbon::now();
+            $data[$a]['updated_at'] = Carbon::now();
+            ++$a;
+        }
+
+        $details = new Orderdetail();
+        $details->insert($data);
+
+
+        $mydetails = Orderdetail::where('orderid',$order->orderid)->get();
+
+        $payment = new Payment();
+        $payment->userid = $user->userid;
+        $payment->paymentrefno = $request->paymentrefno;
+        $payment->orderid = $order->orderid;
+        $payment->paymentstatusid = 2;
+        $payment->amount = $request->totalcost;
+        $payment->message = "Mobile Transaction Successful";
+        $payment->save();
+
+        \Mail::to($user)->send(new MobilePayment($payment, $order, $user, $mydetails));
+
+        return response()->json('Transaction Successfully Saved', 200);
+    }
+
+    private function genrefno() {
+        $number = mt_rand(1000000100, 9999999999); // better than rand()
+
+        if ($this->orderrefno($number)) {
+            return genrefno();
+        }
+
+        return $number;
+    }
+
+    private function orderrefno($number) {
+        return Order::where('orderrefno',$number)->exists();
+    }
 }

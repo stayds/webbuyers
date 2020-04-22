@@ -65,16 +65,8 @@
                                                 </div>
                                             </div>
                                             <div class="right_caption">
-                                                <div class="add_to_cart">
-                                                    <a href="cart.html" title="add to cart">Add to cart</a>
-                                                </div>
-                                                <div class="action_links">
-                                                    <ul>
-                                                        <li class="wishlist">
-                                                            <a href="wishlist.html" title="Add to Wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i>  Add to Wishlist</a></li>
-                                                        <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="ion-ios-search-strong"></span> Quick View</a></li>
-                                                    </ul>
-                                                </div>
+                                                @include('products.wishlist')
+                                                @include('products.addtocart')
                                             </div>
                                         </div>
                                     </figure>
@@ -90,6 +82,6 @@
         </div>
     </div>
 
-    @include('partials.loadscripts')
+
 
 @endsection

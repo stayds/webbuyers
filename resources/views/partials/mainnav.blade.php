@@ -20,13 +20,7 @@
                 <div class="main_menu menu_position">
                     <nav>
                         <ul class="main-nav">
-                            <li><a class="active"  href="{{url('/')}}">home</a>
-                            </li>
-                            <li><a href="{{route('product.list')}}">Shop</a></li>
-                            <li><a href="{{route('home.howitworks')}}">How it works</a></li>
-                            <li><a href="{{route('home.faq')}}">FAQs</a></li>
-{{--                            <li><a href="{{route('home.about')}}">about Us</a></li>--}}
-                            <li><a href="{{route('home.contact')}}"> Contact Us</a></li>
+                            @include('partials.menulinks')
                         </ul>
                     </nav>
                 </div>
