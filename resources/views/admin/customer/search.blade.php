@@ -15,7 +15,7 @@
         </div>
         <div class="col-md-2">
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Sort by</label>
+                <label for="exampleFormControlSelect1">Search by</label>
                 <select class="form-control" id="exampleFormControlSelect1" name="option">
                     <option value="fname">First name</option>
                     <option value="lname">Last name</option>

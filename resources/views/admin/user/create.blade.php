@@ -61,7 +61,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="passord" class="col-form-label">Enter Phone</label>
-                        <input type="phone" class="form-control" id="phone"  name="phone" value="{{ old('phone') }}"  required placeholder="Enter Password">
+                        <input type="phone" class="form-control" id="phone"  name="phone" value="{{ old('phone') }}"  required placeholder="Enter Phone Number">
                         @error('phone')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

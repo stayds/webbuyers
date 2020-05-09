@@ -21,7 +21,7 @@
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">Bulk Buyers Connect</a></li>
-                                <li class="breadcrumb-item active">Customers</li>
+                                <li class="breadcrumb-item active"><a href="{{route('admin.customer.list')}}"> Customers</a></li>
                             </ol>
                         </div>
                         <h4 class="page-title">Customers</h4>
@@ -40,7 +40,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Refresh</a>
+                                <a href="{{route('admin.customer.list')}}" class="dropdown-item">Refresh</a>
                             </div>
                         </div>
 
@@ -48,10 +48,11 @@
                         @include('admin.customer.search')
                         <div style=""></div>
                         <div class="btn btn-danger btn-sm" style="margin:0 10px 15px 0;" id="csv">CSV Export</div>
-                        <div class="btn btn-danger btn-sm" style="margin-bottom:15px" id="pdf">PDF Export</div><br>
+{{--                        <div class="btn btn-danger btn-sm" style="margin-bottom:15px" id="pdf" >PDF Export</div><br>--}}
                         <div id="custtable">
                             @include('admin.customer.custtable')
                         </div>
+                        <div id="elementH"></div>
                     </div>
                 </div>
             </div>
@@ -70,7 +71,8 @@
 @endsection
 
 @section('scripts')
-
+{{--    <script src="{{asset('admin/js/jspdf.min.js')}}"></script>--}}
+{{--    <script src="{{asset('admin/js/jspdf.plugin.autotable.js')}}"></script>--}}
     <script>
         $.ajaxSetup({
             headers: {
@@ -152,10 +154,15 @@
             //     updatePending(route, id)
 
             $('#pdf').click(function(e){
-                $("table").tableHTMLExport({
-                    type:'pdf',
-                    orientation:'p'
+                $("#pdf").click(function() {
+                    const doc = new jsPDF()
+                    doc.autoTable({ html: '#customer' })
+                    doc.save('table.pdf')
                 });
+                // $("table").tableHTMLExport({
+                //     type:'pdf',
+                //     orientation:'p'
+                // });
             });
 
             $('#csv').click(function(e){

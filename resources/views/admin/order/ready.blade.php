@@ -80,6 +80,7 @@
                 ajax: '{!! route('list.orders.ready') !!}',
                 columns: [
                     { data: "checkbox", orderable:false, searchable:false, target:0, className: 'select-checkbox'},
+                    {data: 'DT_RowIndex', name: 'orderid'},
                     { data: 'orderrefno', name: 'orderrefno' },
                     { data: 'totalcost', name: 'totalcost' },
                     { data: 'created_at', name: 'created_at' },
@@ -92,7 +93,7 @@
 
             $('#ord-btn').on('click', function () {
                 var orderid = [];
-                if(confirm('Are you ready to update')){
+                if(confirm('Are you sure you want to move this order to completed orders?')){
                     $('.orders:checked').each(function () {
                         orderid.push($(this).val());
                     })

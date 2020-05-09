@@ -34,8 +34,19 @@
 {{--                            </div>--}}
                         </div>
 
-                        <h4 class="header-title mt-0 mb-3 text-uppercase">Details</h4>
+                        <h4 class="header-title mt-0 mb-3 text-uppercase">Order Details</h4>
+                        <div class="row mb-4">
+                            <div class="col-md-7 col-sm-7">
+                                <h4> Customer Name: {{$fullname}}</h4>
+                                <h4> Order ID: {{$order->orderrefno}}</h4>
+                                <h4> Date: {{$order->getFormattedDateAttribute()}}</h4>
+                            </div>
+                            <div class="col-md-5 col-sm-5">
 
+                                <a href="{{route('list.orders.delivery.note', $order->orderid)}}" style="margin-right: 20px;" class="btn btn-bordred-success" target="_blank"> <i class="fa fa-print"></i> Print Delivery Note</a>
+                                <a href="{{route('admin.customer.order',$order->userid)}}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Back to Customer Order</a>
+                            </div>
+                        </div>
                         <div class="table-responsive">
                             <table class="table table-hover mb-0">
                                     <?php $count = 0; ?>
@@ -46,21 +57,28 @@
                                         <th>Quantity</th>
                                         <th>Unit Price #</th>
                                         <th>Total Price #</th>
-                                        <th>Date added</th>
+{{--                                        <th>Date added</th>--}}
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($details as $list)
+                                    @foreach($details as $key => $list)
                                         <tr>
-                                            <td>{{ ++$count }}</td>
+                                            <td>{{ $key + $details->firstItem() }}</td>
                                             <td class="text-capitalize">{{ $list->product->productname }}</td>
                                             <td>{{$list->quantity}}</td>
                                             <td>{{$list->unitprice}}</td>
                                             <td>{{$list->totalprice}}</td>
-                                            <td>{{$list->getFormattedDateAttribute()}}</td>
+{{--                                            <td>{{$list->getFormattedDateAttribute()}}</td>--}}
                                         </tr>
                                     @endforeach
-
+                                    <tr>
+                                        <td colspan="4" class="text-right">
+                                            <h4>Total Cost</h4>
+                                        </td>
+                                        <td>
+                                            <h4> &#8358;{{$order->totalcost}}</h4>
+                                        </td>
+                                    </tr>
                                     </tbody>
 
                             </table>

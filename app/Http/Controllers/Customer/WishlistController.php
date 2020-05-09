@@ -68,21 +68,25 @@ class WishlistController extends Controller
 //        $list = $request->session()->has('wishlist')? $getWishlist :null;
 //        $wishlist = new Wishlistadder($list);
 //        $wishlist->addItem($wish,$request->productid);
-//
+
 //        $request->session()->put('wishlist', $wishlist);
 
         $user->products()->attach($productid);
+        $wishcount = $user->products->count();
+        $request->session()->put('wishlist', $wishcount);
 
         return redirect()->back()
                          ->with('wishlistadded','Record successfully added to Wish List');
 
     }
 
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
            $id = Crypt::decrypt($id);
            $user = Auth::user();
            $user->products()->detach($id);
+           $wishcount = $user->products->count();
+           $request->session()->put('wishlist', $wishcount);
 
             return redirect()->back()
                 ->with('wishsuccess',

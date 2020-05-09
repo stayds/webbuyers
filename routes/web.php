@@ -9,12 +9,17 @@
     Route::get('/about', 'LandingController@getAbout')->name('home.about');
     Route::get('/how-it-works', 'LandingController@getHowitworks')->name('home.howitworks');
     Route::post('/reset/password', 'Auth\ForgotPasswordController@postForgotten')->name('pass.reset');
+    Route::get('/forgot/password', 'Auth\ForgotPasswordController@index')->name('pass.forgot');
     Route::get('/faq', 'LandingController@getFaq')->name('home.faq');
 
 
     Route::get('/login/admin', 'Auth\LoginAdminController@showAdminLoginForm')->name('get.login');
     Route::post('post/login/admin', 'Auth\LoginAdminController@adminLogin')->name('admin.login');
     Route::get('/logout/admin', 'Auth\LoginAdminController@adminLogout')->name('admin.logout');
+    Route::get('/admin/forgotten', 'Auth\AdminForgotController@index')->name('admin.forgot');
+    Route::post('/admin/forgot/post', 'Auth\AdminForgotController@postForgotten')->name('admin.forgot.post');
+    Route::get('/admin/reset/password/{token}', 'Auth\ResetAdminController@showResetForm')->name('admin.reset.password');
+    Route::post('/admin/reset', 'Auth\ResetAdminController@reset')->name('admin.reset.post');
 
 
     Route::group(['prefix'=>'product'], function (){
@@ -98,6 +103,7 @@
             Route::get('/processing', 'Admin\OrderController@Processorders')->name('list.orders.processing');
             Route::get('/ready', 'Admin\OrderController@Readytodeliver')->name('list.orders.ready');
             Route::get('/delivery/{orderid}/note', 'Admin\OrderController@Deliverynote')->name('list.orders.delivery.note');
+            Route::get('/procure/list', 'Admin\OrderController@Procure')->name('procure.list');
 
         });
         //Product routes

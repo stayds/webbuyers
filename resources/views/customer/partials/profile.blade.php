@@ -24,7 +24,7 @@
                 Address
             </div>
             <div class="card-body">
-                <h5 class="card-title">Billing Address</h5>
+                <h5 class="card-title">Delivery Address</h5>
                 <div class="card-text">
                     {{ ($billing) ? $billing->address : 'No Billing Address'}}<br>
                     {{ ($billing) ? $billstate->statename : 'No Billing State'}}

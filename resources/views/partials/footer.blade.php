@@ -34,17 +34,22 @@
                 </div>
                 <div class="col-lg-2 col-md-6 col-sm-6">
                     <div class="widgets_container widget_menu">
-                        <h3>My Account</h3>
+                        @guest()
+                        @else <h3>My Account</h3>
                         <div class="footer_menu">
                             <ul>
-                                <li><a href="#">My Account</a></li>
+
+
+                                <li><a href="{{route('home')}}">My Account</a></li>
                                 <li><a href="#">Order History</a></li>
-                                <li><a href="wishlist.html">Wish List</a></li>
+                                <li><a href="{{route('wishlist.view')}}">Wish List</a></li>
 {{--                                <li><a href="#">Newsletter</a></li>--}}
 {{--                                <li><a href="#">Affiliate</a></li>--}}
 {{--                                <li><a href="#">International Orders</a></li>--}}
+
                             </ul>
                         </div>
+                        @endguest
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">

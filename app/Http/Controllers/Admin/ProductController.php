@@ -22,7 +22,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        $products = Product::with('productcategory')->paginate(8);
+        $products = Product::with('productcategory')->paginate(10);
         return view('admin.product.index', compact('products'));
     }
 
@@ -36,20 +36,20 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'productname' => 'required', 'string', 'max:255', 'unique:products',
+            'productname' => 'required', 'string', 'max:255',
             'description' => 'required', 'string', 'min:8',
             'prodcatid' => 'required',
             'price' => 'required','number',
-            'productimg'  => 'required|mimes:jpeg,png,jpg|max:2048'
+            'productimg'  => 'required|mimes:jpeg,gif,png,jpg|max:2048'
         ];
 
         $validatedData = $request->validate($rules);
 
-        $check = Product::where('productname', $request['productname'])->first();
-
-        if($check){
-            return redirect()->back()->withErrors('Product name already exist');
-        }
+//        $check = Product::where('productname', $request['productname'])->first();
+//
+//        if($check){
+//            return redirect()->back()->withErrors('Product name already exist');
+//        }
 
         if($validatedData){
             $files = $request->file('productimg');

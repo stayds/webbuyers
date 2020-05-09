@@ -18,11 +18,11 @@
                         <div class="header_wishlist">
                             <a href="{{route('wishlist.view')}}"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
 
-                            @isset($wishlist)
+                            @if(request()->session()->get('wishlist') > 0)
                                 <span class="wishlist_quantity">
-                                    {{$wishlist->count()}}
+                                    {{request()->session()->get('wishlist')}}
                                 </span>
-                            @endisset
+                            @endif
                         </div>
                         <div class="mini_cart_wrapper">
                             <a href="javascript:void(0)">

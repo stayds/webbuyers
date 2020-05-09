@@ -43,7 +43,8 @@
                                     {{ ($list->status)? "enabled" : "disabled"  }}
                                 </span>
                             </td>
-                            <td><a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target=".category"><i class="fa fa-edit"></i> Edit</a>
+                            <td>
+                                <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target=".category"><i class="fa fa-edit"></i> Edit</a>
                                 @if($list->status > 0)
                                     <a href="{{route('disable.category',$list->prodcatid)}}" class="btn btn-danger btn-xs"><i class="fa fa-close" id="sa-params"></i> Disable</a>
                                 @else

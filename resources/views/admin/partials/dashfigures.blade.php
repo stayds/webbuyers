@@ -4,17 +4,17 @@
 
     <div class="col-xl-3 col-md-6">
         <div class="card-box">
-            <div class="dropdown float-right">
-                <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                    <i class="mdi mdi-dots-vertical"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">View details</a>
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">Refresh report</a>
-                </div>
-            </div>
+{{--            <div class="dropdown float-right">--}}
+{{--                <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">--}}
+{{--                    <i class="mdi mdi-dots-vertical"></i>--}}
+{{--                </a>--}}
+{{--                <div class="dropdown-menu dropdown-menu-right">--}}
+{{--                    <!-- item-->--}}
+{{--                    <a href="javascript:void(0);" class="dropdown-item">View details</a>--}}
+{{--                    <!-- item-->--}}
+{{--                    <a href="javascript:void(0);" class="dropdown-item">Refresh report</a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
             <h4 class="header-title mt-0 mb-4">Total Revenue</h4>
 
@@ -34,17 +34,17 @@
 
     <div class="col-xl-3 col-md-6">
         <div class="card-box">
-            <div class="dropdown float-right">
-                <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                    <i class="mdi mdi-dots-vertical"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">View details</a>
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">Refresh report</a>
-                </div>
-            </div>
+{{--            <div class="dropdown float-right">--}}
+{{--                <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">--}}
+{{--                    <i class="mdi mdi-dots-vertical"></i>--}}
+{{--                </a>--}}
+{{--                <div class="dropdown-menu dropdown-menu-right">--}}
+{{--                    <!-- item-->--}}
+{{--                    <a href="javascript:void(0);" class="dropdown-item">View details</a>--}}
+{{--                    <!-- item-->--}}
+{{--                    <a href="javascript:void(0);" class="dropdown-item">Refresh report</a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
             <h4 class="header-title mt-0 mb-4">Total Orders</h4>
 
@@ -70,9 +70,9 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">View details</a>
+                    <a href="{{route('list.product')}}" class="dropdown-item">View details</a>
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">Refresh report</a>
+{{--                    <a href="javascript:void(0);" class="dropdown-item">Refresh report</a>--}}
                 </div>
             </div>
 
@@ -100,9 +100,9 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">View Details</a>
+                    <a href="{{route('admin.customer.list')}}" class="dropdown-item">View Details</a>
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+{{--                    <a href="javascript:void(0);" class="dropdown-item">Another action</a>--}}
                 </div>
             </div>
 

@@ -13,8 +13,10 @@ class WishlistComposer
 
             $user = Auth::user();
             $count = $this->getUserWishcount($user);
-
-            $view->with('wishlist', $count);
+            dd('hello');
+            request()->session()->put('wishlist', $count->count());
+            dd(request()->session()->get('wishlist'));
+            //$view->with('wishlist', $count);
 
     }
 

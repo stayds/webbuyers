@@ -81,7 +81,7 @@
                                 <thead>
 
                                         <tr>
-{{--                                            <th>#</th>--}}
+                                            <th>#</th>
                                             <th>Product name</th>
                                             <th>Description</th>
                                             <th>Cost</th>
@@ -94,9 +94,9 @@
 
                                 <tbody>
                                 <?php $count = 0 ?>
-                                @forelse($products as $list)
+                                @forelse($products as $key => $list)
                                     <tr>
-{{--                                    <td>{{++$count}}</td>--}}
+                                    <td>{{ $key + $products->firstItem() }}</td>
                                     <td class="text-capitalize"><img src="{{asset($list->productimg)}}" width="50" class="img-fluid img-circle">
                                         {{$list->productname}}</td>
                                     <td class="text-capitalize">{{$list->description}}</td>

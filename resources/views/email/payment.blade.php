@@ -206,7 +206,7 @@
                                                                     <tr>
                                                                         <td align="left" class="textContent">
                                                                             <div style="font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#828282;text-align:center;line-height:150%;">
-                                                                                PLEASE VERIFY YOUR EMAIL
+{{--                                                                                PLEASE VERIFY YOUR EMAIL--}}
                                                                             </div>
                                                                         </td>
                                                                     </tr>
@@ -218,7 +218,7 @@
                                                                         <td align="left" class="textContent">
                                                                             <!-- CONTENT // -->
                                                                             <div style="font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#828282;text-align:center;line-height:120%;">
-                                                                                If you can't see this message <a href="#" target="_blank" style="text-decoration:none;border-bottom:1px solid #828282;color:#828282;"><span style="color:#828282;">View&nbsp;it&nbsp;in&nbsp;your&nbsp;browser</span></a>.
+{{--                                                                                If you can't see this message <a href="#" target="_blank" style="text-decoration:none;border-bottom:1px solid #828282;color:#828282;"><span style="color:#828282;">View&nbsp;it&nbsp;in&nbsp;your&nbsp;browser</span></a>.--}}
                                                                             </div>
                                                                         </td>
                                                                     </tr>
@@ -422,7 +422,14 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
-
+                                            <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+                                                <td style="text-transform: capitalize;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top">
+                                                    Discount
+                                                </td>
+                                                <td class="alignright" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top" align="right">
+                                                    &#8358; {{$list->discount}}
+                                                </td>
+                                            </tr>
                                             <tr class="total" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
                                                 <td class="alignright" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 2px; border-top-color: #333; border-top-style: solid; border-bottom-color: #333; border-bottom-width: 2px; border-bottom-style: solid; font-weight: 700; margin: 0; padding: 5px 0;" width="80%" valign="top" align="right">Total
                                                 </td>

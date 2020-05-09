@@ -55,12 +55,12 @@ class ProductController extends Controller
             $result = Product::where('productname', 'LIKE', "%$request->productname%")->get();
         }
 
-
         $category = Productcategory::all();
         return view('products.search', compact('result','category'));
     }
 
     public function getAddtocart(Request $request, $productid){
+
         $productid = Crypt::decrypt($productid);
         $product = Product::find($productid);
         $oldcart = $request->session()->has('cart')? $request->session()->get('cart'):null;
@@ -88,7 +88,7 @@ class ProductController extends Controller
         $products = $cart->items;
         $totalprice = $cart->totalPrice;
         $discount = $oldcart->discount;
-
+        //dd($cart->items);
 
         return view('products.viewcart', compact('products','totalprice','discount'));
     }
@@ -97,8 +97,11 @@ class ProductController extends Controller
         $productid = Crypt::decrypt($productid);
         $product = Product::find($productid);
         $oldcart = $request->session()->get('cart');
+
         $cart = new Cart($oldcart);
+
         $cart->removeItem($product, $productid);
+
         $request->session()->put('cart', $cart);
 
         return redirect()->back();
@@ -121,6 +124,7 @@ class ProductController extends Controller
     }
 
     public function discount(Request $request){
+
         $user = $this->getUser();
         $code = strtoupper($request->code);
         $discheck = Discount::where(['code'=> $code, 'status'=> 1])->first();

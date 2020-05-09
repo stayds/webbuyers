@@ -22,7 +22,7 @@ class AdminController extends Controller
 
     public function index()
     {
-        $list = Admin::with('adminrole.role')->paginate(10);
+        $list = Admin::with('adminrole.role')->paginate(5);
         $role = Role::where('status',true)->get();
         return view('admin.user.list',compact('list','role'));
     }

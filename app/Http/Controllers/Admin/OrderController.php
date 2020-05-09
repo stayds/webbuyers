@@ -27,10 +27,12 @@ class OrderController extends Controller
         $orders = Order::where(['orderstatid'=>2, 'ispaid'=>1])
                         ->with(['user','orderstatus'])
                         ->orderBy('created_at','DESC')
+
                         ->get();
 
         if ($request->ajax()) {
             return Datatables::of($orders)
+
                 ->editColumn('orderstatid', function ($orders) {
                     return $orders->orderstatus->ordstatname;
                 })
@@ -41,7 +43,8 @@ class OrderController extends Controller
                     return $orders->user->userprofile->fullname();
                 })
                 ->addColumn('checkbox', '<input name="orderid[]" class="orders" type="checkbox" value="{{$orderid}}">')
-                ->rawColumns(['checkbox','action'])
+                ->rawColumns(['checkbox','action','orderid'])
+                ->addIndexColumn()
                 ->make(true);
         }
 
@@ -75,6 +78,7 @@ class OrderController extends Controller
                 })
                 ->addColumn('checkbox', '<input name="orderid[]" class="orders" type="checkbox" value="{{$orderid}}">')
                 ->rawColumns(['checkbox','action'])
+                ->addIndexColumn()
                 ->make(true);
         }
 
@@ -103,6 +107,7 @@ class OrderController extends Controller
                 ->addColumn('checkbox', '<input name="orderid[]" class="orders" type="checkbox" value="{{$orderid}}">')
                 ->addColumn('note','<a href="{{route(\'list.orders.delivery.note\', $orderid)}}" target="_blank"  class="btn btn-success btn-xs"><i class="fa fa-print"></i> Delivery Note</a>')
                 ->rawColumns(['checkbox','note'])
+                ->addIndexColumn()
                 ->make(true);
         }
 
@@ -129,6 +134,7 @@ class OrderController extends Controller
                 })
                 ->addColumn('note','<a href="{{route(\'list.orders.delivery.note\', $orderid)}}" target="_blank"  class="btn btn-success btn-xs"><i class="fa fa-print"></i> Delivery Note</a>')
                 ->rawColumns(['note'])
+                ->addIndexColumn()
                 ->make(true);
         }
 
@@ -142,13 +148,16 @@ class OrderController extends Controller
                                 ->where('orderid',$orderid)
                                 ->paginate(15);
 
-        return view('admin.order.deliverynote', compact('details','order'));
+        return view('admin.order.deliverinote', compact('details','order'));
     }
 
     public function Details($id){
+        $order = Order::find($id);
+        $fullname = $order->user->userprofile->fullname();
 
         $details = Orderdetail::with('product')->where('orderid',$id)->paginate(15);
-        return view('admin.order.partials.orderdetails', compact('details'));
+
+        return view('admin.order.partials.orderdetails', compact('details','fullname','order'));
     }
 
     public function updatePending(Request $request){
@@ -187,8 +196,6 @@ class OrderController extends Controller
 
     }
 
-
-
     private function valid($rule, $msg){
         return Validator::make($this->request->except('_token'), $rule, $msg);
     }
@@ -201,6 +208,33 @@ class OrderController extends Controller
         return Order::with(['orderstatus','user'])
             ->where('orderrefno', $orderrefno)
             ->paginate(10);
+    }
+
+    public function Procure(){
+
+        if($this->request->ajax()){
+            try {
+                $rawstart = $this->request->start;
+                $rawend = $this->request->end;
+             $start = new Carbon($rawstart);
+             $end = new Carbon($rawend);
+
+             $procure = Orderdetail::selectRaw('productid, SUM(quantity) as quantity,orderid')
+                 ->whereBetween('created_at', [$start->toDateString(),$end->toDateString()])
+                 ->with(['order'=>function($query){
+                     $query->select('orderid')->where('ispaid',1)->get();
+                 },'product:productid,productname,description'])
+                 ->groupBy('productid')
+                 ->get();
+
+             return view('admin.order.partials.procure', compact('procure','rawstart','rawend'))->with(['success'=> true]);
+         }
+            catch (\Exception $e) {
+
+            }
+        }
+
+        return view('admin.order.procurelist');
     }
 
 

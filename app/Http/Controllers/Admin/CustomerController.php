@@ -22,19 +22,14 @@ class CustomerController extends Controller
     public function index()
     {
 
-        $value = 9;
+        $value = 10;
         $users = Userprofile::with(['user:userid,email,phone,status','state:stateid,statename'])
                               ->orderby('created_at','DESC')->paginate($value);
 
         if($this->request->ajax()){
 
-            if($this->request->paginate){
-                $value = $this->request->paginate;
-                $users = Userprofile::with(['user:userid,email,phone,status','state:stateid,statename'])
-                    ->orderby('created_at','DESC')->paginate($value);
-                return view('admin.customer.custtable',compact('users'));
-            }
-            elseif($this->request->option =='fname'){
+            if($this->request->option ==='fname'){
+
                 $users = Userprofile::where('fname','LIKE','%'.$this->request->detail.'%')
                                      ->with(['user:userid,email,phone',
                                     'state:stateid,statename'])
@@ -49,20 +44,25 @@ class CustomerController extends Controller
                 return view('admin.customer.custtable',compact('users'));
             }
             elseif($this->request->option =='phone'){
+
                 $users = User::where('phone',trim($this->request->detail))
-                              ->with('userprofile')
+                              ->with(['userprofile.state:stateid,statename'])
                               ->orderby('created_at','DESC')
                               ->paginate($value);
-
-
                 return view('admin.customer.custtableedit',compact('users'));
             }
             elseif($this->request->option =='email'){
                 $users = User::where('email',trim($this->request->detail))
-                              ->with('userprofile')
+                              ->with(['userprofile.state:stateid,statename'])
                               ->orderby('created_at','DESC')
                               ->paginate($value);
                 return view('admin.customer.custtableedit',compact('users'));
+            }
+            elseif($this->request->paginate){
+                $value = $this->request->paginate;
+                $users = Userprofile::with(['user:userid,email,phone,status','state:stateid,statename'])
+                    ->orderby('created_at','DESC')->paginate($value);
+                return view('admin.customer.custtable',compact('users'));
             }
         }
 
@@ -85,9 +85,14 @@ class CustomerController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        $userorders = Order::where('userid', $user->userid)->paginate(10);
+        $orderquery = Order::where('userid', $user->userid);
+        $orderno = $orderquery->count();
+        $userorders = $orderquery->paginate(10);
+        $fullname = $user->userprofile->fullname();
 
-        return view('admin.customer.orders',compact('userorders'));
+
+
+        return view('admin.customer.orders',compact('userorders', 'fullname','orderno'));
 
     }
 

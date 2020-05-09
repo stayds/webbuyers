@@ -58,8 +58,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phone' => ['required','string','min:8','max:11','unique:users'],
-            'regmodeid' => ['required'],
+            'phone' => ['required','regex:/(0)[0-9]/','not_regex:/[a-z]/','size:11','unique:users'],
             'stateid' => ['required'],
             'fname' => ['required', 'string'],
             'lname' => ['required', 'string']
@@ -78,7 +77,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'name' => $data['fname'],
             'phone' => $data['phone'],
-            'regmodeid' => $data['regmodeid'],
+            'regmodeid' => 2,
             'api_token' => Str::random(20),
             'password' => Hash::make($data['password']),
             'created_at' => Carbon::now(),
@@ -103,5 +102,7 @@ class RegisterController extends Controller
         $states = State::where('stateid', 2)->get();
         return view('auth.register', compact('states'));
     }
+
+
 
 }

@@ -23,7 +23,7 @@ Route::group(['prefix' => 'v1'], function (){
 
     Route::group(['middleware'=>['auth:api','cors']], function(){
         Route::get('/user', 'Mobile\BasicController@details');
-        Route::post('/user/edit', 'Mobile\BasicController@edit');
+        Route::post('/user/edit', 'Mobile\BasicController@update');
 
         Route::get('/product/list', 'Mobile\ProductController@index');
         Route::get('/product/detail/{id}', 'Mobile\ProductController@getOrderDetail');
@@ -36,6 +36,7 @@ Route::group(['prefix' => 'v1'], function (){
         Route::post('/wishlist/delete', 'Mobile\WishlistController@destory');
         Route::post('/cart/add', 'Mobile\OrderController@tempCarte');
         Route::get('/cart/list', 'Mobile\OrderController@getCartlist');
+        Route::post('/discount/code', 'Mobile\ProductController@getDiscount');
 
 
 

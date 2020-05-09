@@ -11,12 +11,13 @@ class UserOrder extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $order, $orderdetail;
+    public $order, $orderdetail,$name;
 
-    public function __construct($order,$detail)
+    public function __construct($order,$detail,$user)
     {
         $this->order = $order;
         $this->orderdetail = $detail;
+        $this->name = $user->name;
     }
 
     /**
@@ -26,6 +27,6 @@ class UserOrder extends Mailable
      */
     public function build()
     {
-        return $this->view('email.order');
+        return $this->view('email.order')->subject('Order Placed');
     }
 }

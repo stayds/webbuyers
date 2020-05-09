@@ -28,8 +28,6 @@
 
 @section('footer')
 
-    @include('partials.loadscripts')
-
 @endsection
 
 @section('scripts')

@@ -170,7 +170,40 @@ class BasicController extends Controller
     public function details(){
         $user = auth()->user()->userprofile;
         $user['email'] = auth()->user()->email;
+        $user['phone'] = auth()->user()->phone;
+
         return response()->json($user, 200);
+    }
+
+    public function update(Request $request)
+    {
+        $rules = [
+            'fname' => 'required|min:3',
+            'lname' => 'required|min:3',
+            'address' => 'required|min:6|string',
+            //'stateid' => 'required',
+            'dob'=>'required'
+        ];
+
+        $validator = Validator::make($request->except('_token'), $rules);
+
+        if ($validator->fails()){
+            return response()->json($validator->getMessageBag()->toArray(), 203);
+        }
+
+        $user = auth()->user();
+
+        $profile = $user->userprofile;
+
+        $profile->fname = $request->fname;
+        $profile->lname = $request->lname;
+        $profile->address = $request->address;
+        $profile->dob = $request->dob;
+        //$profile->stateid = $this->request->stateid;
+
+        $profile->save();
+
+        return response()->json('Profile Successfully updated', 200);
     }
 
 }

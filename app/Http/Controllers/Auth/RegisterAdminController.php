@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Mail\AdminRegister;
+use App\Mail\Registration;
 use App\Models\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin_role;
@@ -18,7 +20,7 @@ class RegisterAdminController extends Controller
             'fname' => 'required|string|min:3',
             'lname' => 'required|string|min:3',
             'role' => 'required',
-            'phone' => 'required|numeric|min:8|regex:/^([0-9\s\-\+\(\)]*)$/|unique:admins'
+            'phone' => 'required|size:11|regex:/(0)[0-9]/|not_regex:/[a-z]/|unique:admins'
         ]);
 
         //$admin = new Admin();
@@ -38,6 +40,8 @@ class RegisterAdminController extends Controller
         $adminrole->roleid = $request->role;
 
         $adminrole->save();
+
+        \Mail::to($admin->email)->send(new AdminRegister($admin));
 
         return redirect()->back()->withSuccess('Admin User Successfully created');
 

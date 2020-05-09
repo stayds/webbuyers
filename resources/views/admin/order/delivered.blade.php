@@ -65,7 +65,7 @@
                 serverSide: true,
                 ajax: '{!! route('list.orders.delivered') !!}',
                 columns: [
-
+                    {data: 'DT_RowIndex', name: 'orderid'},
                     { data: 'orderrefno', name: 'orderrefno' },
                     { data: 'totalcost', name: 'totalcost' },
                     { data: 'created_at', name: 'created_at' },

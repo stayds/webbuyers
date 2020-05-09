@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table table-hover mb-0">
+    <table class="table table-hover mb-0" id="customer">
         <thead>
         <tr>
             <th>#S/N</th>
@@ -15,24 +15,24 @@
         </thead>
         <tbody>
         <?php $count = 0 ?>
-        @forelse($users as $user)
+        @forelse($users as $key =>$user)
 
             <tr>
-                <td>{{++$count}}</td>
+                <td>{{ $key + $users->firstItem() }}</td>
                 <td class="text-capitalize">{{$user->userprofile->fname}}</td>
                 <td class="text-capitalize">{{$user->userprofile->lname}}</td>
                 <td>{{$user->phone}}</td>
                 <td>{{$user->email}}</td>
-                <td>{{$user->state->statename}}</td>
+                <td>{{$user->userprofile->state->statename}}</td>
                 <td>{{$user->userprofile->getFormattedDateAttribute()}}</td>
                 <td>
                     <a href="{{route('admin.customer.order', $user->userid)}}" class="btn btn-success btn-xs">
-                        <i class="fa fa-street-view"></i>
+                        <i class="fa fa-eye"></i> View Orders
                     </a>
                 </td>
                 <td>
 
-                    @if($user->user->status > 0)
+                    @if($user->status > 0)
                         <a href="{{route('admin.customer.disable', $user->userid)}}" id="custdisable" class="btn btn-danger btn-xs">
                             <i class="fa fa-ban"></i> Disable
                         </a>

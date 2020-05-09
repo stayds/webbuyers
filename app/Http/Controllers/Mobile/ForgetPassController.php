@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Password;
 
+
 class ForgetPassController extends Controller
 {
     use SendsPasswordResetEmails;
@@ -23,7 +24,7 @@ class ForgetPassController extends Controller
 
     public function postForgotten(Request $request){
 
-        if($request->ajax()){
+
             $this->validateEmail($request);
 
             // We will send the password reset link to this user. Once we have attempted
@@ -33,10 +34,10 @@ class ForgetPassController extends Controller
                 $this->credentials($request)
             );
 
-            return $response == Password::RESET_LINK_SENT
+        return response()->json( $response == Password::RESET_LINK_SENT
                 ? $this->sendResetLinkResponse($request, $response)
-                : $this->sendResetLinkFailedResponse($request, $response);
+                : $this->sendResetLinkFailedResponse($request, $response));
 
-        }
+
     }
 }

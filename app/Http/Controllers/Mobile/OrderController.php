@@ -5,21 +5,27 @@ namespace App\Http\Controllers\Mobile;
 use App\Mail\MobilePayment;
 use App\Mail\UserOrder;
 use App\Mail\UserPayment;
+use App\Models\Billingaddress;
+use App\Models\Discountorder;
 use App\Models\Order;
 use App\Models\Orderdetail;
 use App\Models\Payment;
 use App\Models\Tempdetail;
 use App\Models\Temporder;
+use App\Models\Userprofile;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
 
     public function getUserOrders(){
         $user = $this->authUser();
-        $userOrder = Order::where('userid',$user->userid)->get();
+        $userOrder = Order::where(['userid'=>$user->userid, 'ispaid'=>1])
+                            ->with('orderdetails.product')
+                            ->get();
         if($userOrder->isEmpty()){
             return response()->json(['message' => 'No order exists'], 401);
         }
@@ -27,7 +33,7 @@ class OrderController extends Controller
     }
 
     public function getOrderDetail($id){
-        $detail = Orderdetail::where('orderid',$id)->get();
+        $detail = Orderdetail::where('orderid',$id)->with('product:productid,productname,description')->get();
 
         if($detail->isEmpty()){
             return response()->json(['message' => 'No order exists'], 401);
@@ -124,11 +130,11 @@ class OrderController extends Controller
 
     }
 
-
     public function Ordersadd(Request $request){
 
         $order = new Order();
         $user = $this->authUser();
+        $profile = Userprofile::where('userid',$user->userid)->first();
 
         $order->userid = $user->userid;
         $order->orderstatid = 2;
@@ -156,6 +162,18 @@ class OrderController extends Controller
         $details = new Orderdetail();
         $details->insert($data);
 
+        $this->addAddress($user, $request, $profile);
+        //record discount code used
+        if($request->discountid > 0){
+            $discheck = new Discountorder();
+            $discheck->discountid = $request->discountid;
+            $discheck->userid = $user->userid;
+            $discheck->orderid = $order->orderid;
+            $discheck->used = 1;
+
+            $discheck->save();
+
+        }
 
         $mydetails = Orderdetail::where('orderid',$order->orderid)->get();
 
@@ -185,5 +203,36 @@ class OrderController extends Controller
 
     private function orderrefno($number) {
         return Order::where('orderrefno',$number)->exists();
+    }
+
+    private function addAddress($user, $req, $profile){
+
+        $billing = Billingaddress::where('userid', $user->userid)->first();
+
+        if($billing){
+            $billing->firstname = $profile->fname;
+            $billing->lastname = $profile->lname;
+            $billing->phone = $user->phone;
+            $billing->stateid = $profile->stateid;
+            $billing->address = $req->address;
+
+            $billing->save();
+
+            return true;
+        }
+
+        $billnew = new Billingaddress();
+        $billnew->userid = $user->userid;
+        $billnew->firstname = $profile->fname;
+        $billnew->lastname = $profile->lname;
+        $billnew->phone = $user->phone;
+        $billnew->stateid = $profile->stateid;
+        $billnew->address = $req->address;
+        $billnew->created_at = Carbon::now();
+        $billnew->updated_at = Carbon::now();
+
+        $billnew->save();
+
+        return true;
     }
 }

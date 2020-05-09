@@ -15,7 +15,7 @@
                                 <li class="breadcrumb-item active">All Orders</li>
                             </ol>
                         </div>
-                        <h4 class="page-title">All Ready to Deliver Orders</h4>
+                        <h4 class="page-title">All Ready to Delivery Orders</h4>
                     </div>
                 </div>
             </div>
@@ -81,6 +81,7 @@
                 ajax: '{!! route('list.orders.processing') !!}',
                 columns: [
                     { data: "checkbox", orderable:false, searchable:false, target:0, className: 'select-checkbox'},
+                    {data: 'DT_RowIndex', name: 'orderid'},
                     { data: 'orderrefno', name: 'orderrefno' },
                     { data: 'totalcost', name: 'totalcost' },
                     { data: 'created_at', name: 'created_at' },

@@ -13,7 +13,6 @@ class Contact extends Mailable
     use Queueable, SerializesModels;
 
     public $email;
-
     public function __construct(Request $request)
     {
         $this->email = $request;
@@ -27,7 +26,7 @@ class Contact extends Mailable
     public function build()
     {
         return $this->subject($this->email->subject)
-                    ->from($this->email->email)
+                    ->from($this->email->email, $this->email->name)
                    ->view('email.contact');
     }
 }

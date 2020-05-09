@@ -127,12 +127,10 @@
 
 @section('footer')
 
-    @include('partials.loadscripts')
-
  @endsection
 
 @section('scripts')
-
+    <script type="text/javascript" src="{{asset('assets/js/sweetalert2.min.js')}}"></script>
     <script>
         $(function(){
 
@@ -196,10 +194,17 @@
                     success: function(data){
                         if(data.success === true){
                             location.reload();
+
+                        }else{
+                            Swal.fire(
+                                'Sorry!',
+                                'This code has been used!',
+                                'error'
+                            )
                         }
                     },
                     error: function(data) {
-                        console.log(data);
+
                     },
                     dataType : "json"
                 })

@@ -6,6 +6,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Mail\Contact;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Validator;
 
 class LandingController extends Controller
 {
@@ -36,20 +37,27 @@ class LandingController extends Controller
 
     public function postContact(Request $request){
 
-        $this->validate($request, [
-            'email'   => 'required|string|max:255',
-            'name' => 'required|string|min:3',
-            'msgcontent' => 'required|string|min:3',
+//        $validate = $this->validate($request, [
+//            'email'   => 'required|string|max:255',
+//            'name' => 'required|string|min:3',
+//            'msgcontent' => 'required|string|min:3',
+//            'subject' => 'required|string|min:3',
+//        ]);
+        $validate = Validator::make($request->all(), [
+           'email'   => 'required|string|max:255',
+           'name' => 'required|string|min:3',
+           'msgcontent' => 'required|string|min:3',
             'subject' => 'required|string|min:3',
         ]);
 
-        // if ($validate->fails()) {
-        //     return redirect()->back()->withErrors($validate);
-        // }
-        $mail = 'contact@bulkbuyersconnect.com';
+        if ($validate->fails()) {
+            return redirect()->back()->withErrors($validate);
+         }
+        //$mail = 'contact@bulkbuyersconnect.com';
+        $mail = 'info@bulkbuyersconnect.com';
         \Mail::to($mail)->send(new Contact($request));
 
-        return redirect()->back()->withSuccess('Email Successfully created');
+        return redirect()->back()->withSuccess('Information Successfully sent');
     }
 
     public function getAbout(){

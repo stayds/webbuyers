@@ -44,6 +44,10 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
 
     protected function authenticated(Request $request, $user)
     {
@@ -54,7 +58,8 @@ class LoginController extends Controller
                $this->getAddtocart($request,$list->productid, $temp);
             }
         }
-
+        $wishcount = $user->products->count();
+        $request->session()->put('wishlist', $wishcount);
     }
 
     public function logout(Request $request)
@@ -78,16 +83,25 @@ class LoginController extends Controller
         $a = 0;
         $user = Auth::user();
         foreach($newcart as $list){
-            $data[$a]['productid'] = $list['item']['productid'];
-            $data[$a]['userid'] = $user->userid;
-            $data[$a]['qty'] = $list['qty'];
-            $data[$a]['created_at'] = Carbon::now();
-            $data[$a]['updated_at'] = Carbon::now();
-            ++$a;
-        }
 
-        $details = new Temporder();
-        $details->insert($data);
+//            $data[$a]['productid'] = $list['item']['productid'];
+//            $data[$a]['userid'] = $user->userid;
+//            $data[$a]['qty'] = $list['qty'];
+//            $data[$a]['created_at'] = Carbon::now();
+//            $data[$a]['updated_at'] = Carbon::now();
+            $data[] = [
+                'productid' => $list['item']['productid'],
+                'userid'=> $user->userid,
+                'qty' => $list['qty'],
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ];
+            //++$a;
+        }
+       // dd($data);
+        Temporder::insert($data);
+//        $details = new Temporder();
+//        $details->save($data);
     }
 
     private function getAddtocart($request, $productid, $model)

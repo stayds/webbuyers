@@ -90,6 +90,7 @@ class CustomerController extends Controller
         return $this->edit()->with(['success'=> true]);
     }
 
+
     public function checkout(Request $request){
 
 //        if(!$this->request->session()->has('cart')){
@@ -112,7 +113,7 @@ class CustomerController extends Controller
             $myorders = $orderstate;
             $mydetails = Orderdetail::where('orderid',$orderstate->orderid)->get();
 
-            \Mail::to($user)->send(new UserOrder($orderstate,$mydetails));
+            \Mail::to($user)->send(new UserOrder($orderstate,$mydetails,$user));
 
             $states = State::where('stateid',2)->get();
             return view('customer.checkout', compact('user','myorders','states','mydetails'));
@@ -120,7 +121,6 @@ class CustomerController extends Controller
 
         return redirect()->back();
     }
-
 
 
     public function getChangePwd(){
@@ -133,7 +133,7 @@ class CustomerController extends Controller
 
     public function postChangePwd(){
         $rules = [
-                'password' => 'required|min:6|confirmed'
+                'password' => 'required|min:8|confirmed'
         ];
 
         $validator = $this->valid($rules);
@@ -146,6 +146,7 @@ class CustomerController extends Controller
         $user->password = Hash::make($this->request->password);
         $user->save();
 
+        //return redirect()->route('logout');
         return response()->json(['success'=> true]);
     }
 

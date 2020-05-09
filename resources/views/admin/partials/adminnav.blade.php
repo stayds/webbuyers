@@ -36,7 +36,7 @@
                                         <a href="{{route('list.orders.recent')}}">Recent Orders</a>
                                     </li>
                                     <li>
-                                        <a href="{{route('list.orders.processing')}}">Ready to Delivery</a>
+                                        <a href="{{route('list.orders.processing')}}">Ready to Deliver</a>
                                     </li>
                                     <li>
                                         <a href="{{route('list.orders.ready')}}">Delivery in Process</a>
@@ -44,9 +44,9 @@
                                     <li>
                                         <a href="{{route('list.orders.delivered')}}">Completed Orders</a>
                                     </li>
-                                    {{-- <li>
-                                        <a href="{{route('list.orders.update')}}">Update Orders</a>
-                                    </li> --}}
+                                     <li>
+                                        <a href="{{route('procure.list')}}">Procurement</a>
+                                    </li>
                                 </ul>
                             </li>
 
@@ -93,7 +93,7 @@
                                         <a href="{{route('list.orders.recent')}}">Recent Orders</a>
                                     </li>
                                     <li>
-                                        <a href="{{route('list.orders.processing')}}">Ready to Delivery</a>
+                                        <a href="{{route('list.orders.processing')}}">Ready to Deliver</a>
                                     </li>
                                     <li>
                                         <a href="{{route('list.orders.ready')}}">Delivery in Process</a>
@@ -101,9 +101,9 @@
                                     <li>
                                         <a href="{{route('list.orders.delivered')}}">Completed Orders</a>
                                     </li>
-                                    {{-- <li>
-                                        <a href="{{route('list.orders.update')}}">Update Orders</a>
-                                    </li> --}}
+                                    <li>
+                                        <a href="{{route('procure.list')}}">Procurement</a>
+                                    </li>
                                 </ul>
                             </li>
 
@@ -123,7 +123,7 @@
                                         <a href="{{route('list.orders.recent')}}">Recent Orders</a>
                                     </li>
                                     <li>
-                                        <a href="{{route('list.orders.processing')}}">Ready to Delivery</a>
+                                        <a href="{{route('list.orders.processing')}}">Ready to Deliver</a>
                                     </li>
                                     <li>
                                         <a href="{{route('list.orders.ready')}}">Delivery in Process</a>
@@ -131,9 +131,9 @@
                                     <li>
                                         <a href="{{route('list.orders.delivered')}}">Completed Orders</a>
                                     </li>
-                                    {{-- <li>
-                                        <a href="{{route('list.orders.update')}}">Update Orders</a>
-                                    </li> --}}
+                                    <li>
+                                        <a href="{{route('procure.list')}}">Procurement</a>
+                                    </li>
                                 </ul>
                             </li>
 

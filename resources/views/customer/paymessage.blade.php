@@ -18,8 +18,9 @@
                                 <span class="text-danger"> Unsuccessful</span>, <span>kindly try again or contact your financial institution. </span>
                             @endif
                            </h3>
+                            <a class="btn btn-dark addmargin50" href="{{route('home')}}">Click to return to Dashboard</a>
                         </div>
-                        <a class="btn btn-dark addmargin50 float-right" href="{{route('home')}}">click to Dashboard</a>
+
                     </div>
                 </div>
             </div>

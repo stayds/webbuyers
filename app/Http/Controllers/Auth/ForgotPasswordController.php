@@ -32,6 +32,10 @@ class ForgotPasswordController extends Controller
         $this->middleware('guest');
     }
 
+    public function index(){
+        return view('auth.forgot');
+    }
+
     public function postForgotten(Request $request){
 
         if($request->ajax()){

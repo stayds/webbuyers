@@ -218,7 +218,7 @@
                                                                         <td align="left" class="textContent">
                                                                             <!-- CONTENT // -->
                                                                             <div style="font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#828282;text-align:center;line-height:120%;">
-                                                                                If you can't see this message <a href="#" target="_blank" style="text-decoration:none;border-bottom:1px solid #828282;color:#828282;"><span style="color:#828282;">View&nbsp;it&nbsp;in&nbsp;your&nbsp;browser</span></a>.
+{{--                                                                                If you can't see this message <a href="#" target="_blank" style="text-decoration:none;border-bottom:1px solid #828282;color:#828282;"><span style="color:#828282;">View&nbsp;it&nbsp;in&nbsp;your&nbsp;browser</span></a>.--}}
                                                                             </div>
                                                                         </td>
                                                                     </tr>
@@ -371,7 +371,7 @@
 
                                                                                 <p>As a member of the BBC, you will be able to plan your monthly spending in a way to maximise the advantages of buying things in bulk as part of our group, so you get retail quantities but at bulk prices.</p>
                                                                                 <br>
-                                                                                <p>BLet the shopping begin..</p>
+                                                                                <p>Let the shopping begin..</p>
 
                                                                             </div>
                                                                         </td>

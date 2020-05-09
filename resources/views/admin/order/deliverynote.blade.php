@@ -13,7 +13,7 @@
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">Bulk Buyers Connect</a></li>
-                                <li class="breadcrumb-item active">Deliverd Orders</li>
+                                <li class="breadcrumb-item active">Delivered Orders</li>
                             </ol>
                         </div>
                         <h4 class="page-title">Delivery Note</h4>
@@ -60,7 +60,7 @@
                                     </div>
                                     <div class="float-right mt-3">
                                         <p><strong>Order Date: </strong> {{$order->getFormattedDateAttribute()}}</p>
-                                        <p class="m-t-10"><strong>Order Status: </strong> <span class="label label-pink">Processed</span></p>
+{{--                                        <p class="m-t-10"><strong>Order Status: </strong> <span class="label label-pink">Processed</span></p>--}}
                                     </div>
                                 </div><!-- end col -->
                             </div>
@@ -117,7 +117,7 @@
                             <div class="d-print-none">
                                 <div class="float-right">
                                     <a href="javascript:window.print()" class="btn btn-dark waves-effect waves-light btn-lg mr-2"><i class="fa fa-print"></i> PRINT</a>
-{{--                                    <a href="#" class="btn btn-primary waves-effect waves-light btn-lg">PDF</a>--}}
+                                    <a href="#" class="btn btn-primary waves-effect waves-light btn-lg">PDF</a>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>

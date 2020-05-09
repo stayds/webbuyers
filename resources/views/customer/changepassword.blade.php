@@ -12,7 +12,7 @@
 
             <div class="form-row">
                 <div class="form-group col-md-4">
-                    <label for="password" class="col-form-label">Enter Password</label>
+                    <label for="password" class="col-form-label">Enter Password <span class="text-danger"> (minimum of 8)</span></label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password">
                     @error('password')
                     <span class="invalid-feedback" role="alert">
@@ -21,7 +21,7 @@
                     @enderror
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="lname" class="col-form-label">Confirm Password</label>
+                    <label for="lname" class="col-form-label">Confirm Password <span class="text-danger">(minimum of 8)</span></label>
                     <input type="password" class="form-control" id="password-confirm" name="password_confirmation"  placeholder="Confirm Password">
                     @error('password')
                     <span class="invalid-feedback" role="alert">
@@ -59,8 +59,15 @@
                         data: info,
                         success: function(data){
                             if(data.success === true) {
-                                $("#status").html('<div class="alert alert-success"><strong> Password Updated Successfully</strong><div>');
-                                $('#changePwdForm').reset();
+                                $.ajax
+                                ({
+                                    type: 'POST',
+                                    url: '/logout',
+                                    success: function()
+                                    {
+                                        location.reload();
+                                    }
+                                });
                             }else{
                                 console.log(data.error);
                                 err = data.error;

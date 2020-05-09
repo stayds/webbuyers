@@ -206,7 +206,7 @@
                                                                     <tr>
                                                                         <td align="left" class="textContent">
                                                                             <div style="font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#828282;text-align:center;line-height:150%;">
-                                                                                Contact Form
+{{--                                                                                Contact Form--}}
                                                                             </div>
                                                                         </td>
                                                                     </tr>
@@ -218,7 +218,7 @@
                                                                         <td align="left" class="textContent">
                                                                             <!-- CONTENT // -->
                                                                             <div style="font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#828282;text-align:center;line-height:120%;">
-                                                                                If you can't see this message <a href="#" target="_blank" style="text-decoration:none;border-bottom:1px solid #828282;color:#828282;"><span style="color:#828282;">View&nbsp;it&nbsp;in&nbsp;your&nbsp;browser</span></a>.
+{{--                                                                                If you can't see this message <a href="#" target="_blank" style="text-decoration:none;border-bottom:1px solid #828282;color:#828282;"><span style="color:#828282;">View&nbsp;it&nbsp;in&nbsp;your&nbsp;browser</span></a>.--}}
                                                                             </div>
                                                                         </td>
                                                                     </tr>
@@ -366,7 +366,7 @@
 
                                                                             <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">
                                                                                 <p>Hello,</p>
-                                                                            <p>This is {{$email->name}},  {{$email->msgcontent}}<br>
+                                                                                <p> {{$email->msgcontent}}</p>
 
                                                                             </div>
                                                                         </td>

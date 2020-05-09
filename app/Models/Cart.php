@@ -33,6 +33,7 @@ class Cart
                 $storeditem = $this->items[$productid];
             }
         }
+
         $storeditem['qty']++;
         $storeditem['price'] = $item->price * $storeditem['qty'];
         $this->items[$productid] = $storeditem;
@@ -47,20 +48,22 @@ class Cart
 
         $storeditem = ['qty' => 0,'discount'=>0,'discountid'=>0, 'price'=>$item->price, 'item'=>$item];
 
-        $productid = (int)$productid;
+        //$productid = $productid;
 
         if($this->items) {
+
             if(array_key_exists($productid, $this->items)) {
                 $qty = $this->items[$productid]['qty'];
                 $price = $this->items[$productid]['price'];
                 unset($this->items[$productid]);
-                $this->items = array_values($this->items);
+                //dd($this->items);
+                //$this->items = array_values($this->items);
                 $this->totalQty -= $qty;
                 $storeditem['qty'] = $this->totalQty;
                 $this->totalPrice -= $price;
                 $storeditem['price'] = $this->totalPrice;
-
             }
+
         }
     }
 

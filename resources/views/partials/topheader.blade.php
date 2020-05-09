@@ -20,7 +20,7 @@
 {{--                                    <li><a href="checkout.html"> Checkout </a></li>--}}
 
                                 @else
-                                    <li><a href="#" class="text-capitalize"> Welcome {{(Auth::user()->name)}}  </a></li>
+                                    <li><span href="#" class="font-weight-bold text-capitalize"> Welcome {{(Auth::user()->name)}}  </span></li>
                                     <li><a href="{{route('home')}}"> Dashboard </a></li>
                                     <li><a href="{{route('wishlist.view')}}">Wish List</a></li>
                                     <li><a href="{{route('logout')}}" onclick="event.preventDefault();

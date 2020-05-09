@@ -1,7 +1,7 @@
 <div class="row shop_wrapper">
   @forelse($products as $list)
 
-        <div class="col-lg-4 col-md-4 col-12 ">
+        <div class="col-lg-3 col-md-3 col-12 ">
              <article class="single_product">
             <figure>
                 <div class="product_thumb">

@@ -15,9 +15,9 @@
         </thead>
         <tbody>
         <?php $count = 0 ?>
-         @forelse($users as $user)
+         @forelse($users as $key=> $user)
             <tr>
-                <td>{{++$count}}</td>
+                <td>{{ $key + $users->firstItem() }}</td>
                 <td class="text-capitalize">{{$user->fname}}</td>
                 <td class="text-capitalize">{{$user->lname}}</td>
                 <td>{{$user->user->phone}}</td>

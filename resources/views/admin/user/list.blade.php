@@ -73,8 +73,8 @@
                                     @endforelse
                                 </tbody>
                             </table>
-
-                            <div style="align-content: center; margin-top: 30px" align="center" class="text-center"> {{ $list->links() }}</div>
+                             <br>
+                             {{ $list->links() }}
                         </div>
                     </div>
                 </div>

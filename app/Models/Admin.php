@@ -3,6 +3,7 @@
 namespace App\Models;
 
 //use Illuminate\Database\Eloquent\Model;
+use App\Notifications\AdminResetNotification;
 use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -23,6 +24,11 @@ class Admin extends Authenticatable
 
     public function adminrole(){
        return $this->hasOne('App\Models\Admin_role','adminid');
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new AdminResetNotification($token));
     }
 
     public function getFormattedDateAttribute()

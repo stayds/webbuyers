@@ -50,7 +50,7 @@
                                                 <form></form>
                                                 <td class="product_remove">
 
-                                                    <form id="{{Crypt::encrypt($list->productid)}}" class="wishremove" name="wishlist" action="{{ route('wishlist.remove',$list->productid) }}" method="POST">
+                                                    <form id="{{Crypt::encrypt($list->productid)}}" class="wishremove" name="wishlist" action="{{ route('wishlist.remove',Crypt::encrypt($list->productid)) }}" method="POST">
                                                         @csrf
                                                         <button style="background: inherit; border: none" class="text-danger" type="submit">X</button>
                                                     </form>

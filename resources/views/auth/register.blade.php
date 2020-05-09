@@ -1,117 +1,116 @@
 @extends('layouts.master')
 
+
 @section('content')
+
+    <!-- customer login start -->
     <div class="customer_login mt-60">
-            <div class="container">
-                <div class="signup-cont">
-
-                    <div class="login-html">
-                        <h3 style="text-transform: uppercase; text-align: center;">{{ __('Sign up to Join') }}</h3>
-                        <form method="POST" action="{{ route('register') }}">
-
-                            <div class="login-form">
-                                @csrf
-                                @if (count($errors) > 0)
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
-                                <input type="hidden" name="usertypeid" value="1">
-                                <input type="hidden" name="regmodeid" value="2">
-
-                                <div class="group">
-                                    <label for="fname" class="col-md-12 col-form-label label">{{ __('First name') }}</label>
-                                    <input id="fname" type="text" class="input @error('fname') is-invalid @enderror" name="fname" value="{{ old('fname') }}" required>
-
-                                    @error('fname')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-
-                                <div class="group">
-                                    <label for="name" class="col-md-12 col-form-label label">{{ __('Last name') }}</label>
-                                    <input id="lname" type="text" class="input @error('lname') is-invalid @enderror" name="lname" value="{{ old('lname') }}" required >
-
-                                    @error('lname')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-
-                                <div class="group">
-                                    <label for="email" class="col-md-12 col-form-label label">{{ __('Email Address') }}</label>
-                                    <input id="email" type="text" class="input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required>
-
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-
-                                <div class="group">
-                                    <label for="phone" class="col-md-12 col-form-label label">{{ __('Phone') }}</label>
-                                    <input id="phone" type="text" class="input @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required >
-
-                                    @error('phone')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                                <div class="group">
-                                    <label for="stateid" class="col-md-12 col-form-label label">{{ __('Location') }}</label>
-                                    <select id="stateid" name="stateid" class="input" required>
-                                        @foreach ($states as $state)
-                                            <option selected value="{{$state->stateid}}">{{$state->statename}}</option>
+        <div class="container">
+            <div class="col-md-5 mx-auto">
+                <div>
+                    <div class="myform form ">
+                        <div class="logo mb-3">
+                            <div class="col-md-12 text-center">
+                                <h1 >Signup</h1>
+                                <div class="stripe-bottom"></div>
+                            </div>
+                        </div>
+                        <form action="{{route('register')}}" method="POST" name="registration">
+                            @csrf
+                            @if (count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
                                         @endforeach
-                                    </select>
-                                    @error('stateid')
+                                    </ul>
+                                </div>
+                            @endif
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">First Name</label>
+                                <input type="text"  name="fname" class="form-control" value="{{ old('fname') }}" required aria-describedby="emailHelp">
+                                @error('fname')
+                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Last Name</label>
+                                <input type="text"  name="lname" class="form-control" value="{{ old('lname') }}" required>
+                                @error('lname')
+                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" name="email" value="{{ old('email') }}" required class="form-control">
+
+                                @error('email')
                                     <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Phone</label>
+                                <input type="text" name="phone" value="{{ old('phone') }}" required class="form-control">
+
+                                @error('phone')
+                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Location</label>
+                                <select id="stateid" name="stateid" class="form-control" required>
+                                    @foreach ($states as $state)
+                                        <option selected value="{{$state->stateid}}">{{$state->statename}}</option>
+                                    @endforeach
+                                </select>
+                                @error('stateid')
+                                <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
-                                    @enderror
-                                </div>
-                                <div class="group">
-                                    <label for="pass" class="col-md-12 col-form-label label">{{ __('Password') }}</label>
-                                    <input id="pass" type="password" data-type="password" class="input @error('password') is-invalid @enderror" name="password" required>
-
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Password <span class="text-danger"> (minimum of 8)</span></label>
+                                <input type="password" name="password" required class="form-control">
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
-                                    @enderror
-                                </div>
-
-                                <div class="group">
-                                    <label for="password-confirm" class="col-md-12 col-form-label label">{{ __('Confirm Password') }}</label>
-                                    <input id="password-confirm" type="password" class="input" data-type="password" name="password_confirmation" required>
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Confirm Password <span class="text-danger"> (minimum of 8)</span></label>
+                                <input type="password" name="password_confirmation" id="password" required  class="form-control" aria-describedby="emailHelp">
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group row mb-0">
-                                    <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-primary">
-                                            {{ __('Register') }}
-                                        </button>
-                                    </div>
+                                @enderror
+                            </div>
+                            <div class="col-md-12 text-center mb-3 mt-4">
+                                <button type="submit" class=" btn btn-block mybtn btn-login tx-tfm btn-lg">Get Started For Free</button>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div class="form-group">
+                                    <p class="text-center"><a href="{{route('login')}}" id="signin">Already have an account?</a></p>
                                 </div>
                             </div>
                         </form>
-                    </div>
                 </div>
             </div>
+        </div>
     </div>
+
+    <!-- customer login end -->
+
+
 
 @endsection

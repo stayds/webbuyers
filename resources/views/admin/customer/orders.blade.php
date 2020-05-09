@@ -21,7 +21,7 @@
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">Bulk Buyers Connect</a></li>
-                                <li class="breadcrumb-item active">Customers</li>
+                                <li class="breadcrumb-item active"><a href="{{route('admin.customer.list')}}"> Customers</a></li>
                             </ol>
                         </div>
                         <h4 class="page-title">Customers</h4>
@@ -40,15 +40,23 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Refresh</a>
+                                <a href="{{route('admin.customer.list')}}" class="dropdown-item">Refresh</a>
                             </div>
                         </div>
 
-                        <h4 class="header-title mt-0 mb-3">All Customers Orders</h4>
-
+                        <h4 class="header-title mt-0 mb-3">Customers Orders</h4>
+                        <div class="row mb-4">
+                            <div class="col-md-9 col-sm-9">
+                                <h4> Customer Name: {{$fullname}}</h4>
+                                <h4>No. of Orders: {{$orderno}}</h4>
+                            </div>
+                            <div class="col-md-3 col-sm-3">
+                                <a href="{{route('admin.customer.list')}}" class="btn btn-primary float-right"><i class="fa fa-arrow-left"></i> Back to Customer List</a>
+                            </div>
+                        </div>
 
                         <div class="table-responsive">
-                           
+
                             <div id="prints">
                                 <table class="table table-hover mb-0">
                                     @if($userorders)
@@ -65,10 +73,10 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @forelse($userorders as $list)
+                                        @forelse($userorders as $key => $list)
 
                                             <tr>
-                                                <td>{{ ++$count }}</td>
+                                                <td>{{ $key + $userorders->firstItem() }}</td>
                                                 <td><a href="{{ route('list.orders.details', ['id'=>$list->orderid]) }}"> {{$list->orderrefno }}</a></td>
                                                 <td>&#8358;{{number_format($list->totalcost)}}</td>
                                                 <td>{{ $list->qty }}</td>

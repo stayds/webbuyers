@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         if (Auth::check()){
-            View::composer(['partials.mainnav','home.home','layouts.master','partials.topmenu','partials.searchheader'], "App\Http\View\Composers\WishlistComposer");
+            View::composer(['customer.*','products.*','partials*','home.home','layouts.master','partials.topmenu','partials.searchheader'], "App\Http\View\Composers\WishlistComposer");
 
         }
 

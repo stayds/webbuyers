@@ -58,14 +58,15 @@
 
     <script>
 
-
         $( function () {
             $('#myTable').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: '{!! route('list.orders.recent') !!}',
                 columns: [
+
                     { data: "checkbox", orderable:false, searchable:false, target:0, className: 'select-checkbox'},
+                    {data: 'DT_RowIndex', name: 'orderid'},
                     { data: 'orderrefno', name: 'orderrefno' },
                     { data: 'totalcost', name: 'totalcost' },
                     { data: 'created_at', name: 'created_at' },
