@@ -88,9 +88,10 @@ class ProductController extends Controller
         $products = $cart->items;
         $totalprice = $cart->totalPrice;
         $discount = $oldcart->discount;
+        $discountid = $oldcart->discountid;
         //dd($cart->items);
 
-        return view('products.viewcart', compact('products','totalprice','discount'));
+        return view('products.viewcart', compact('products','totalprice','discount','discountid'));
     }
 
     public function removeCart(Request $request, $productid){
@@ -149,6 +150,20 @@ class ProductController extends Controller
 
         }
 
+
+    }
+
+    public function discountOut(Request $request){
+
+            $oldcart = $request->session()->get('cart');
+
+            $cart = new Cart($oldcart);
+
+            $cart->removediscount();
+
+            $request->session()->put('cart', $cart);
+
+            return response()->json(['success'=>true]);
 
     }
 

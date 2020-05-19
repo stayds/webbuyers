@@ -3,7 +3,7 @@
 
     Auth::routes(['verify'=> true]);
 
-    Route::get('/', 'LandingController@index');
+    Route::get('/', 'LandingController@index')->name('home');
     Route::get('/contact', 'LandingController@getContact')->name('home.contact');
     Route::post('/contact/post', 'LandingController@postContact')->name('home.contact.post');
     Route::get('/about', 'LandingController@getAbout')->name('home.about');
@@ -31,6 +31,7 @@
         Route::get('/remove/{productid}/cart','Customer\ProductController@removeCart')->name('product.remove.cart');
         Route::get('/update/{productid}/cart','Customer\ProductController@updateCart')->name('product.update.cart');
         Route::get('/update/cart','Customer\ProductController@discount')->name('product.discount.cart');
+        Route::get('/remove/discount','Customer\ProductController@discountOut')->name('product.discount.out');
 
     });
 
@@ -72,6 +73,7 @@
         Route::group(['prefix'=>'customer'], function (){
 
             Route::get('/list','Admin\CustomerController@index')->name('admin.customer.list');
+            Route::get('/list/pdf','Admin\CustomerController@exportPdf')->name('admin.customer.export');
             Route::get('/orders/{orderid}','Admin\CustomerController@show')->name('admin.customer.order');
             Route::get('/disable/{orderid}','Admin\CustomerController@destroy')->name('admin.customer.disable');
             Route::get('/enable/{orderid}','Admin\CustomerController@enable')->name('admin.customer.enable');
@@ -103,7 +105,9 @@
             Route::get('/processing', 'Admin\OrderController@Processorders')->name('list.orders.processing');
             Route::get('/ready', 'Admin\OrderController@Readytodeliver')->name('list.orders.ready');
             Route::get('/delivery/{orderid}/note', 'Admin\OrderController@Deliverynote')->name('list.orders.delivery.note');
+            Route::get('/delivery/{orderid}/note/pdf', 'Admin\OrderController@Deliverynotepdf')->name('list.orders.delivery.note.pdf');
             Route::get('/procure/list', 'Admin\OrderController@Procure')->name('procure.list');
+            Route::get('/procure/list/pdf/{start}/{end}', 'Admin\OrderController@Procurepdf')->name('procure.list.pdf');
 
         });
         //Product routes

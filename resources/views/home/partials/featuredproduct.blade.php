@@ -24,7 +24,7 @@
                                 <span class="current_price">&#8358;{{number_format($list->price)}}</span>
                             </div>
                             <h3 class="product_name"><a href="{{url('product/details',Crypt::encrypt($list->productid))}}">{{$list->productname}}</a></h3>
-                            <small class="text-muted">{{$list->description}}</small>
+                            <small class="text-muted" style="white-space: nowrap; overflow: hidden;text-overflow: ellipsis;">{{$list->description}}</small>
                             @include('products.addtocart')
                         </figcaption>
                     </figure>

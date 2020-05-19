@@ -105,7 +105,6 @@ class CustomerController extends Controller
             $orderstate = $this->addtodb($user);
         }
 
-
         //remove cart from the session
         $request->session()->forget('cart');
 

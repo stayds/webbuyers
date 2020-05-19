@@ -26,7 +26,7 @@ class OrderController extends Controller
 
         $orders = Order::where(['orderstatid'=>2, 'ispaid'=>1])
                         ->with(['user','orderstatus'])
-                        ->orderBy('created_at','DESC')
+                        ->orderBy('updated_at','DESC')
 
                         ->get();
 
@@ -36,7 +36,7 @@ class OrderController extends Controller
                 ->editColumn('orderstatid', function ($orders) {
                     return $orders->orderstatus->ordstatname;
                 })
-                ->editColumn('created_at', function ($orders) {
+                ->editColumn('updated_at', function ($orders) {
                     return $orders->getFormattedDateAttribute();
                 })
                 ->addColumn('orderby', function ($orders) {
@@ -61,7 +61,7 @@ class OrderController extends Controller
 
         $orders = Order::where('orderstatid',3)
             ->with(['user','orderstatus'])
-            ->orderBy('created_at','DESC')
+            ->orderBy('updated_at','DESC')
             ->get();
 
 
@@ -70,7 +70,7 @@ class OrderController extends Controller
                 ->editColumn('orderstatid', function ($orders) {
                     return $orders->orderstatus->ordstatname;
                 })
-                ->editColumn('created_at', function ($orders) {
+                ->editColumn('updated_at', function ($orders) {
                     return $orders->getFormattedDateAttribute();
                 })
                 ->addColumn('orderby', function ($orders) {
@@ -90,7 +90,7 @@ class OrderController extends Controller
 
         $orders = Order::where('orderstatid',4)
             ->with(['user','orderstatus'])
-            ->orderBy('created_at','DESC')
+            ->orderBy('updated_at','DESC')
             ->get();
 
         if ($request->ajax()) {
@@ -98,7 +98,7 @@ class OrderController extends Controller
                 ->editColumn('orderstatid', function ($orders) {
                     return $orders->orderstatus->ordstatname;
                 })
-                ->editColumn('created_at', function ($orders) {
+                ->editColumn('updated_at', function ($orders) {
                     return $orders->getFormattedDateAttribute();
                 })
                 ->addColumn('orderby', function ($orders) {
@@ -119,14 +119,14 @@ class OrderController extends Controller
 
         $orders = Order::where('orderstatid',1)
                         ->with(['user','orderstatus'])
-                        ->orderBy('created_at','DESC')->get();
+                        ->orderBy('updated_at','DESC')->get();
 
         if ($request->ajax()) {
             return Datatables::of($orders)
                 ->editColumn('orderstatid', function ($orders) {
                     return $orders->orderstatus->ordstatname;
                 })
-                ->editColumn('created_at', function ($orders) {
+                ->editColumn('updated_at', function ($orders) {
                     return $orders->getFormattedDateAttribute();
                 })
                 ->addColumn('orderby', function ($orders) {
@@ -142,13 +142,17 @@ class OrderController extends Controller
     }
 
     public function Deliverynote($orderid){
-
         $order = Order::with('user.billingaddress')->where('orderid',$orderid)->first();
-        $details = Orderdetail::with('product')
-                                ->where('orderid',$orderid)
-                                ->paginate(15);
-
+        $details = $this->delinote($orderid);
         return view('admin.order.deliverinote', compact('details','order'));
+    }
+
+    public function Deliverynotepdf($orderid){
+        $order = Order::with('user.billingaddress')->where('orderid',$orderid)->first();
+        $details = $this->delinote($orderid);
+
+        $pdf = \PDF::loadView('admin.order.deliverynotepdf',compact('details','order'));
+        return $pdf->download('Delivernote'.$order->orderrefno.'.pdf');
     }
 
     public function Details($id){
@@ -216,19 +220,11 @@ class OrderController extends Controller
             try {
                 $rawstart = $this->request->start;
                 $rawend = $this->request->end;
-             $start = new Carbon($rawstart);
-             $end = new Carbon($rawend);
 
-             $procure = Orderdetail::selectRaw('productid, SUM(quantity) as quantity,orderid')
-                 ->whereBetween('created_at', [$start->toDateString(),$end->toDateString()])
-                 ->with(['order'=>function($query){
-                     $query->select('orderid')->where('ispaid',1)->get();
-                 },'product:productid,productname,description'])
-                 ->groupBy('productid')
-                 ->get();
+                $procure = $this->procode($rawstart, $rawend);
 
-             return view('admin.order.partials.procure', compact('procure','rawstart','rawend'))->with(['success'=> true]);
-         }
+                return view('admin.order.partials.procure', compact('procure','rawstart','rawend'))->with(['success'=> true]);
+            }
             catch (\Exception $e) {
 
             }
@@ -237,5 +233,34 @@ class OrderController extends Controller
         return view('admin.order.procurelist');
     }
 
+    public function procurePdf(Request $request){
+        $rawstart = $this->request->start;
+        $rawend = $this->request->end;
+        $procure = $this->procode($rawstart, $rawend);
+
+        //view()->share('usere',$usere);
+
+        $pdf = \PDF::loadView('admin.order.procurepdf',compact('procure','rawend', 'rawstart'));
+        //dd($pdf);
+        return $pdf->download('Procument-list.pdf');
+    }
+
+    private function procode($rawstart, $rawend){
+        $start = new Carbon($rawstart);
+        $end = new Carbon($rawend);
+        return Orderdetail::selectRaw('productid, SUM(quantity) as quantity,orderid')
+            ->whereBetween('updated_at', [$start->toDateString(),$end->toDateString()])
+            ->with(['order'=>function($query){
+                $query->select('orderid')->where('ispaid',1)->get();
+            },'product:productid,productname,description'])
+            ->groupBy('productid')
+            ->get();
+    }
+
+    private function delinote($orderid){
+        return Orderdetail::with('product')
+            ->where('orderid',$orderid)
+            ->paginate(15);
+    }
 
 }

@@ -1,5 +1,5 @@
 
-    <form action="{{route('procure.list')}}" id="formfilter" class="mt-3">
+    <form action="{{route('procure.list')}}" id="formfilter" class="mt-3 no-print">
         <div class="row">
             <div class="col-12" id="errmsg"></div>
             <div class="col-10">

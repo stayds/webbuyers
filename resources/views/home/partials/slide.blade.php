@@ -8,7 +8,7 @@
                         <div class="slider_content text-white">
                             <h1> Great price</h1>
                             <h2>Fresh Meat & Chicken</h2>
-                            <p>exclusive offer <span> 20% off </span> this week</p>
+                            <p>exclusive offer <span>  </span> this week</p>
                             <a class="button" href="{{url('product/list')}}">shop now</a>
                         </div>
                     </div>
@@ -23,8 +23,8 @@
                         <div class="slider_content text-white">
                             <h1>Farm-fresh</h1>
                             <h2>Carefully packaged</h2>
-                            <p>exclusive offer <span> 20% off </span> this week</p>
-                            <a class="button" href="{{url('product/list')}}">shopping now</a>
+                            <p>exclusive offer <span>  </span> this week</p>
+                            <a class="button" href="{{url('product/list')}}">shop now</a>
                         </div>
                     </div>
                 </div>
@@ -37,8 +37,8 @@
                         <div class="slider_content text-white">
                             <h1>Hurry Up!</h1>
                             <h2>Quality & Fresh produce</h2>
-                            <p>exclusive offer <span> 20% off </span> this week</p>
-                            <a class="button" href="{{url('product/list')}}">shopping now</a>
+                            <p>exclusive offer <span>  </span> this week</p>
+                            <a class="button" href="{{url('product/list')}}">shop now</a>
                         </div>
                     </div>
                 </div>

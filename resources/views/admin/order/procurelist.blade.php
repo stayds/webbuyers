@@ -31,7 +31,7 @@
                         </div> -->
 
                         @include('admin.order.partials.prosearch')
-                        <div class="panel-body">
+                        <div class="panel-body" id="printthis">
                             <div class="row">
 
                                 <div class="col-md-12 mt-5" id="procure">
@@ -124,19 +124,7 @@
 
 
             });
-            $('#genp').load(function(){
-                $('#genp').on('click',function(e){
-                    alert('hello');
-                    e.preventDefault();
-                    $('#prolist').printThis({
-                        importCSS: true,
-                        importStyle: true,
-                        loadCSS: false,
-                        pageTitle: "<h1>List of Orders</h1>",
-                    });
 
-                })
-            })
 
 
         });

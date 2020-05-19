@@ -427,7 +427,7 @@
                                                     Discount
                                                 </td>
                                                 <td class="alignright" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top" align="right">
-                                                    &#8358; {{$list->discount}}
+                                                    &#8358; {{$order->discount}}
                                                 </td>
                                             </tr>
                                             <tr class="total" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">

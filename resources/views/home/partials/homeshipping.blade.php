@@ -15,7 +15,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="single_shipping">
                     <div class="shipping_icone">
-                        <img src="{{asset('assets/img/about/shipping6.png')}}" alt="">
+                        <img src="{{asset('assets/img/shipping2.png')}}" alt="">
                     </div>
                     <div class="shipping_content">
                         <h2>Support 24/7</h2>

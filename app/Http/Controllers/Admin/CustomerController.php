@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Userprofile;
 use Illuminate\Http\Request;
 
+
 class CustomerController extends Controller
 {
 
@@ -64,11 +65,24 @@ class CustomerController extends Controller
                     ->orderby('created_at','DESC')->paginate($value);
                 return view('admin.customer.custtable',compact('users'));
             }
+
         }
 
         return view('admin.customer.index',compact('users'));
     }
 
+    public function exportPdf(){
+
+        $usere = Userprofile::with(['user:userid,email,phone',
+            'state:stateid,statename'])
+            ->orderby('created_at','DESC')
+            ->get();
+        view()->share('usere',$usere);
+
+        $pdf = \PDF::loadView('admin.customer.exportpdf');
+        //dd($pdf);
+        return $pdf->download('customer-list.pdf');
+    }
 
     public function create()
     {
@@ -85,7 +99,7 @@ class CustomerController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        $orderquery = Order::where('userid', $user->userid);
+        $orderquery = Order::where(['userid'=> $user->userid, 'ispaid'=>1]);
         $orderno = $orderquery->count();
         $userorders = $orderquery->paginate(10);
         $fullname = $user->userprofile->fullname();

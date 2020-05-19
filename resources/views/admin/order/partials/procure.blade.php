@@ -4,13 +4,15 @@
             <h2>Procurement List</h2>
             <h3 class="font-weight-light">Duration: [{{$rawstart}} - {{$rawend}}]</h3>
         </div>
-        <div class="d-print-none">
+      @if($procure->count() > 0)
+        <div class="d-print-none no-print">
             <div class="float-right">
-                <button id="genp" type="button" class="btn btn-dark waves-effect waves-light btn-lg mr-2"><i class="fa fa-print"></i> PRINT</button>
-                <a href="#" class="btn btn-primary waves-effect waves-light btn-lg">PDF</a>
+                <button onclick={window.print()} type="button" class="btn btn-dark waves-effect waves-light btn-lg mr-2"><i class="fa fa-print"></i> PRINT</button>
+                <a href="{{route('procure.list.pdf',['start'=>$rawstart,'end'=>$rawend])}}" class="btn btn-primary waves-effect waves-light btn-lg">PDF</a>
             </div>
             <div class="clearfix"></div>
         </div>
+          @endif
     </div>
 
 <div class="table-responsive">

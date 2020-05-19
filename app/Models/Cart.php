@@ -114,4 +114,9 @@ class Cart
 
     }
 
+    public function removediscount(){
+        $this->discount = 0;
+        $this->discountid = 0;
+    }
+
 }

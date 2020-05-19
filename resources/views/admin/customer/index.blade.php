@@ -48,7 +48,7 @@
                         @include('admin.customer.search')
                         <div style=""></div>
                         <div class="btn btn-danger btn-sm" style="margin:0 10px 15px 0;" id="csv">CSV Export</div>
-{{--                        <div class="btn btn-danger btn-sm" style="margin-bottom:15px" id="pdf" >PDF Export</div><br>--}}
+                        <a class="btn btn-danger btn-sm" href="{{route('admin.customer.export')}}" style="margin-bottom:15px" >PDF Export</a><br>
                         <div id="custtable">
                             @include('admin.customer.custtable')
                         </div>
@@ -154,15 +154,18 @@
             //     updatePending(route, id)
 
             $('#pdf').click(function(e){
-                $("#pdf").click(function() {
-                    const doc = new jsPDF()
-                    doc.autoTable({ html: '#customer' })
-                    doc.save('table.pdf')
-                });
-                // $("table").tableHTMLExport({
-                //     type:'pdf',
-                //     orientation:'p'
-                // });
+                //let page = $(this).val();
+                let url = $(this).attr('data-href');
+
+                $.ajax({
+                    url:url,
+                    method:'GET',
+                    success: function(dat){
+                        //let contents = $('#custtable');
+                        //contents.html(dat);
+                        console.log(dat);
+                    }
+                })
             });
 
             $('#csv').click(function(e){

@@ -108,13 +108,7 @@
                                 </div>
                             </div>
                             <hr>
-                            <div class="d-print-none">
-                                <div class="float-right">
-                                    <a href="javascript:window.print()" class="btn btn-dark waves-effect waves-light btn-lg mr-2"><i class="fa fa-print"></i> PRINT</a>
-                                    <a href="{{route('list.orders.delivery.note.pdf',['orderid'=>$order->orderid])}}" class="btn btn-primary waves-effect waves-light btn-lg">PDF</a>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
+
                         </div>
                     </div>
 

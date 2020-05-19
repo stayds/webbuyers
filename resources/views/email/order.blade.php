@@ -354,7 +354,7 @@
 {{--                                        Bulk Buyers Connect--}}Dear {{$name}},
                                         <br style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">Your order with Reference No:
                                         {{$order->orderrefno}} has been received and is being processed, you will receive a further notification from our team when your order is ready for delivery.
-                                        <br style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">{{ $order->created_at }}
+                                        <br style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">{{ $order->getFormattedDateAttribute() }}
 
 
                                     </td>
@@ -378,7 +378,7 @@
                                                     Discount
                                                 </td>
                                                 <td class="alignright" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top" align="right">
-                                                    &#8358; {{$list->discount}}
+                                                    &#8358; {{$order->discount}}
                                                 </td>
                                             </tr>
                                             <tr class="total" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">

@@ -5155,3 +5155,8 @@ div.hopscotch-bubble .hopscotch-content {
 .alert ul{
     list-style: none !important;
 }
+@media print {
+    .no-print{
+        display: none !important;
+    }
+}

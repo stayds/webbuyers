@@ -55,6 +55,7 @@ class OrderController extends Controller
 
         $data = [];
         $a = 0;
+
         foreach($request->products as $list){
             $data[$a]['productid'] = $list['productid'];
             $data[$a]['temporderid'] = $order->id;

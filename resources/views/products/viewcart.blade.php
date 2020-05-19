@@ -95,7 +95,9 @@
                                     </div>
                                     @if($discount)
                                     <div class="cart_subtotal ">
-                                        <p>Discount</p>
+                                        <p>
+                                            <span><a id="redis" data-href="{{route('product.discount.out')}}" style="background: inherit; border: none; display: inline" class="text-danger">X</a></span>
+                                            <span>Discount</span></p>
                                         <p class="cart_amount"><span>{{$discount}}%</span> &#8358;{{number_format(($discount*$totalprice)/100)}}</p>
                                     </div>
                                     @endif
@@ -209,6 +211,31 @@
                     dataType : "json"
                 })
             });
+
+            $('#redis').click(function(evt){
+                evt.preventDefault();
+                url = $(this).attr('data-href');
+                $.ajax({
+                    type: "GET",
+                    url:url,
+                    success: function(data){
+                        if(data.success === true){
+                            location.reload();
+
+                        }else{
+                            Swal.fire(
+                                'Sorry!',
+                                'This code has been used!',
+                                'error'
+                            )
+                        }
+                    },
+                    error: function(data) {
+
+                    },
+                    dataType : "json"
+                })
+            })
 
         });
 

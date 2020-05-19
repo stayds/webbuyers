@@ -84,7 +84,7 @@
                     {data: 'DT_RowIndex', name: 'orderid'},
                     { data: 'orderrefno', name: 'orderrefno' },
                     { data: 'totalcost', name: 'totalcost' },
-                    { data: 'created_at', name: 'created_at' },
+                    { data: 'updated_at', name: 'updated_at' },
                     { data: 'orderstatid', name: 'orderstatid' },
                     { data: 'orderby', name: 'orderby' },
 
