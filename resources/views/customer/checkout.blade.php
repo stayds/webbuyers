@@ -24,11 +24,14 @@
 
             <div class="checkout_form">
                 <form action="{{route('pay')}}" method="POST">
-                    <input type="hidden" name="email" value="admin@bulkbuyersconnect.com"> {{-- required --}}
+                    <input type="hidden" name="email" value="{{$user->email}}"> {{-- required --}}
+                    <input type="hidden" name="first_name" value="{{$user->userprofile->fname}}"> {{-- required --}}
+                    <input type="hidden" name="last_name" value="{{$user->userprofile->lname}}"> {{-- required --}}
                     <input type="hidden" name="orderID" value="{{$myorders->orderid}}">
                     <input type="hidden" name="amount" value="{{($myorders->totalcost * 100)}}"> {{-- required in kobo --}}
                     <input type="hidden" name="quantity" value="{{$myorders->qty}}">
-                    <input type="hidden" name="metadata" value="{{ json_encode($array = ['customerid' => $user->userid, 'orderid'=>$myorders->orderid]) }}" > {{-- For other necessary things you want to add to your payload. it is optional though --}}
+                    <input type="hidden" name="metadata" value="{{ json_encode($array = ['customerid' => $user->userid,'first_name'=>$user->userprofile->fname,'last_name'=>$user->userprofile->lname, 'orderid'=>$myorders->orderid]) }}" > {{-- For other necessary things you want to add to your payload. it is optional though --}}
+                    <input type="hidden" name="customer" value="{{ json_encode($array = ['first_name'=>$user->userprofile->fname,'last_name'=>$user->userprofile->lname]) }}" > {{-- For other necessary things you want to add to your payload. it is optional though --}}
                     <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> {{-- required --}}
                     <input type="hidden" name="key" value="{{ config('paystack.secretKey') }}"> {{-- required --}}
                     <div class="row">
@@ -106,7 +109,7 @@
                                 <div class="order_button">
                                     <button type="submit" class="btn-block">Proceed to payment</button>
                                 </div>
-                                <p class="mt-4 text-center"><img src="assets/img/icon/payment2.png"></p>
+                                <p class="mt-4 text-center"><img src="{{asset('assets/img/icon/payment2.png')}}"></p>
                             </div>
                         </div>
 

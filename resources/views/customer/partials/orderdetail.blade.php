@@ -5,20 +5,22 @@
         <tr>
             <th>S/N</th>
             <th>Product</th>
+            <th>Description</th>
             <th>Qty</th>
             <th>Unit Price (&#8358;)</th>
             <th>Total Price (&#8358;)</th>
         </tr>
         </thead>
         <tbody>
-        <?php $count = 0 ?>
-        @forelse($details as $list)
+
+        @forelse($details as $key => $list)
             <tr>
-                <td>{{++$count}}</td>
+                <td>{{ $key + $details->firstItem() }}</td>
                 <td class="text-capitalize">
                     <span class="success">{{$list->product->productname}}
                     </span>
                 </td>
+                <td class="text-capitalize">{{$list->product->description}} </td>
                 <td class="text-capitalize">{{$list->quantity}} </td>
                 <td>{{number_format($list->unitprice)}} </td>
                 <td>{{number_format($list->totalprice)}} </td>

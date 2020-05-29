@@ -63,7 +63,7 @@
                                 <div class="col-md-12">
                                     <div class="table-responsive">
                                         <table class="table mt-4">
-                                            <?php $count = 0; ?>
+                                            <?php $count = 0; $sum = 0;?>
                                             <thead>
                                             <tr><th>#</th>
                                                 <th>Item</th>
@@ -81,6 +81,7 @@
                                                     <td>{{$list->quantity}}</td>
                                                     <td>{{number_format($list->unitprice)}}</td>
                                                     <td>{{number_format($list->totalprice)}}</td>
+                                                    {{ $sum  = $sum + $list->totalprice }}
                                                 </tr>
                                             @endforeach
                                             </tbody>
@@ -100,7 +101,8 @@
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-6 offset-xl-3">
-                                    <p class="text-right"><b>Sub-total:</b> &#8358;{{number_format($order->totalcost)}}</p>
+                                    <p class="text-right"><b>Sub-total:</b> &#8358;{{number_format($sum)}}</p>
+                                    <p class="text-right" style="margin-right:13px"><b>Discount:</b> &#8358;{{number_format($order->discount)}}</p>
                                     <!--<p class="text-right">Discout: 9%</p>
                                     <p class="text-right">VAT: 7.5%</p>-->
                                     <hr>

@@ -68,7 +68,7 @@ class ProductController extends Controller
         $cart->addItem($product,$productid);
 
         $request->session()->put('cart', $cart);
-
+        //return response()->json(['message'=>'product added to cart', 'success'=>true], 200);
         return redirect()->back();
     }
 
@@ -132,7 +132,9 @@ class ProductController extends Controller
 
         if($discheck){
 
-            $disorder = Discountorder::where(['userid'=> $user->userid,'discountid'=>$discheck->id])->first();
+            $disorder = Discountorder::where(['userid'=> $user->userid,'discountid'=>$discheck->id])
+                        ->where('used','>=',$discheck->use)
+                        ->first();
 
             if($disorder){
                 return response()->json(['error'=>true]);

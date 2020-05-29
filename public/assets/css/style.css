@@ -10293,4 +10293,15 @@ img.count {
     margin-top: -15px;
     margin-bottom: 10px;
 }
-
+.align-items-center p{
+    font-size: 16px;
+}
+.btn-login{
+   font-size: 1.15em;
+    padding: 5px;
+}
+@media only screen and (max-width: 320px) {
+    .btn-login{
+        font-size: 0.9em;
+    }
+}

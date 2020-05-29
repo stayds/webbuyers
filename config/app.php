@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Bulk Buyer'),
+    'name' => env('APP_NAME', 'Bulk Buyers Connect'),
 
     /*
     |--------------------------------------------------------------------------
@@ -179,6 +179,7 @@ return [
         L5Swagger\L5SwaggerServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        //Barryvdh\Snappy\ServiceProvider::class,
     ],
 
     /*
@@ -232,6 +233,8 @@ return [
         'Paystack' => Unicodeveloper\Paystack\Facades\Paystack::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        //'PDFx' => Barryvdh\Snappy\Facades\SnappyPdf::class,
+         //'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
 
     ],
 

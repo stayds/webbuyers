@@ -52,7 +52,9 @@ class ProductController extends Controller
 
         if($discheck){
 
-            $disorder = Discountorder::where(['userid'=> $user->userid,'discountid'=>$discheck->id])->first();
+            $disorder = Discountorder::where(['userid'=> $user->userid,'discountid'=>$discheck->id])
+                ->where('used','>=',$discheck->use)
+                ->first();
 
             if($disorder){
                 return response()->json('Discount Code has already been used by you', 203);

@@ -8,7 +8,7 @@
     <meta content="" />
     <meta content="Coderthemes" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta http-equiv="refresh" content="5; {{ route('get.login') }}" />
+{{--    <meta http-equiv="refresh" content="5; {{ route('get.login') }}" />--}}
     <!-- App favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/img/logo/favicon.ico')}}">
 

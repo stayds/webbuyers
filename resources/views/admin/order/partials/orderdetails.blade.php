@@ -42,9 +42,10 @@
                                 <h4> Date: {{$order->getFormattedDateAttribute()}}</h4>
                             </div>
                             <div class="col-md-5 col-sm-5">
-
+                                @if(!$page)
                                 <a href="{{route('list.orders.delivery.note', $order->orderid)}}" style="margin-right: 20px;" class="btn btn-bordred-success" target="_blank"> <i class="fa fa-print"></i> Print Delivery Note</a>
                                 <a href="{{route('admin.customer.order',$order->userid)}}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Back to Customer Order</a>
+                                @endif
                             </div>
                         </div>
                         <div class="table-responsive">
@@ -54,6 +55,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Product</th>
+                                        <th>Description</th>
                                         <th>Quantity</th>
                                         <th>Unit Price #</th>
                                         <th>Total Price #</th>
@@ -65,6 +67,7 @@
                                         <tr>
                                             <td>{{ $key + $details->firstItem() }}</td>
                                             <td class="text-capitalize">{{ $list->product->productname }}</td>
+                                            <td>{{$list->product->description}}</td>
                                             <td>{{$list->quantity}}</td>
                                             <td>{{$list->unitprice}}</td>
                                             <td>{{$list->totalprice}}</td>
@@ -72,7 +75,15 @@
                                         </tr>
                                     @endforeach
                                     <tr>
-                                        <td colspan="4" class="text-right">
+                                        <td colspan="5" class="text-right">
+                                            <h4>Discount</h4>
+                                        </td>
+                                        <td>
+                                            <h4> &#8358;{{$order->discount}}</h4>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5" class="text-right">
                                             <h4>Total Cost</h4>
                                         </td>
                                         <td>

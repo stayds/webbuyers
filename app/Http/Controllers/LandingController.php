@@ -53,8 +53,8 @@ class LandingController extends Controller
         if ($validate->fails()) {
             return redirect()->back()->withErrors($validate);
          }
-        //$mail = 'contact@bulkbuyersconnect.com';
-        $mail = 'info@bulkbuyersconnect.com';
+        $mail = 'contact@bulkbuyersconnect.com';
+        //$mail = 'info@bulkbuyersconnect.com';
         \Mail::to($mail)->send(new Contact($request));
 
         return redirect()->back()->withSuccess('Information Successfully sent');
@@ -70,6 +70,18 @@ class LandingController extends Controller
 
     public function getFaq(){
         return view('home.faq');
+    }
+
+    public function getPrivacy(){
+        return view('home.privacy');
+    }
+
+    public function getDelivery(){
+        return view('home.deliveryinfo');
+    }
+
+    public function getTerms(){
+        return view('home.terms');
     }
 
 }

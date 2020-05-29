@@ -36,7 +36,7 @@
                         <ul>
                             <li><i class="fa fa-home"></i>   No 7 Parakou Crescent, Wuse 2, FCT - Abuja</li>
                             <li><i class="fa fa-home"></i>   215 Konoko Crescent, Wuse 2, FCT - Abuja</li>
-                            <li><i class="fa fa-envelope-o"></i> <a href="mailto:info@bulkbuyersconnect.com">info@bulkbuyersconnect.com</a></li>
+                            <li><i class="fa fa-envelope-o"></i> <a href="mailto:contact@bulkbuyersconnect.com">contact@bulkbuyersconnect.com</a></li>
                             <li><i class="fa fa-phone"></i> 0809 975 5559</li>
                         </ul>
                     </div>

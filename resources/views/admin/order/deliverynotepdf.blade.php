@@ -1,22 +1,30 @@
-@extends('admin.layout.plain')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('bulk')
+<head>
+    <title>Delivery note </title>
+    <link rel="stylesheet" href="http://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    <style>
 
+    </style>
+
+</head>
+
+<body>
     <div class="wrapper-tp">
         <div class="container-fluid">
 
             <!-- start page title -->
             <div class="row">
                 <div class="col-12">
-                    <div class="page-title-box">
-                        <div class="page-title-right">
-                            <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Bulk Buyers Connect</a></li>
-                                <li class="breadcrumb-item active">Deliverd Orders</li>
-                            </ol>
-                        </div>
-                        <h4 class="page-title">Delivery Note</h4>
-                    </div>
+{{--                    <div class="page-title-box">--}}
+{{--                        <div class="page-title-right">--}}
+{{--                            <ol class="breadcrumb m-0">--}}
+{{--                                <li class="breadcrumb-item"><a href="javascript: void(0);">Bulk Buyers Connect</a></li>--}}
+{{--                                <li class="breadcrumb-item active">Deliverd Orders</li>--}}
+{{--                            </ol>--}}
+{{--                        </div>--}}
+{{--                        <h4 class="page-title">Delivery Note</h4>--}}
+{{--                    </div>--}}
                 </div>
             </div>
             <!-- end page title -->
@@ -63,7 +71,7 @@
                                 <div class="col-md-12">
                                     <div class="table-responsive">
                                         <table class="table mt-4">
-                                            <?php $count = 0; ?>
+                                            <?php $count = 0; $sum = 0; ?>
                                             <thead>
                                             <tr><th>#</th>
                                                 <th>Item</th>
@@ -81,6 +89,7 @@
                                                     <td>{{$list->quantity}}</td>
                                                     <td>{{number_format($list->unitprice)}}</td>
                                                     <td>{{number_format($list->totalprice)}}</td>
+                                                    {{$sum = $sum + $list->totalprice}}
                                                 </tr>
                                             @endforeach
                                             </tbody>
@@ -100,7 +109,9 @@
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-6 offset-xl-3">
-                                    <p class="text-right"><b>Sub-total:</b> &#8358;{{number_format($order->totalcost)}}</p>
+                                    <p class="text-right"><b>Sub-total:</b> &#8358;{{number_format($sum)}}</p>
+                                    <p class="text-right" style="margin-right:13px"><b>Discount:</b> &#8358;{{number_format($order->discount)}}</p>
+
                                     <!--<p class="text-right">Discout: 9%</p>
                                     <p class="text-right">VAT: 7.5%</p>-->
                                     <hr>
@@ -141,4 +152,5 @@
         </div>
     </footer>
 
-@endsection
+</body>
+</html>

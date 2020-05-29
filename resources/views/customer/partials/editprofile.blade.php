@@ -79,18 +79,14 @@
                 method:'POST',
                 data: form.serialize(),
                 success: function(data){
-                    console.log(data);
-                    if(data.success === true) {
-                        $('body#content').html(data);
-                    }else{
-                        console.log(data.error);
-                        err = data.error;
-                        state = $("#edit").html('');
-                        $.each(err, function(index, value)
-                        {
-                            state.append('<div class="alert alert-danger"><strong>'+ value +'</strong><div>');
-                        });
-                    }
+                    location.reload()
+                },
+                error: function(data){
+                    state = $("#edit").html('');
+                    $.each(data, function(index, value)
+                    {
+                        state.append('<div class="alert alert-danger"><strong>'+ value +'</strong><div>');
+                    });
                 }
             })
         })

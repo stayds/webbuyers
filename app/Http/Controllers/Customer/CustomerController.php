@@ -8,6 +8,7 @@ use App\Models\Cart;
 use App\Http\Controllers\Controller;
 use App\Models\Discount;
 use App\Models\Discountorder;
+use App\Models\Discountordhistory;
 use App\Models\Order;
 use App\Models\Orderdetail;
 use App\Models\State;
@@ -47,7 +48,7 @@ class CustomerController extends Controller
     public function edit()
     {
         $user = $this->getUser();
-        $states = State::all();
+        $states = State::where('stateid',2)->get();
         $billing = Billingaddress::where('userid',$user->userid)->first();
 
         if($billing){
@@ -87,7 +88,9 @@ class CustomerController extends Controller
 
         $profile->save();
 
-        return $this->edit()->with(['success'=> true]);
+        //return $this->edit()->with(['success'=> true]);
+        //return response()->json(['success'=> true]);
+        return redirect()->back();
     }
 
 
@@ -112,7 +115,7 @@ class CustomerController extends Controller
             $myorders = $orderstate;
             $mydetails = Orderdetail::where('orderid',$orderstate->orderid)->get();
 
-            \Mail::to($user)->send(new UserOrder($orderstate,$mydetails,$user));
+            //\Mail::to($user)->send(new UserOrder($orderstate,$mydetails,$user));
 
             $states = State::where('stateid',2)->get();
             return view('customer.checkout', compact('user','myorders','states','mydetails'));
@@ -203,15 +206,29 @@ class CustomerController extends Controller
         $details = new Orderdetail();
         $details->insert($data);
 
-
-
         if($cart->discountid > 0){
-            $discheck = new Discountorder();
-            $discheck->discountid = $cart->discountid;
-            $discheck->userid = $user->userid;
-            $discheck->orderid = $order->orderid;
-            $discheck->used = 1;
-            $discheck->save();
+            $discheck = Discountorder::where(['discountid'=>$cart->discountid, 'userid'=>$user->userid])->first();
+
+            if($discheck){
+                $dishistory = new Discountordhistory();
+                $dishistory->discountid = $discheck->discountid;
+                $dishistory->userid = $discheck->userid;
+                $dishistory->orderid = $discheck->orderid;
+                $dishistory->save();
+
+                $discheck->orderid = $order->orderid;
+                $discheck->used = $discheck->used + 1;
+                $discheck->save();
+            }
+            else{
+                $discheck = new Discountorder();
+                $discheck->discountid = $cart->discountid;
+                $discheck->userid = $user->userid;
+                $discheck->orderid = $order->orderid;
+                $discheck->used = 1;
+                $discheck->save();
+            }
+
          }
 
 
@@ -234,8 +251,7 @@ class CustomerController extends Controller
 
 
         $user = $this->getUser();
-        $billing = new Billingaddress();
-
+        $billing = Billingaddress::where('userid',$user->userid)->first();
         $billing->userid = $user->userid;
         $billing->address = $this->request->address;
         $billing->stateid = $this->request->stateid;

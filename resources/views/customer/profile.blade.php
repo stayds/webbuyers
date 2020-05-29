@@ -27,7 +27,6 @@
 
             $('#editprofileform').submit(function (event) {
                 event.preventDefault();
-                alert('hi');
                 let route = $(this).attr('action');
                 $.ajax({
                     url:route,

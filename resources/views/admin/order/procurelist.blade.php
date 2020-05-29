@@ -78,6 +78,7 @@
                 success: function(dat){
                     let contents = $('#procure');
                     contents.html(dat);
+                    //console.log(dat)
                 }
             })
         }

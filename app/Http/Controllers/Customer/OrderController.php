@@ -26,16 +26,20 @@ class OrderController extends Controller
     public function getOrders(){
 
         $user = Auth::user();
-        $orders = Order::with('payment')->where('userid',$user->userid)->get();
+        $orders = Order::with('payment')->where('userid',$user->userid)->paginate(7);
 
         if($this->request->ajax()){
+            $orders = Order::with('payment')->where('userid',$user->userid)
+                ->orderBy('updated_at','DESC')->paginate(5);
+
             return view('customer.partials.orders', compact('orders'));
         }
+        return view('customer.partials.orders', compact('orders'));
     }
 
     public function getOrderDetails($id){
 
-        $details = Orderdetail::where('orderid', $id)->get();
+        $details = Orderdetail::where('orderid', $id)->paginate(5);
 
         if($this->request->ajax()){
             return view('customer.partials.orderdetail', compact('details'));

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDiscountordersTable extends Migration
+class CreateDiscountordhistoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDiscountordersTable extends Migration
      */
     public function up()
     {
-        Schema::create('discountorders', function (Blueprint $table) {
+        Schema::create('discountordhistories', function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->unsignedBigInteger('discountid');
@@ -23,7 +23,6 @@ class CreateDiscountordersTable extends Migration
             $table->foreign('orderid')->references('orderid')->on('orders');
 
             $table->integer('userid');
-            $table->integer('used');
 
             $table->timestamps();
         });
@@ -36,6 +35,6 @@ class CreateDiscountordersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('discountorders');
+        Schema::dropIfExists('discountordhistories');
     }
 }

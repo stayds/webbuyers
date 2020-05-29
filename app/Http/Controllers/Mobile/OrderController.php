@@ -7,6 +7,7 @@ use App\Mail\UserOrder;
 use App\Mail\UserPayment;
 use App\Models\Billingaddress;
 use App\Models\Discountorder;
+use App\Models\Discountordhistory;
 use App\Models\Order;
 use App\Models\Orderdetail;
 use App\Models\Payment;
@@ -166,13 +167,36 @@ class OrderController extends Controller
         $this->addAddress($user, $request, $profile);
         //record discount code used
         if($request->discountid > 0){
-            $discheck = new Discountorder();
-            $discheck->discountid = $request->discountid;
-            $discheck->userid = $user->userid;
-            $discheck->orderid = $order->orderid;
-            $discheck->used = 1;
 
-            $discheck->save();
+            $discheck = Discountorder::where(['discountid'=>$request->discountid, 'userid'=>$user->userid])->first();
+
+//            $discheck = new Discountorder();
+//            $discheck->discountid = $request->discountid;
+//            $discheck->userid = $user->userid;
+//            $discheck->orderid = $order->orderid;
+//            $discheck->used = 1;
+//
+//            $discheck->save();
+
+            if($discheck){
+                $dishistory = new Discountordhistory();
+                $dishistory->discountid = $discheck->discountid;
+                $dishistory->userid = $discheck->userid;
+                $dishistory->orderid = $discheck->orderid;
+                $dishistory->save();
+
+                $discheck->orderid = $order->orderid;
+                $discheck->used = $discheck->used + 1;
+                $discheck->save();
+            }
+            else{
+                $discheck = new Discountorder();
+                $discheck->discountid = $request->discountid;
+                $discheck->userid = $user->userid;
+                $discheck->orderid = $order->orderid;
+                $discheck->used = 1;
+                $discheck->save();
+            }
 
         }
 

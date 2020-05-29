@@ -32,7 +32,10 @@ class OrderController extends Controller
 
         if ($request->ajax()) {
             return Datatables::of($orders)
-
+                ->editColumn('orderrefno', function ($orders) {
+                    $url = route('list.orders.details',['id'=>$orders->orderid, 'order'=>1]);
+                    return "<a href='".$url."'>" . $orders->orderrefno . "</a>";
+                })
                 ->editColumn('orderstatid', function ($orders) {
                     return $orders->orderstatus->ordstatname;
                 })
@@ -43,7 +46,7 @@ class OrderController extends Controller
                     return $orders->user->userprofile->fullname();
                 })
                 ->addColumn('checkbox', '<input name="orderid[]" class="orders" type="checkbox" value="{{$orderid}}">')
-                ->rawColumns(['checkbox','action','orderid'])
+                ->rawColumns(['checkbox','action','orderid','orderrefno'])
                 ->addIndexColumn()
                 ->make(true);
         }
@@ -67,6 +70,10 @@ class OrderController extends Controller
 
         if ($request->ajax()) {
             return Datatables::of($orders)
+                ->editColumn('orderrefno', function ($orders) {
+                    $url = route('list.orders.details',['id'=>$orders->orderid,'order'=>1]);
+                    return "<a href='".$url."'>" . $orders->orderrefno . "</a>";
+                })
                 ->editColumn('orderstatid', function ($orders) {
                     return $orders->orderstatus->ordstatname;
                 })
@@ -77,7 +84,7 @@ class OrderController extends Controller
                     return $orders->user->userprofile->fullname();
                 })
                 ->addColumn('checkbox', '<input name="orderid[]" class="orders" type="checkbox" value="{{$orderid}}">')
-                ->rawColumns(['checkbox','action'])
+                ->rawColumns(['checkbox','action','orderrefno'])
                 ->addIndexColumn()
                 ->make(true);
         }
@@ -95,6 +102,10 @@ class OrderController extends Controller
 
         if ($request->ajax()) {
             return Datatables::of($orders)
+                ->editColumn('orderrefno', function ($orders) {
+                    $url = route('list.orders.details',['id'=>$orders->orderid,'order'=>1]);
+                    return "<a href='".$url."'>" . $orders->orderrefno . "</a>";
+                })
                 ->editColumn('orderstatid', function ($orders) {
                     return $orders->orderstatus->ordstatname;
                 })
@@ -106,7 +117,7 @@ class OrderController extends Controller
                 })
                 ->addColumn('checkbox', '<input name="orderid[]" class="orders" type="checkbox" value="{{$orderid}}">')
                 ->addColumn('note','<a href="{{route(\'list.orders.delivery.note\', $orderid)}}" target="_blank"  class="btn btn-success btn-xs"><i class="fa fa-print"></i> Delivery Note</a>')
-                ->rawColumns(['checkbox','note'])
+                ->rawColumns(['checkbox','note','orderrefno'])
                 ->addIndexColumn()
                 ->make(true);
         }
@@ -123,6 +134,7 @@ class OrderController extends Controller
 
         if ($request->ajax()) {
             return Datatables::of($orders)
+
                 ->editColumn('orderstatid', function ($orders) {
                     return $orders->orderstatus->ordstatname;
                 })
@@ -150,18 +162,18 @@ class OrderController extends Controller
     public function Deliverynotepdf($orderid){
         $order = Order::with('user.billingaddress')->where('orderid',$orderid)->first();
         $details = $this->delinote($orderid);
-
         $pdf = \PDF::loadView('admin.order.deliverynotepdf',compact('details','order'));
-        return $pdf->download('Delivernote'.$order->orderrefno.'.pdf');
+        return $pdf->download('Delivernote_'.$order->user->name.'_'.$order->orderrefno.'_'.$order->getFormattedDateAttribute().'.pdf');
     }
 
-    public function Details($id){
+    public function Details($id, Request $request){
+        $page = ($request->order)?$request->order:null;
         $order = Order::find($id);
         $fullname = $order->user->userprofile->fullname();
 
         $details = Orderdetail::with('product')->where('orderid',$id)->paginate(15);
 
-        return view('admin.order.partials.orderdetails', compact('details','fullname','order'));
+        return view('admin.order.partials.orderdetails', compact('details','page','fullname','order'));
     }
 
     public function updatePending(Request $request){
@@ -217,6 +229,7 @@ class OrderController extends Controller
     public function Procure(){
 
         if($this->request->ajax()){
+
             try {
                 $rawstart = $this->request->start;
                 $rawend = $this->request->end;
@@ -241,20 +254,20 @@ class OrderController extends Controller
         //view()->share('usere',$usere);
 
         $pdf = \PDF::loadView('admin.order.procurepdf',compact('procure','rawend', 'rawstart'));
-        //dd($pdf);
         return $pdf->download('Procument-list.pdf');
     }
 
     private function procode($rawstart, $rawend){
         $start = new Carbon($rawstart);
-        $end = new Carbon($rawend);
-        return Orderdetail::selectRaw('productid, SUM(quantity) as quantity,orderid')
-            ->whereBetween('updated_at', [$start->toDateString(),$end->toDateString()])
-            ->with(['order'=>function($query){
-                $query->select('orderid')->where('ispaid',1)->get();
-            },'product:productid,productname,description'])
-            ->groupBy('productid')
+        $end = Carbon::createFromFormat('Y-m-d H:i:s', $rawend.'23:59:59');
+        return Order::where('ispaid',1)
+            ->selectRaw("SUM(orderdetails.quantity) as quantity,orderdetails.productid,products.description,products.productname")
+            ->leftJoin('orderdetails','orders.orderid','=','orderdetails.orderid')
+            ->leftJoin('products','orderdetails.productid','products.productid')
+            ->whereBetween('orders.created_at', [$start,$end])
+            ->groupBy('orderdetails.productid')
             ->get();
+
     }
 
     private function delinote($orderid){

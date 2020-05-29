@@ -16,19 +16,21 @@
         @endif
         <tbody>
            <?php $count = 0 ?>
-          @forelse($orders as $order)
+          @forelse($orders as $key => $order)
                 <tr>
-                    <td>{{++$count}}</td>
+                    <td>{{ $key + $orders->firstItem() }}</td>
                     <td>{{$order->formatted_date}}</td>
                     <td class="text-capitalize"><span class="btn {{$order->orderstatus->ordcolor}} btn-sm text-white">{{($order->ispaid < 1)?'Incomplete': $order->orderstatus->ordstatname }}</span></td>
                     <td>{{$order->orderrefno}} </td>
                     <td>{{number_format($order->totalcost)}} </td>
                     {{-- <td class="text-capitalize">{{($order->payment) ? $order->payment->paymentstatus->paymentstatus :'null'}} </td> --}}
 
-                    <td>
+                    <td id="userorders">
                         @if(!$order->ispaid)
                         <a id="" href="{{route('cart.check.out', $order->orderid)}}" class="text-white btn btn-danger btn-sm view">Pay</a>
                         @endif
+                         <a href="{{route('customer.order.list', $order->orderid)}}" id="ordetail" class="text-white btn btn-success btn-sm view">View Details</a>
+
                     </td>
 
                 </tr>
@@ -38,6 +40,7 @@
         </tbody>
     </table>
 </div>
+{{ $orders->links() }}
 
 <script>
     $(function () {

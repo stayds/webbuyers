@@ -29,9 +29,9 @@
                         <div class="footer_menu">
                             <ul>
                                 <li><a href="{{route('home.about')}}">About Us</a></li>
-                                <li><a href="#">Delivery Information</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
+                                <li><a href="{{route('home.delivery')}}">Delivery Information</a></li>
+                                <li><a href="{{route('home.privacy')}}">Privacy Policy</a></li>
+                                <li><a href="{{route('home.terms')}}">Terms & Conditions</a></li>
                             </ul>
                         </div>
                     </div>

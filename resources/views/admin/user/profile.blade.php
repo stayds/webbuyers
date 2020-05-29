@@ -104,7 +104,7 @@
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputPassword" class="col-form-label">Address</label>
-                                    <input type="text" class="form-control" id="address" value="{{ $user->address }}" name="address"  placeholder="Confirm Password" required>
+                                    <input type="text" class="form-control" id="address" value="{{ $user->address }}" name="address"  placeholder="Enter Address" required>
                                     @error('address')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

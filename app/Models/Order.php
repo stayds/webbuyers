@@ -25,7 +25,13 @@ class Order extends Model
         return $this->hasOne('App\Models\Payment','id' );
     }
 
+    public function discountorder(){
+        return $this->hasMany('App\Models\Discountorder', 'orderid');
+    }
 
+    public function discountordhistory(){
+        return $this->hasMany('App\Models\Discountordhistory', 'orderid');
+    }
 
     public function getFormattedDateAttribute()
     {

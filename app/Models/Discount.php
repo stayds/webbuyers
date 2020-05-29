@@ -17,6 +17,10 @@ class Discount extends Model
         return $this->hasMany('App\Models\Discountproduct', 'discountid');
     }
 
+    public function discountordhistory(){
+        return $this->hasMany('App\Models\Discountordhistory', 'discountid');
+    }
+
     public function getFormattedDateAttribute()
     {
         return Carbon::parse($this->created_at)->format('d/m/Y');

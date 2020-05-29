@@ -93,7 +93,7 @@ class RegisterController extends Controller
             'updated_at' => Carbon::now()]
         );
 
-        \Mail::to($user->email)->send(new Registration($user));
+       // \Mail::to($user->email)->send(new Registration($user));
 
         return  $user;
     }

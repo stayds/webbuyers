@@ -206,7 +206,7 @@
                                                                     <tr>
                                                                         <td align="left" class="textContent">
                                                                             <div style="font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#828282;text-align:center;line-height:150%;">
-                                                                                PLEASE VERIFY YOUR EMAIL
+{{--                                                                                PLEASE VERIFY YOUR EMAIL--}}
                                                                             </div>
                                                                         </td>
                                                                     </tr>
@@ -218,7 +218,7 @@
                                                                         <td align="left" class="textContent">
                                                                             <!-- CONTENT // -->
                                                                             <div style="font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#828282;text-align:center;line-height:120%;">
-                                                                                If you can't see this message <a href="#" target="_blank" style="text-decoration:none;border-bottom:1px solid #828282;color:#828282;"><span style="color:#828282;">View&nbsp;it&nbsp;in&nbsp;your&nbsp;browser</span></a>.
+{{--                                                                                If you can't see this message <a href="#" target="_blank" style="text-decoration:none;border-bottom:1px solid #828282;color:#828282;"><span style="color:#828282;">View&nbsp;it&nbsp;in&nbsp;your&nbsp;browser</span></a>.--}}
                                                                             </div>
                                                                         </td>
                                                                     </tr>

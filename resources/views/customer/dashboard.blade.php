@@ -41,6 +41,46 @@
 
         $(function(){
 
+            $('#content').on('click','#ordetail', function(e){
+
+                e.preventDefault();
+                alert('hi')
+                let route = $(this).attr('href');
+                $.ajax({
+                    url:route,
+                    method:'GET',
+                    success: function(data){
+                            $('#content').html(data);
+                    }
+                })
+            });
+
+            $(document).on('click', '.pagination a',function(event)
+            {
+                event.preventDefault();
+
+                $('li').removeClass('active');
+                $(this).parent('li').addClass('active');
+
+                var myurl = $(this).attr('href');
+                var page=myurl.split('page=')[1];
+                getData(page);
+            });
+
+            function getData(page){
+                $.ajax(
+                    {
+                        url: 'orders?page=' + page,
+                        type: "get",
+                        datatype: "html"
+                    }).done(function(data){
+                    console.log(data)
+                    $('#content').html(data);
+                    location.hash = page;
+                }).fail(function(jqXHR, ajaxOptions, thrownError){
+                    alert('No response from server');
+                });
+            }
             function ajaxcall(url){
                 $.ajax({
                     url: url,

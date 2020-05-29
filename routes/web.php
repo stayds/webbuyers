@@ -11,6 +11,9 @@
     Route::post('/reset/password', 'Auth\ForgotPasswordController@postForgotten')->name('pass.reset');
     Route::get('/forgot/password', 'Auth\ForgotPasswordController@index')->name('pass.forgot');
     Route::get('/faq', 'LandingController@getFaq')->name('home.faq');
+    Route::get('/privacy-policy', 'LandingController@getPrivacy')->name('home.privacy');
+    Route::get('/delivery-information', 'LandingController@getDelivery')->name('home.delivery');
+    Route::get('/terms-and-conditions', 'LandingController@getTerms')->name('home.terms');
 
 
     Route::get('/login/admin', 'Auth\LoginAdminController@showAdminLoginForm')->name('get.login');
@@ -96,7 +99,7 @@
         Route::group(['prefix'=>'orders'], function (){
 
             Route::get('/list', 'Admin\OrderController@index')->name('list.orders');
-            Route::get('/details/{id}', 'Admin\OrderController@details')->name('list.orders.details');
+            Route::get('/details/{id}/{order?}', 'Admin\OrderController@details')->name('list.orders.details');
             Route::get('/update/processing', 'Admin\OrderController@updateProcessed')->name('list.orders.update');
             Route::get('/update/delivered', 'Admin\OrderController@updateDelivered')->name('list.orders.update.delivered');
             Route::get('/update/pending', 'Admin\OrderController@updatePending')->name('list.orders.update.pending');

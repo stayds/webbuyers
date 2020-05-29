@@ -78,20 +78,20 @@
                       </div>
                     </div>
                   </div>
-                  <div class="card  card_dipult">
-                    <div class="card-header card_accor" id="headingThree">
-                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Is it safe to put my debit card details on this site?
-                           <i class="fa fa-plus"></i>
-                           <i class="fa fa-minus"></i>
-                        </button>
-                    </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                      <div class="card-body">
-                        <p>Yes it is. We don’t store any of your debit card details, all payments are processed by our payment processor, ‘Paystack’, who are one of the best in the industry.</p>
-                      </div>
-                    </div>
-                  </div>
+{{--                  <div class="card  card_dipult">--}}
+{{--                    <div class="card-header card_accor" id="headingThree">--}}
+{{--                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">--}}
+{{--                            Is it safe to put my debit card details on this site?--}}
+{{--                           <i class="fa fa-plus"></i>--}}
+{{--                           <i class="fa fa-minus"></i>--}}
+{{--                        </button>--}}
+{{--                    </div>--}}
+{{--                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">--}}
+{{--                      <div class="card-body">--}}
+{{--                        <p>Yes it is. We don’t store any of your debit card details, all payments are processed by our payment processor, ‘Paystack’, who are one of the best in the industry.</p>--}}
+{{--                      </div>--}}
+{{--                    </div>--}}
+{{--                  </div>--}}
                   <div class="card  card_dipult">
                     <div class="card-header card_accor" id="headingfour">
                         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseeight" aria-expanded="false" aria-controls="collapseeight">

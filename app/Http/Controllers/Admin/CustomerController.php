@@ -79,20 +79,9 @@ class CustomerController extends Controller
             ->get();
         view()->share('usere',$usere);
 
-        $pdf = \PDF::loadView('admin.customer.exportpdf');
-        //dd($pdf);
+       $pdf = \PDF::loadView('admin.customer.exportpdf');
+
         return $pdf->download('customer-list.pdf');
-    }
-
-    public function create()
-    {
-        //
-    }
-
-
-    public function store(Request $request)
-    {
-        //
     }
 
 
@@ -103,8 +92,6 @@ class CustomerController extends Controller
         $orderno = $orderquery->count();
         $userorders = $orderquery->paginate(10);
         $fullname = $user->userprofile->fullname();
-
-
 
         return view('admin.customer.orders',compact('userorders', 'fullname','orderno'));
 

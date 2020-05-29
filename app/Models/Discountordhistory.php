@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Discountorder extends Model
+class Discountordhistory extends Model
 {
     public $timestamps = true;
 

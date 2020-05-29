@@ -71,3 +71,10 @@
     </div>
 
 @endsection
+
+@section('footer')
+
+    @include('admin.partials.dashscripts')
+
+@endsection
+

@@ -18,15 +18,15 @@
         <tr><th>#</th>
             <th>Product</th>
             <th>Description</th>
-            <th>Total Quantity</th>
+            <th class="text-center">Total Quantity</th>
         </tr></thead>
         <tbody>
         <?php $count = 0 ?>
         @foreach($procure as $list)
             <tr>
                 <td>{{++$count}}</td>
-                <td>{{$list->product->productname}}</td>
-                <td>{{$list->product->description}}</td>
+                <td>{{$list->productname}}</td>
+                <td>{{$list->description}}</td>
                 <td class="text-center">{{$list->quantity}}</td>
             </tr>
         @endforeach

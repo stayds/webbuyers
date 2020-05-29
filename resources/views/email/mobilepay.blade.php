@@ -206,7 +206,7 @@
                                                                     <tr>
                                                                         <td align="left" class="textContent">
                                                                             <div style="font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#828282;text-align:center;line-height:150%;">
-
+                                                                                {{--                                                                                PLEASE VERIFY YOUR EMAIL--}}
                                                                             </div>
                                                                         </td>
                                                                     </tr>
@@ -218,6 +218,7 @@
                                                                         <td align="left" class="textContent">
                                                                             <!-- CONTENT // -->
                                                                             <div style="font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#828282;text-align:center;line-height:120%;">
+                                                                                {{--                                                                                If you can't see this message <a href="#" target="_blank" style="text-decoration:none;border-bottom:1px solid #828282;color:#828282;"><span style="color:#828282;">View&nbsp;it&nbsp;in&nbsp;your&nbsp;browser</span></a>.--}}
                                                                             </div>
                                                                         </td>
                                                                     </tr>
@@ -319,7 +320,7 @@
                                                         <tr>
                                                             <td align="center" valign="top" class="textContent">
                                                                 <h1 style="color:@if($paymentdetail->paymentstatusid === 1) #fff @else #000 @endif;line-height:120%;font-family:Helvetica,Arial,sans-serif;font-size:25px;font-weight:normal;margin-bottom:5px;text-align:center;">
-                                                                    Your payment for your order made on {{$paymentdetail->getFormattedDateAttribute()}} {{ ($paymentdetail->paymentstatusid === 2) ? 'was Successful' : 'Failed ' }}
+                                                                    Your payment made on the {{$paymentdetail->getFormattedDateAttribute()}} {{ ($paymentdetail->paymentstatusid === 2) ? 'was Successful' : 'Failed ' }}
                                                                     !</h1>
 
                                                             </td>
@@ -368,23 +369,49 @@
                                                                             <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">
                                                                                 <p>Dear <span style=" text-transform: uppercase; ">{{$user->userprofile->fullname()}}</span>,</p>
                                                                                 @if($paymentdetail->paymentstatusid === 2)
-                                                                                    <p>We received your payment for &#8358;{{number_format($paymentdetail->amount)}}.
+                                                                                    <p>We received your payment of &#8358;{{number_format($paymentdetail->amount)}} for
+                                                                                        Your order with Reference No: <strong>{{$order->orderrefno}}</strong>.
                                                                                         Your order is being processed and our team will contact you shortly.</p>
-                                                                                    <p>
-                                                                                        See details of your order below:
-                                                                                    </p>
-                                                                                    <p>
-                                                                                        <strong>Order Reference</strong>: {{$order->orderrefno}}
-                                                                                    </p>
-                                                                                @else
-                                                                                    <p>We noticed that you last attempt to make a payment on our site was unsuccessful, kindly try again or contact your financial institution</p>
 
-                                                                                @endif
-
-
-                                                                            </div>
+                                                                    @foreach($detail as $list)
+                                                                        <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+                                                                            <td style="text-transform: capitalize;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top">
+                                                                                <strong>{{ $list->product->productname }} -</strong> {{$list->product->description}} (x{{$list->quantity}})
+                                                                            </td>
+                                                                            <td class="alignright" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top" align="right">
+                                                                                &#8358; {{$list->totalprice}}
+                                                                            </td>
+                                                                        </tr>
+                                                                    @endforeach
+                                                                    <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+                                                                        <td style="text-transform: capitalize;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top">
+                                                                            <strong>Discount</strong>
+                                                                        </td>
+                                                                        <td class="alignright" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top" align="right">
+                                                                            &#8358; {{$order->discount}}
                                                                         </td>
                                                                     </tr>
+                                                                    <tr class="total" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+                                                                        <td class="alignright" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 2px; border-top-color: #333; border-top-style: solid; border-bottom-color: #333; border-bottom-width: 2px; border-bottom-style: solid; font-weight: 700; margin: 0; padding: 5px 0;" width="80%" valign="top" align="right">Total
+                                                                        </td>
+                                                                        <td class="alignright" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 2px; border-top-color: #333; border-top-style: solid; border-bottom-color: #333; border-bottom-width: 2px; border-bottom-style: solid; font-weight: 700; margin: 0; padding: 5px 0;" valign="top" align="right">&#8358; {{$order->totalcost}}
+                                                                        </td>
+
+                                                                    </tr>
+                                                                    <br>
+                                                                    <p>Thank you for choosing Bulk Buyers Connect.</p>
+                                                                    @else
+                                                                        <p>We noticed that you last attempt to make a payment on our site was unsuccessful, kindly try again or contact your financial institution</p>
+
+                                                                        <br>
+                                                                        <p>Thanks</p>
+
+                                                                        @endif
+
+
+                                                                        </div>
+                                                                        </td>
+                                                                        </tr>
                                                                 </table>
                                                                 <!-- // CONTENT TABLE -->
 
@@ -405,43 +432,38 @@
 
                     <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
                         <td class="content-block aligncenter" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: center; margin: 0; padding: 0 0 10px;" valign="top" align="center">
-                            <table class="invoice" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; text-align: left; width: 80%; margin: 20px auto;">
+                            <table class="invoice" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; text-align: left; width: 80%; margin: 40px auto;">
                                 <tbody>
                                 <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
                                     <td style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 5px 0;" valign="top">
                                         <table class="invoice-items" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; width: 100%; margin: 0;" cellspacing="0" cellpadding="0">
                                             <tbody>
-                                            @foreach($detail as $list)
-                                                <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
-                                                    <td style="text-transform: capitalize;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top">
-                                                        {{ $list->product->productname }} (x{{$list->quantity}})
-                                                    </td>
-                                                    <td class="alignright" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top" align="right">
-                                                        &#8358; {{$list->totalprice}}
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                            <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
-                                                <td style="text-transform: capitalize;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top">
-                                                    Discount
-                                                </td>
-                                                <td class="alignright" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top" align="right">
-                                                    &#8358; {{$list->discount}}
-                                                </td>
-                                            </tr>
-                                            <tr class="total" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
-                                                <td class="alignright" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 2px; border-top-color: #333; border-top-style: solid; border-bottom-color: #333; border-bottom-width: 2px; border-bottom-style: solid; font-weight: 700; margin: 0; padding: 5px 0;" width="80%" valign="top" align="right">Total
-                                                </td>
-                                                <td class="alignright" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 2px; border-top-color: #333; border-top-style: solid; border-bottom-color: #333; border-bottom-width: 2px; border-bottom-style: solid; font-weight: 700; margin: 0; padding: 5px 0;" valign="top" align="right">&#8358; {{$order->totalcost}}
-                                                </td>
+                                            {{--                                            @foreach($detail as $list)--}}
+                                            {{--                                                <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">--}}
+                                            {{--                                                    <td style="text-transform: capitalize;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top">--}}
+                                            {{--                                                        {{ $list->product->productname }} (x{{$list->quantity}})--}}
+                                            {{--                                                    </td>--}}
+                                            {{--                                                    <td class="alignright" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top" align="right">--}}
+                                            {{--                                                        &#8358; {{$list->totalprice}}--}}
+                                            {{--                                                    </td>--}}
+                                            {{--                                                </tr>--}}
+                                            {{--                                            @endforeach--}}
+                                            {{--                                            <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">--}}
+                                            {{--                                                <td style="text-transform: capitalize;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top">--}}
+                                            {{--                                                    Discount--}}
+                                            {{--                                                </td>--}}
+                                            {{--                                                <td class="alignright" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top" align="right">--}}
+                                            {{--                                                    &#8358; {{$order->discount}}--}}
+                                            {{--                                                </td>--}}
+                                            {{--                                            </tr>--}}
+                                            {{--                                            <tr class="total" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">--}}
+                                            {{--                                                <td class="alignright" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 2px; border-top-color: #333; border-top-style: solid; border-bottom-color: #333; border-bottom-width: 2px; border-bottom-style: solid; font-weight: 700; margin: 0; padding: 5px 0;" width="80%" valign="top" align="right">Total--}}
+                                            {{--                                                </td>--}}
+                                            {{--                                                <td class="alignright" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 2px; border-top-color: #333; border-top-style: solid; border-bottom-color: #333; border-bottom-width: 2px; border-bottom-style: solid; font-weight: 700; margin: 0; padding: 5px 0;" valign="top" align="right">&#8358; {{$order->totalcost}}--}}
+                                            {{--                                                </td>--}}
 
-                                            </tr>
-                                            </tbody><br><br>
-                                            <tfoot>
-                                                <tr><td>
-                                                        <p style="">Thank you for choosing Bulk Buyers Connect.</p>
-                                                    </td></tr>
-                                            </tfoot>
+                                            {{--                                            </tr>--}}
+                                            </tbody>
                                         </table>
                                     </td>
                                 </tr>
