@@ -14,7 +14,7 @@
                     <div class="col-sm-12 col-md-9 col-lg-9">
 
                         <div class="tab-pane fade show active" id="content">
-                            @include('customer.partials.dashcontent')
+                            @include('customer.partials.orders')
                         </div>
 
                     </div>
@@ -44,7 +44,6 @@
             $('#content').on('click','#ordetail', function(e){
 
                 e.preventDefault();
-                alert('hi')
                 let route = $(this).attr('href');
                 $.ajax({
                     url:route,

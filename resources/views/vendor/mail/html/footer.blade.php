@@ -26,7 +26,7 @@
 
                                             <div style="font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#828282;text-align:center;line-height:120%;">
                                                 <div>Copyright &#169; {{date('Y')}} <a href="{{url('/')}}" target="_blank" style="text-decoration:none;color:#828282;"><span style="color:#828282;">Bulk Buyers Connect</span></a>. All&nbsp;rights&nbsp;reserved.</div>
-                                                <div>You are receiving this email because you are applying for a position on our portal. Please ignore if you receive this by error.</div>
+                                                <div>You are receiving this email because you are registered on our portal. Please ignore if you receive this by error.</div>
                                             </div>
 
                                         </td>

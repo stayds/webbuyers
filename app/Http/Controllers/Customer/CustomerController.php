@@ -31,18 +31,24 @@ class CustomerController extends Controller
     public function index()
     {
 
-        $user = $this->getUser();
-        $order = Order::where(['userid'=>$user->userid,'ispaid'=>1])->get();
-        $totalspent = $order->sum('totalcost');
-        $orderno = $order;
+//        $user = $this->getUser();
+//        $order = Order::where(['userid'=>$user->userid,'ispaid'=>1])->get();
+//        $totalspent = $order->sum('totalcost');
+//        $orderno = $order;
+        $user = Auth::user();
+        $orders = Order::with('payment')
+            ->where('userid',$user->userid)
+            ->orderBy('updated_at','DESC')
+            ->paginate(7);
 
-        $view = view('customer.dashboard', compact('user','totalspent','orderno'));
+        //$view = view('customer.dashboard', compact('user','totalspent','orderno'));
 
-        if($this->request->ajax()){
-             return view('customer.partials.dashcontent', compact('user','totalspent','orderno'));
-        }
+//        if($this->request->ajax()){
+//             return view('customer.partials.dashcontent', compact('user','totalspent','orderno'));
+//        }
 
-        return $view;
+        //return $view;
+       return view('customer.dashboard', compact('orders','user'));
     }
 
     public function edit()
@@ -96,10 +102,6 @@ class CustomerController extends Controller
 
     public function checkout(Request $request){
 
-//        if(!$this->request->session()->has('cart')){
-//            $products = null;
-//            return view('products.viewcart', compact('products'));
-//        }
         $user = $this->getUser();
 
         if($request->orderid){
@@ -123,7 +125,6 @@ class CustomerController extends Controller
 
         return redirect()->back();
     }
-
 
     public function getChangePwd(){
 

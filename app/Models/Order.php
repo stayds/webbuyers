@@ -35,7 +35,7 @@ class Order extends Model
 
     public function getFormattedDateAttribute()
     {
-        return Carbon::parse($this->updated_at)->format('d/m/Y');
+        return Carbon::parse($this->created_at)->format('d/m/Y');
     }
 
 

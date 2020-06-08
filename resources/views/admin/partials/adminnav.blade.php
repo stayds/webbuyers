@@ -164,9 +164,9 @@
                             <li class="has-submenu">
                                 <a href="{{route('admin.list')}}"><i class="mdi mdi-account-supervisor"></i>Admin Users</a>
                             </li>
-                            <li class="has-submenu">
+                            {{-- <li class="has-submenu">
                                 <a href="reports.html"><i class="mdi mdi-file-chart"></i>Reports</a>
-                            </li>
+                            </li> --}}
 
                      @endif
 

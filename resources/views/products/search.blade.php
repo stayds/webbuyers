@@ -51,6 +51,9 @@
                                             </div>
 
                                             <h3 class="product_name grid_name"><a href="{{url('product/details',$list->productid)}}">{{$list->productname}}</a></h3>
+                                            <div class="product_desc">
+                                                <p>{{$list->description}}</p>
+                                            </div>
                                         </div>
                                         <div class="product_content list_content">
                                             <div class="left_caption">

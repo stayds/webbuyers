@@ -124,6 +124,7 @@ class PaymentController extends Controller
 
         $order = Order::where('orderid',(int)$orderid)->first();
         $order->ispaid = 1;
+        $order->created_at = Carbon::now();
         $order->save();
 
         return $payment;

@@ -100,7 +100,7 @@
                 <div class="launch-box text-center">
                     <h2>We are Relaunching soon!</h2>
                     <p>Though you can check out our website. We are getting ready for your Bulk Orders.
-                        Please avoid placing any orders until <strong>1st June 2020.</strong> We look forward it :)</p>
+                        Please avoid placing any orders until <strong>8th June 2020.</strong> We look forward it :)</p>
                     <div id="countdown">
                         <div class="cd-box">
                             <p class="numbers days">00</p><br>

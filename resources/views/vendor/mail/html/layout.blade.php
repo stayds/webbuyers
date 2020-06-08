@@ -316,10 +316,10 @@
                                                         that's entirely separate from the structural
                                                         framework of the email.
                                                     -->
-                                                    <table border="0" cellpadding="30" cellspacing="0" width="100%">
+                                                    <table border="0" cellpadding="5" cellspacing="0" width="100%">
                                                         <tr>
                                                             <td align="center" valign="top" class="textContent">
-                                                                <h1 style="color:#fff;line-height:120%;font-family:Helvetica,Arial,sans-serif;font-size:25px;font-weight:normal;margin-bottom:5px;text-align:center;">PLEASE VERIFY YOUR EMAIL</h1>
+{{--                                                                <h1 style="color:#fff;line-height:120%;font-family:Helvetica,Arial,sans-serif;font-size:25px;font-weight:normal;margin-bottom:5px;text-align:center;">PLEASE VERIFY YOUR EMAIL</h1>--}}
 
                                                             </td>
                                                         </tr>

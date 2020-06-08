@@ -365,13 +365,21 @@
                                                                         <td valign="top" class="textContent">
 
                                                                             <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">
-                                                                                <p>Dear Customer,</p>
-                                                                                <p>Welcome to the Bulk Buyers Connect family… Your best shopping experience starts here.
-                                                                                    Thank you for joining our community. Our goal is to help you reduce your monthly household spending budget by getting the best possible deals for the best quality.</p>
+                                                                                <p>Congratulations,</p>
+                                                                                <p>Welcome to the <em><strong>Bulk Buyers Connect family</strong></em>… Your best shopping experience starts here.</p>
 
-                                                                                <p>As a member of the BBC, you will be able to plan your monthly spending in a way to maximise the advantages of buying things in bulk as part of our group, so you get retail quantities but at bulk prices.</p>
+                                                                                <p>Thank you for joining our community. Our goal is to help you reduce your monthly household
+                                                                                    spending budget by getting you the best possible deals for the best quality.</p>
+
+                                                                                <p>When you order with us your products are delivered to you absolutely FREE! Orders are delivered on Fridays and Saturdays only.
+                                                                                    Deliveries are done weekly on Fridays and Saturdays. All orders made on or before Wednesday of every week will be delivered on Friday/Saturday of
+                                                                                    the same week while any order after Wednesday will be delivered on Friday/Saturday
+                                                                                    of the following week.</p>
+
+                                                                                <p>As a member of the BBC, you will be able to plan your monthly spending in a way that maximises the advantages of buying things in bulk as a member of our group,
+                                                                                    so in other words you get retail quantities but at bulk prices.</p>
                                                                                 <br>
-                                                                                <p>Let the shopping begin..</p>
+                                                                                <p>Let the shopping begin...</p>
 
                                                                             </div>
                                                                         </td>

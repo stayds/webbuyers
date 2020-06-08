@@ -26,7 +26,7 @@ class OrderController extends Controller
 
         $orders = Order::where(['orderstatid'=>2, 'ispaid'=>1])
                         ->with(['user','orderstatus'])
-                        ->orderBy('updated_at','DESC')
+                        ->orderBy('created_at','DESC')
 
                         ->get();
 
@@ -39,7 +39,7 @@ class OrderController extends Controller
                 ->editColumn('orderstatid', function ($orders) {
                     return $orders->orderstatus->ordstatname;
                 })
-                ->editColumn('updated_at', function ($orders) {
+                ->editColumn('created_at', function ($orders) {
                     return $orders->getFormattedDateAttribute();
                 })
                 ->addColumn('orderby', function ($orders) {
@@ -64,7 +64,7 @@ class OrderController extends Controller
 
         $orders = Order::where('orderstatid',3)
             ->with(['user','orderstatus'])
-            ->orderBy('updated_at','DESC')
+            ->orderBy('created_at','DESC')
             ->get();
 
 
@@ -77,7 +77,7 @@ class OrderController extends Controller
                 ->editColumn('orderstatid', function ($orders) {
                     return $orders->orderstatus->ordstatname;
                 })
-                ->editColumn('updated_at', function ($orders) {
+                ->editColumn('created_at', function ($orders) {
                     return $orders->getFormattedDateAttribute();
                 })
                 ->addColumn('orderby', function ($orders) {
@@ -97,7 +97,7 @@ class OrderController extends Controller
 
         $orders = Order::where('orderstatid',4)
             ->with(['user','orderstatus'])
-            ->orderBy('updated_at','DESC')
+            ->orderBy('created_at','DESC')
             ->get();
 
         if ($request->ajax()) {
@@ -109,7 +109,7 @@ class OrderController extends Controller
                 ->editColumn('orderstatid', function ($orders) {
                     return $orders->orderstatus->ordstatname;
                 })
-                ->editColumn('updated_at', function ($orders) {
+                ->editColumn('created_at', function ($orders) {
                     return $orders->getFormattedDateAttribute();
                 })
                 ->addColumn('orderby', function ($orders) {
@@ -130,7 +130,7 @@ class OrderController extends Controller
 
         $orders = Order::where('orderstatid',1)
                         ->with(['user','orderstatus'])
-                        ->orderBy('updated_at','DESC')->get();
+                        ->orderBy('created_at','DESC')->get();
 
         if ($request->ajax()) {
             return Datatables::of($orders)
@@ -138,7 +138,7 @@ class OrderController extends Controller
                 ->editColumn('orderstatid', function ($orders) {
                     return $orders->orderstatus->ordstatname;
                 })
-                ->editColumn('updated_at', function ($orders) {
+                ->editColumn('created_at', function ($orders) {
                     return $orders->getFormattedDateAttribute();
                 })
                 ->addColumn('orderby', function ($orders) {

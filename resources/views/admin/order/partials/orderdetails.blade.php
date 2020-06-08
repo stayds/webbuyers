@@ -10,7 +10,7 @@
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">Bulk Buyers Connect</a></li>
-                                <li class="breadcrumb-item"><a href="{{route('list.orders')}}">Orders</a></li>
+                                <li class="breadcrumb-item"><a href="{{ url()->previous() }}">Orders</a></li>
                                 <li class="breadcrumb-item active">Details</li>
                             </ol>
                         </div>

@@ -8,6 +8,7 @@
                     <th>Date</th>
                     <th>Status</th>
                     <th>Ref. No</th>
+{{--                    <th>Ref. No</th>--}}
                     <th>Total (&#8358;)</th>
                     {{-- <th>Payment</th> --}}
                     <th>Actions</th>

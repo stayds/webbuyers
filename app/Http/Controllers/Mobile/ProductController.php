@@ -36,7 +36,7 @@ class ProductController extends Controller
 
 
     public function index(){
-        $list = Product::all();
+        $list = Product::where('status',1)->get();
         return response()->json($list, 200);
     }
 

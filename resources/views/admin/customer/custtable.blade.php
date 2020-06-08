@@ -2,7 +2,7 @@
     <table class="table table-hover mb-0" id="customer">
         <thead>
         <tr>
-            <th>#CustID</th>
+            <th>#</th>
             <th>First name</th>
             <th>Last name</th>
             <th>Phone</th>
@@ -22,24 +22,24 @@
                 <td class="text-capitalize">{{$user->lname}}</td>
                 <td>{{$user->user->phone}}</td>
                 <td>{{$user->user->email}}</td>
-                <td>{{$user->state->statename}}</td>
+                <td style="width: 100px">{{$user->state->statename}}</td>
                 <td>{{$user->getFormattedDateAttribute()}}</td>
 
                 <td>
                     <a href="{{route('admin.customer.order', $user->userid)}}" class="btn btn-success btn-xs">
-                        <i class="fa fa-eye"></i> View Orders
-                    </a>
+                        {{-- <i class="fa fa-eye"></i>  --}}
+                    View Orders</a>
                 </td>
                 <td>
 
                     @if($user->user->status > 0)
                         <a href="{{route('admin.customer.disable', $user->userid)}}" id="custdisable" class="btn btn-danger btn-xs">
-                            <i class="fa fa-ban"></i> Disable
-                        </a>
+                            {{-- <i class="fa fa-ban"></i>  --}}
+                        Disable</a>
                     @else
                         <a href="{{route('admin.customer.disable', $user->userid)}}" id="custdisable" class="btn btn-primary btn-xs">
-                            <i class="fa fa-check"></i> Enable
-                        </a>
+                            {{-- <i class="fa fa-check"></i>  --}}
+                        Enable</a>
                     @endif
                 </td>
             </tr>

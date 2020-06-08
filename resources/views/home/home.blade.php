@@ -19,12 +19,14 @@
 @section('scripts')
     <script>
         $(document).ready(function() {
-            $('#LaunchBox').modal('show');
+            //$('#LaunchBox').modal('show');
         });
     </script>
     <script>
         $(document).ready(function(){
-            //
+            
+             //$('#LaunchBox').modal('show');
+
             (function(e){
                 e.fn.countdown = function (t, n){
                     function i(){
@@ -94,7 +96,8 @@
                 }
                 //
                 $("#countdown").countdown({
-                    date: "31 May 2020 23:59:59", // change date/time here - do not change the format!
+                    //date: "31 May 2020 23:59:59", // change date/time here - do not change the format!
+                    date: "8 June 2020 23:59:59",
                     format: "on"
                 });
             });

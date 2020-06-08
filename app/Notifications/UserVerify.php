@@ -54,10 +54,11 @@ class UserVerify extends Notification
         }
         return (new MailMessage)
             ->subject('Verify Email Address')
-            ->greeting('Dear Customer.')
-            ->line(Lang::getFromJson('Welcome to the Bulk Buyers Connect family… Your best shopping experience starts here.
-                                                                                    Thank you for joining our community. Our goal is to help you reduce your monthly household spending budget by getting the best possible deals for the best quality..'))
-            ->line(Lang::getFromJson('As a member of the BBC, you will be able to plan your monthly spending in a way to maximise the advantages of buying things in bulk as part of our group, so you get retail quantities but at bulk prices.'))
+            ->greeting('Congratulations!')
+            ->line(Lang::getFromJson('Welcome to the Bulk Buyers Connect family… Your best shopping experience starts here.'))
+            ->line(Lang::getFromJson('Thank you for joining our community. Our goal is to help you reduce your monthly household spending budget by getting you the best possible deals for the best quality.'))
+            ->line(Lang::getFromJson('When you order with us your products are delivered to you absolutely FREE! Orders are delivered on Fridays and Saturdays only. Deliveries are done weekly on Fridays and Saturdays. All orders made on or before Wednesday of every week will be delivered on Friday/Saturday of the same week while any order after Wednesday will be delivered on Friday/Saturday of the following week.'))
+            ->line(Lang::getFromJson('As a member of the BBC, you will be able to plan your monthly spending in a way that maximises the advantages of buying things in bulk as a member of our group, so in other words you get retail quantities but at bulk prices.'))
             ->line(Lang::getFromJson('Please click the button below to verify your email address.'))
             ->action(Lang::getFromJson('Verify Email Address'), $verificationUrl);
 

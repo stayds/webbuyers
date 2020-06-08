@@ -12,10 +12,10 @@
         </tr>
         </thead>
         <tbody>
-
+        <?php $count = 0 ?>
         @forelse($details as $key => $list)
             <tr>
-                <td>{{ $key + $details->firstItem() }}</td>
+                <td>{{ ++$count }}</td>
                 <td class="text-capitalize">
                     <span class="success">{{$list->product->productname}}
                     </span>
@@ -28,6 +28,18 @@
         @empty
             <tr><div class="text-center text-danger">No Record exist at the moment</div></tr>
         @endforelse
+            <tr>
+                <td class="text-capitalize font-weight-bold" colspan="5">
+                    <span class="pull-right">Discount</span>
+                </td>
+                <td>{{number_format($order->discount)}}</td>
+            </tr>
+            <tr>
+                <td class="text-capitalize font-weight-bold" colspan="5">
+                    <span class="pull-right">Total</span>
+                </td>
+                <td>{{number_format($order->totalcost)}}</td>
+            </tr>
         </tbody>
     </table>
 </div>
