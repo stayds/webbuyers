@@ -30,7 +30,7 @@ class LoginAdminController extends Controller
 
         if (Auth::guard('admin')->attempt(
             ['email' => $request->email,
-                'password' => $request->password], $request->get('remember'))) {
+                'password' => $request->password, 'status'=>1], $request->get('remember'))) {
            // dd('authenticated');
             return redirect()->intended(route('admin.dashboard'));
         }

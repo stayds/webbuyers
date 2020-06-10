@@ -119,7 +119,8 @@ class BasicController extends Controller
     public function login(Request $request){
         $credentials = [
             'email' => $request->email,
-            'password' => $request->password
+            'password' => $request->password,
+            'status'=> 1
         ];
 
         if (auth()->attempt($credentials)) {

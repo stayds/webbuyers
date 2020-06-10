@@ -32,14 +32,14 @@ class CustomerController extends Controller
             if($this->request->option ==='fname'){
 
                 $users = Userprofile::where('fname','LIKE','%'.$this->request->detail.'%')
-                                     ->with(['user:userid,email,phone',
+                                     ->with(['user:userid,email,phone,status',
                                     'state:stateid,statename'])
                               ->orderby('created_at','DESC')->paginate($value);
                 return view('admin.customer.custtable',compact('users'));
             }
             elseif($this->request->option =='lname'){
                 $users = Userprofile::where('lname','LIKE','%'.$this->request->detail.'%')
-                                     ->with(['user:userid,email,phone',
+                                     ->with(['user:userid,email,phone,status',
                                     'state:stateid,statename'])
                               ->orderby('created_at','DESC')->paginate($value);
                 return view('admin.customer.custtable',compact('users'));

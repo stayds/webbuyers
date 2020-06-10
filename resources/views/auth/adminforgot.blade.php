@@ -37,9 +37,12 @@
                                         </div>
                                     @endif
                                 </div>
+                                <div id='loader' style='display:none;position: absolute;left: 40%;'>
+                                    <img src='{{asset('assets/img/loader.gif')}}' width='100px' height='100px'>
+                                </div>
                                 <div class="form-group mb-3">
                                     <label for="email">Email address</label>
-                                    <input class="form-control" type="email" id="email" name="email" required placeholder="Enter your email">
+                                    <input class="form-control" type="email" id="resetu" name="email" required placeholder="Enter your email">
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -87,14 +90,23 @@
                        url:route,
                        method:'POST',
                        data: form.serialize(),
+                       beforeSend: function(){
+                           // Show image container
+                           $( "#resetu" ).prop( "disabled", true );
+                           $("#loader").show();
+                       },
                        success: function(data){
-                           console.log(data);
-
-                           if(data){
-                               console.log(data);
-                               let con = '<div class="alert alert-success">Please check your email for password reset instruction</div>'
-                               $('div#info').html(con);
-                           }
+                           let con = '<div class="alert alert-success">Please check your email for password reset instruction</div>'
+                           $('div#info').html(con);
+                       },
+                       error: function(){
+                           let con = '<div class="alert alert-danger">This email is not registered here</div>'
+                           $('div#info').html(con);
+                       },
+                       complete:function(data){
+                           // Hide image container
+                           $( "#resetu" ).prop( "disabled", false ).val('');
+                           $("#loader").hide();
                        }
                    })
 

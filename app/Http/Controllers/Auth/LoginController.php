@@ -62,6 +62,16 @@ class LoginController extends Controller
         $request->session()->put('wishlist', $wishcount);
     }
 
+    protected function credentials(Request $request)
+    {
+        //checking status of user alongside email and password
+        $credentials =  $request->only($this->username(), 'password');
+        $credentials = array_add($credentials, 'status', '1');
+        return $credentials;
+    }
+
+
+
     public function logout(Request $request)
     {
         $cart = $request->session()->get('cart');

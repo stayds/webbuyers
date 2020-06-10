@@ -93,12 +93,16 @@
                         $("#loader").show();
                     },
                     success: function(data){
-                        console.log(data);
+                        //console.log(data);
 
                         if(data){
                             let con = '<div class="alert alert-success">Please check your email for password reset instruction</div>'
                             $('div#info').html(con);
                         }
+                    },
+                    error: function(data){
+                        let con = '<div class="alert alert-danger">This email does not exist on this platform</div>'
+                        $('div#info').html(con);
                     },
                     complete:function(data){
                         // Hide image container
