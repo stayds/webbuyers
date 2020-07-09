@@ -66,11 +66,13 @@
         Route::post('/create', 'Auth\RegisterAdminController@postCreateAdmin')->name('admin.create');
         Route::get('/dashboard', 'Admin\DashboardController@index')->name('admin.dashboard');
         Route::get('/password/change','Admin\AdminController@getChangePassword')->name('password.change');
+        Route::get('/admin/delete/{id}','Admin\AdminController@deleteAdmin')->name('admin.delete');
         Route::post('/password/edit','Admin\AdminController@postChangePassword')->name('post.password.change');
         Route::get('/user/list','Admin\AdminController@index')->name('admin.list');
         Route::get('/profile/info','Admin\AdminController@showProfile')->name('admin.profile');
         Route::post('/profile/update','Admin\AdminController@update')->name('admin.update');
         Route::get('/user/disable/{id}','Admin\AdminController@destroy')->name('admin.disable');
+        Route::get('/payments/trans','Admin\PaymentController@getTransactions')->name('admin.payment.trans');
 
         //customer routes
         Route::group(['prefix'=>'customer'], function (){

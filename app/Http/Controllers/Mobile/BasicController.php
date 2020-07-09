@@ -7,20 +7,18 @@ use App\Models\Product;
 use App\Models\User;
 use App\Models\Userprofile;
 use Carbon\Carbon;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\VerifiesEmails;
+use Illuminate\Auth\Events\Verified;
 
 class BasicController extends Controller
 {
+    use VerifiesEmails;
 
-    /**
-     * @OA\Post(
-     *     path="/register",
-     *     tags={"user"},
-     *     @OA\Response(response="200", description="Customer Registration.")
-     * )
-     */
+
     public function register(Request $request){
         $request['regmodeid'] = 1;
         $error =  Validator::make($request->all(),[
@@ -57,65 +55,15 @@ class BasicController extends Controller
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()]);
 
+        $user->sendApiEmailVerificationNotification();
+
         $token = $user->createToken('Bulkbuyers')->accessToken;
 
-        return response()->json(['token' => $token], 200);
+        return response()->json(['token' => $token,'verify'=>route('verificationapi.verify',['id'=>$user->userid])], 200);
 
     }
 
 
-    /**
-     * @OA\Post(
-     *     path="/access",
-     *     tags={"user"},
-     *     summary="Logs user into system",
-     *     operationId="loginUser",
-     *     @OA\Parameter(
-     *         name="email",
-     *         in="query",
-     *         description="The email for login",
-     *         required=true,
-     *         @OA\Schema(
-     *             type="string"
-     *         )
-     *     ),
-     *     @OA\Parameter(
-     *         name="password",
-     *         in="query",
-     *         required=true,
-     *         @OA\Schema(
-     *             type="string",
-     *         )
-     *     ),
-     *     @OA\Response(
-     *         response=200,
-     *         description="successful operation",
-     *         @OA\Header(
-     *             header="X-Rate-Limit",
-     *             description="calls per hour allowed by the user",
-     *             @OA\Schema(
-     *                 type="integer",
-     *                 format="int32"
-     *             )
-     *         ),
-     *         @OA\Header(
-     *             header="X-Expires-After",
-     *             description="date in UTC when token expires",
-     *             @OA\Schema(
-     *                 type="string",
-     *                 format="datetime"
-     *             )
-     *         ),
-     *         @OA\JsonContent(
-     *             type="string"
-     *         )
-     *     ),
-     *     @OA\Response(
-     *         response=400,
-     *         description="Invalid username/password supplied"
-     *     )
-     * )
-     */
     public function login(Request $request){
         $credentials = [
             'email' => $request->email,
@@ -132,42 +80,6 @@ class BasicController extends Controller
     }
 
 
-
-
-
-    /**
-     * @OA\Get(path="/api/user/detail",
-     *   tags={"user"},
-     *   summary="Get the details of an authenticated user",
-     *   description="",
-     *   operationId="getAuthUser",
-     *   @OA\Response(
-     *     response=200,
-     *     description="successful operation",
-     *     @OA\Schema(type="string"),
-     *     @OA\Header(
-     *       header="X-Rate-Limit",
-     *       @OA\Schema(
-     *           type="integer",
-     *           format="int32"
-     *       ),
-     *       description="calls per hour allowed by the user"
-     *     ),
-     *     @OA\Header(
-     *       header="X-Expires-After",
-     *       @OA\Schema(
-     *          type="string",
-     *          format="date-time",
-     *       ),
-     *       description="date in UTC when token expires"
-     *     )
-     *   ),
-     *   @OA\Response(response=400, description="Error xXx"),
-     *     security={
-     *       {"api_key": {}}
-     *     }
-     * )
-     */
     public function details(){
         $user = auth()->user()->userprofile;
         $user['email'] = auth()->user()->email;
@@ -207,4 +119,17 @@ class BasicController extends Controller
         return response()->json('Profile Successfully updated', 200);
     }
 
+    public function verify(Request $request) {
+        $userid = $request->id;
+        $user = User::findOrFail($userid);
+        $date = date("Y-m-d g:i:s");
+        /*
+         *  to enable the “email_verified_at field of that user
+         be a current time stamp by mimicing the must verify email feature
+        */
+        $user->email_verified_at = $date;
+        $user->save();
+
+        return response()->json("Email verified!",200);
+    }
 }

@@ -2,19 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17f28105-3e8f-4a5d-919b-377371f1d626" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PaymentController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/laravel-2020-06-16.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/slider/delivery.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/deliverybkup.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/payment/translist.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CustomerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/AdminForgotController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/AdminForgotController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginAdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetAdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Mobile/BasicController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Mobile/BasicController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Mobile/ForgetPassController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Mobile/ForgetPassController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/adminforgot.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/adminforgot.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/forgot.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/forgot.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Mobile/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Mobile/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Notifications/VerifyApiUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Notifications/VerifyApiUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/C:\MAMP\htdocs\buyers\storage\logs/laravel-2020-04-11.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/customer/custtable.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/customer/custtable.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/customer/custtableedit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/customer/custtableedit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/customer/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/customer/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/order/deliverinote.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/order/deliverinote.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/partials/adminnav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/partials/adminnav.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/partials/dashfigures.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/partials/dashfigures.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/user/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/customer/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/checkout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/partials/slide.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/partials/slide.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -328,7 +343,25 @@
       <workItem from="1591630549790" duration="5460000" />
       <workItem from="1591705038404" duration="2598000" />
       <workItem from="1591724105189" duration="2550000" />
-      <workItem from="1591741320249" duration="6298000" />
+      <workItem from="1591741320249" duration="7221000" />
+      <workItem from="1591779376769" duration="139000" />
+      <workItem from="1591783293409" duration="1477000" />
+      <workItem from="1591788484204" duration="4229000" />
+      <workItem from="1591797538846" duration="2286000" />
+      <workItem from="1591814049333" duration="4462000" />
+      <workItem from="1591872245693" duration="22000" />
+      <workItem from="1591874291536" duration="605000" />
+      <workItem from="1592254820645" duration="1523000" />
+      <workItem from="1592339434634" duration="14000" />
+      <workItem from="1593437367829" duration="4027000" />
+      <workItem from="1593597891239" duration="68000" />
+      <workItem from="1593679805479" duration="617000" />
+      <workItem from="1593716376385" duration="1715000" />
+      <workItem from="1593720318690" duration="3467000" />
+      <workItem from="1593724883684" duration="504000" />
+      <workItem from="1594065719736" duration="6861000" />
+      <workItem from="1594110008794" duration="2870000" />
+      <workItem from="1594217228190" duration="894000" />
     </task>
     <servers />
   </component>
@@ -343,10 +376,10 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="584" y="235" width="254" height="323" key="#Notifications/67.27.1299.741@67.27.1299.741" timestamp="1588195041663" />
-    <state x="463" y="137" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1591746347842">
+    <state x="463" y="137" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1594067874420">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="463" y="137" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1299.741@67.27.1299.741" timestamp="1591746347842" />
+    <state x="463" y="137" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1299.741@67.27.1299.741" timestamp="1594067874420" />
     <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1591359354731">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
@@ -355,10 +388,10 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="429" y="100" width="565" height="593" key="NewPhpClassDialog/67.27.1299.741@67.27.1299.741" timestamp="1590346685281" />
-    <state x="522" y="312" width="399" height="157" key="NewPhpFileDialog" timestamp="1590346630308">
+    <state x="522" y="312" width="399" height="157" key="NewPhpFileDialog" timestamp="1593716813019">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="522" y="312" width="399" height="157" key="NewPhpFileDialog/67.27.1299.741@67.27.1299.741" timestamp="1590346630308" />
+    <state x="522" y="312" width="399" height="157" key="NewPhpFileDialog/67.27.1299.741@67.27.1299.741" timestamp="1593716813019" />
     <state x="230" y="27" width="1014" height="690" key="SettingsEditor" timestamp="1587683190772">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
@@ -389,6 +422,11 @@
           <url>file://$PROJECT_DIR$/resources/views/admin/partials/adminnav.blade.php</url>
           <line>34</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/PaymentController.php</url>
+          <line>4</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/Customer/ProductController.php</url>

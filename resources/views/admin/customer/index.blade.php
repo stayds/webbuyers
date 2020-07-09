@@ -47,8 +47,10 @@
                         <h4 class="header-title mt-0 mb-3">All Customers</h4>
                         @include('admin.customer.search')
                         <div style=""></div>
+                        @if(Auth::guard('admin')->user()->adminrole->roleid != 2)
                         <div class="btn btn-danger btn-sm" style="margin:0 10px 15px 0;" id="csv">CSV Export</div>
                         <a class="btn btn-danger btn-sm" href="{{route('admin.customer.export')}}" style="margin-bottom:15px" >PDF Export</a><br>
+                       @endif
                         <div id="custtable">
                             @include('admin.customer.custtable')
                         </div>

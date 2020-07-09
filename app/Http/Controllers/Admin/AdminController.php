@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Admin;
 use App\Http\Controllers\Controller;
+use App\Models\Admin_role;
 use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -88,6 +89,19 @@ class AdminController extends Controller
 
         return redirect()->back()->withSuccess('Admin User status successfully changed');
     }
+
+    public function deleteAdmin($id)
+    {
+        $admin = Admin::find($id);
+
+        $admin->adminrole()->delete();
+
+        $admin->delete();
+
+        return redirect()->back()->withSuccess('Admin User successfully deleted');
+    }
+
+
 
     public function getChangePassword()
     {

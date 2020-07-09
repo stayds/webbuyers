@@ -69,7 +69,8 @@
                                                 <th>Item</th>
                                                 <th>Description</th>
                                                 <th>Quantity</th>
-
+                                                {{--                                                <th>Unit Cost (&#8358;)</th>--}}
+                                                {{--                                                <th>Total (&#8358;)</th>--}}
                                             </tr></thead>
                                             <tbody>
                                             @foreach($details as $list)
@@ -78,7 +79,9 @@
                                                     <td class="text-capitalize">{{ $list->product->productname }}</td>
                                                     <td class="text-capitalize">{{ $list->product->description }}</td>
                                                     <td>{{$list->quantity}}</td>
-
+                                                    {{--                                                    <td>{{number_format($list->unitprice)}}</td>--}}
+                                                    {{--                                                    <td>{{number_format($list->totalprice)}}</td>--}}
+                                                    {{--                                                    <?php $sum  = $sum + $list->totalprice ?>--}}
                                                 </tr>
                                             @endforeach
                                             </tbody>
@@ -98,7 +101,12 @@
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-6 offset-xl-3">
-
+                                {{--                                    <p class="text-right"><b>Sub-total:</b> &#8358;{{number_format($sum)}}</p>--}}
+                                {{--                                    <p class="text-right" style="margin-right:13px"><b>Discount:</b> &#8358;{{number_format($order->discount)}}</p>--}}
+                                <!--<p class="text-right">Discout: 9%</p>
+                                    <p class="text-right">VAT: 7.5%</p>-->
+                                    <hr>
+                                    {{--                                    <h3 class="text-right"> &#8358;{{number_format($order->totalcost)}}</h3>--}}
                                 </div>
                             </div>
                             <hr>

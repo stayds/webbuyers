@@ -62,10 +62,11 @@
                                             <td class="text-capitalize">{{$item->adminrole->role->name}}</td>
                                             <td>
                                                 @if($item->status > 0)
-                                                    <a href="{{route('admin.disable',$item->id)}}" class="btn btn-danger btn-xs"><i class="fa fa-close" id="sa-params"></i> Disable</a>
+                                                    <a href="{{route('admin.disable',$item->id)}}" class="btn btn-warning btn-xs"><i class="fa fa-close" id="sa-params"></i> Disable</a>
                                                 @else
                                                     <a href="{{route('admin.disable',$item->id)}}" class="btn btn-primary btn-xs"><i class="fa fa-check-circle" id="sa-params"></i> Enable</a>
                                                 @endif
+                                                    <a href="{{route('admin.delete',$item->id)}}" class="btn btn-danger btn-xs"><i class="fa fa-check-circle" id="sa-params"></i> Delete</a>
                                             </td>
                                         </tr>
                                         @empty

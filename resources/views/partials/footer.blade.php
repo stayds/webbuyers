@@ -14,7 +14,7 @@
                             <p class="font-weight-bold">Shop on our mobile app:</p>
                             <ul class="appstore">
                                 <li>
-                                    <a href="#" title="Download from Google Play Store"> <img src="{{asset('assets/img/google-store.png')}}" class="img-fluid"></a>
+                                    <a href="https://play.google.com/store/apps/details?id=com.bulkbuyersconnect.bulk_buyers&hl=en" title="Download from Google Play Store"> <img src="{{asset('assets/img/google-store.png')}}" class="img-fluid"></a>
                                 </li>
                                 <li>
                                     <a href="#" title="Download from Apple Store"> <img src="{{asset('assets/img/app-store.png')}}" class="img-fluid"></a>

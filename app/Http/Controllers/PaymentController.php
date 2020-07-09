@@ -112,7 +112,7 @@ class PaymentController extends Controller
     private function createPay($paymentDetails){
         $user = $this->getUser();
         $payment = new Payment();
-
+        //dd($paymentDetails);
         $orderid = $paymentDetails['data']['metadata']['orderid'];
         $payment->orderid = (int)$orderid;
         $payment->userid = $user->userid;

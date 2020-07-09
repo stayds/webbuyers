@@ -30,6 +30,7 @@
                         {{-- <i class="fa fa-eye"></i>  --}}
                     View Orders</a>
                 </td>
+                @if(Auth::guard('admin')->user()->adminrole->roleid != 2)
                 <td>
 
                     @if($user->user->status > 0)
@@ -42,6 +43,7 @@
                         Enable</a>
                     @endif
                 </td>
+                    @endif
             </tr>
              @empty
                 <tr><div class="text-danger text-center text-capitalize font-weight-bold font-15">

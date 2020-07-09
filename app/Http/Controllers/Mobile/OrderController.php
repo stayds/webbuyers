@@ -18,6 +18,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Unicodeveloper\Paystack\Facades\Paystack;
 
 class OrderController extends Controller
 {
@@ -132,11 +133,12 @@ class OrderController extends Controller
 
     }
 
-    public function Ordersadd(Request $request){
-
+    public function Ordersadd(Request $request)
+    {
+        
         $order = new Order();
         $user = $this->authUser();
-        $profile = Userprofile::where('userid',$user->userid)->first();
+        $profile = Userprofile::where('userid', $user->userid)->first();
 
         $order->userid = $user->userid;
         $order->orderstatid = 2;
@@ -144,13 +146,13 @@ class OrderController extends Controller
         $order->totalcost = $request->totalcost;
         $order->qty = $request->totalqty;
         $order->discount = $request->discount;
-        $order->ispaid = 1;
+        $order->ispaid = 0;
 
         $order->save();
 
         $data = [];
         $a = 0;
-        foreach($request->products as $list){
+        foreach ($request->products as $list) {
             $data[$a]['productid'] = $list['productid'];
             $data[$a]['orderid'] = $order->orderid;
             $data[$a]['quantity'] = $list['quantity'];
@@ -165,20 +167,13 @@ class OrderController extends Controller
         $details->insert($data);
 
         $this->addAddress($user, $request, $profile);
+
         //record discount code used
-        if($request->discountid > 0){
+        if ($request->discountid > 0) {
 
-            $discheck = Discountorder::where(['discountid'=>$request->discountid, 'userid'=>$user->userid])->first();
+            $discheck = Discountorder::where(['discountid' => $request->discountid, 'userid' => $user->userid])->first();
 
-//            $discheck = new Discountorder();
-//            $discheck->discountid = $request->discountid;
-//            $discheck->userid = $user->userid;
-//            $discheck->orderid = $order->orderid;
-//            $discheck->used = 1;
-//
-//            $discheck->save();
-
-            if($discheck){
+            if ($discheck) {
                 $dishistory = new Discountordhistory();
                 $dishistory->discountid = $discheck->discountid;
                 $dishistory->userid = $discheck->userid;
@@ -188,8 +183,7 @@ class OrderController extends Controller
                 $discheck->orderid = $order->orderid;
                 $discheck->used = $discheck->used + 1;
                 $discheck->save();
-            }
-            else{
+            } else {
                 $discheck = new Discountorder();
                 $discheck->discountid = $request->discountid;
                 $discheck->userid = $user->userid;
@@ -198,16 +192,26 @@ class OrderController extends Controller
                 $discheck->save();
             }
 
+
+            return response()->json($order, 200);
         }
 
-        $mydetails = Orderdetail::where('orderid',$order->orderid)->get();
+        return response()->json($order, 200);
+    }
+
+    public function payment(Request $request){
+        $user = $this->authUser();
+        $mydetails = Orderdetail::where('orderid',$request->orderid)->get();
+        $order = Order::find($request->orderid);
+        $order->ispaid = 1;
+        $order->save();
 
         $payment = new Payment();
         $payment->userid = $user->userid;
         $payment->paymentrefno = $request->paymentrefno;
         $payment->orderid = $order->orderid;
         $payment->paymentstatusid = 2;
-        $payment->amount = $request->totalcost;
+        $payment->amount = ($request->totalcost)/100;
         $payment->message = "Mobile Transaction Successful";
         $payment->save();
 
@@ -259,5 +263,10 @@ class OrderController extends Controller
         $billnew->save();
 
         return true;
+    }
+
+    public function getTransactRef(Request $request){
+        $code = Paystack::genTranxRef();
+        return response()->json($code,200);
     }
 }

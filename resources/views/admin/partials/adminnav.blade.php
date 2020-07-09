@@ -50,26 +50,26 @@
                                 </ul>
                             </li>
 
-                            <li class="has-submenu">
-                                <a href="#">
-                                    <i class="mdi mdi-food-apple"></i>Product Management <div class="arrow-down"></div></a>
-                                <ul class="submenu">
+{{--                            <li class="has-submenu">--}}
+{{--                                <a href="#">--}}
+{{--                                    <i class="mdi mdi-food-apple"></i>Product Management <div class="arrow-down"></div></a>--}}
+{{--                                <ul class="submenu">--}}
 
-                                    <li>
-                                        <a href="{{route('create.product')}}">New Product</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('list.product')}}">All Products</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('list.category')}}">Product Categories</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('create.product.discount')}}">Create Discount</a>
-                                    </li>
+{{--                                    <li>--}}
+{{--                                        <a href="{{route('create.product')}}">New Product</a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="{{route('list.product')}}">All Products</a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="{{route('list.category')}}">Product Categories</a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="{{route('create.product.discount')}}">Create Discount</a>--}}
+{{--                                    </li>--}}
 
-                                </ul>
-                            </li>
+{{--                                </ul>--}}
+{{--                            </li>--}}
 
                             <li class="has-submenu">
                                 <a href="{{route('admin.customer.list')}}"><i class="mdi mdi-account-group"></i>Customers</a>
@@ -78,10 +78,10 @@
                         <!-----Admin 2 Order Management----->
                      @elseif(Auth::guard('admin')->user()->adminrole->roleid == 4)
 
-                            <li class="has-submenu">
-                                <a href="{{route('admin.dashboard')}}">
-                                    <i class="mdi mdi-view-dashboard"></i>Dashboard</a>
-                            </li>
+{{--                            <li class="has-submenu">--}}
+{{--                                <a href="{{route('admin.dashboard')}}">--}}
+{{--                                    <i class="mdi mdi-view-dashboard"></i>Dashboard</a>--}}
+{{--                            </li>--}}
 
                             <li class="has-submenu">
                                 <a href="#" class="active"> <i class="mdi mdi-shopping"></i>Orders <div class="arrow-down"></div></a>
@@ -106,13 +106,19 @@
                                     </li>
                                 </ul>
                             </li>
-
+                            <li class="has-submenu">
+                                <a href="{{route('admin.customer.list')}}"><i class="mdi mdi-account-group"></i>Customers</a>
+                            </li>
                        <!-- Super Admin Management---->
                      @else
                             <li class="has-submenu">
                                 <a href="{{route('admin.dashboard')}}">
                                     <i class="mdi mdi-view-dashboard"></i>Dashboard</a>
                             </li>
+{{--                    <li class="has-submenu">--}}
+{{--                        <a href="{{route('admin.payment.trans')}}">--}}
+{{--                            <i class="mdi mdi-view-dashboard"></i>Payment</a>--}}
+{{--                    </li>--}}
                             <li class="has-submenu">
                                 <a href="#" class="active"> <i class="mdi mdi-shopping"></i>Orders <div class="arrow-down"></div></a>
                                 <ul class="submenu">

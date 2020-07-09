@@ -22,6 +22,7 @@ Route::group(['prefix' => 'v1'], function (){
     Route::post('/user/reset', 'Mobile\ForgetPassController@postForgotten');
 
     Route::group(['middleware'=>['auth:api','cors']], function(){
+        Route::get('email/verify/{id}', 'Mobile\BasicController@verify')->name('verificationapi.verify');
         Route::get('/user', 'Mobile\BasicController@details');
         Route::post('/user/edit', 'Mobile\BasicController@update');
 
@@ -29,6 +30,7 @@ Route::group(['prefix' => 'v1'], function (){
         Route::get('/product/detail/{id}', 'Mobile\ProductController@getOrderDetail');
         Route::get('/order/list', 'Mobile\OrderController@getUserOrders');
         Route::post('/order/add', 'Mobile\OrderController@Ordersadd');
+        Route::post('/order/pay', 'Mobile\OrderController@payment');
         Route::get('/order/details/{id}', 'Mobile\OrderController@getOrderDetail');
         Route::get('/category/list', 'Mobile\CategoryController@index');
         Route::get('/wishlist', 'Mobile\WishlistController@index');
@@ -38,7 +40,7 @@ Route::group(['prefix' => 'v1'], function (){
         Route::get('/cart/list', 'Mobile\OrderController@getCartlist');
         Route::post('/discount/code', 'Mobile\ProductController@getDiscount');
 
-
+        Route::get('/tranx', 'Mobile\OrderController@getTransactRef');
 
 
     });
